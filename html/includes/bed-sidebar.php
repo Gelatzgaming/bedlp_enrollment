@@ -1,15 +1,15 @@
 <aside class="sidebar sidebar-default sidebar-white sidebar-base navs-rounded-all ">
-        <div class="sidebar-header d-flex align-items-center justify-content-start">
-            <a href="../bed-dashboard/index.php" class="navbar-brand">
-                <!--Logo start-->
-                <!--logo End-->    
-                
-                <img src="../../assets/images/auth/logo.png" alt="SFAC-Logo" height="25%" width="25%">
-                <h4 class="logo-title"><?php echo $school_name; ?> <br> <small
-                      class="text-sm"><?php echo $school_address; ?>
-                  </small></h4>
-            </a>
-            <!-- <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
+    <div class="sidebar-header d-flex align-items-center justify-content-start">
+        <a href="../bed-dashboard/index.php" class="navbar-brand">
+            <!--Logo start-->
+            <!--logo End-->
+
+            <img src="../../assets/images/auth/logo.png" alt="SFAC-Logo" height="25%" width="25%">
+            <h4 class="logo-title"><?php echo $school_name; ?> <br> <small
+                    class="text-sm"><?php echo $school_address; ?>
+                </small></h4>
+        </a>
+        <!-- <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
                 <i class="icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -17,14 +17,14 @@
                     </svg>
                 </i>
             </div> -->
-        </div>
-        <div class="sidebar-body pt-0 data-scrollbar">
-            <div class="sidebar-list">
-                <!-- Sidebar Menu Start -->
-                <ul class="navbar-nav iq-main-menu" id="sidebar-menu">    
-                    
-                    <!-- MASTER KEY -->
-                    <?php if ($_SESSION['role'] == "Master Key") {
+    </div>
+    <div class="sidebar-body pt-0 data-scrollbar">
+        <div class="sidebar-list">
+            <!-- Sidebar Menu Start -->
+            <ul class="navbar-nav iq-main-menu" id="sidebar-menu">
+
+                <!-- MASTER KEY -->
+                <?php if ($_SESSION['role'] == "Master Key") {
                             echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
@@ -218,10 +218,67 @@
                             //   END OF MASTER KEY
 
                             // REGISTRAR SIDE
-                        } ?>
-                    
-                </ul>
-                <!-- Sidebar Menu End -->        </div>
+                        } elseif ($_SESSION['role'] == "Registrar") {
+                            echo '<li class="nav-item">
+                            <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
+                            <i class="fa fa-tachometer"></i>
+                                <span class="item-name">Dashboard</span>
+                            </a>
+                        </li>
+                      
+                        '; } elseif ($_SESSION['role'] == "Teacher") {
+                            echo '<li class="nav-item">
+                            <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
+                            <i class="fa fa-tachometer"></i>
+                                <span class="item-name">Dashboard</span>
+                            </a>
+                        </li>
+                      
+                        '; } elseif ($_SESSION['role'] == "Principal") {
+                            echo '<li class="nav-item">
+                            <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
+                            <i class="fa fa-tachometer"></i>
+                                <span class="item-name">Dashboard</span>
+                            </a>
+                        </li>
+                      
+                        '; } elseif ($_SESSION['role'] == "Admission") {
+                            echo '<li class="nav-item">
+                            <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
+                            <i class="fa fa-tachometer"></i>
+                                <span class="item-name">Dashboard</span>
+                            </a>
+                        </li>
+                      
+                        '; } elseif ($_SESSION['role'] == "Adviser") {
+                            echo '<li class="nav-item">
+                            <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
+                            <i class="fa fa-tachometer"></i>
+                                <span class="item-name">Dashboard</span>
+                            </a>
+                        </li>
+                      
+                        '; } elseif ($_SESSION['role'] == "Accounting") {
+                            echo '<li class="nav-item">
+                            <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
+                            <i class="fa fa-tachometer"></i>
+                                <span class="item-name">Dashboard</span>
+                            </a>
+                        </li>
+                      
+                        '; } elseif ($_SESSION['role'] == "Student") {
+                            echo '<li class="nav-item">
+                            <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
+                            <i class="fa fa-tachometer"></i>
+                                <span class="item-name">Dashboard</span>
+                            </a>
+                        </li>
+                      
+                        '; }  ?>
+
+            </ul>
+            <!-- Sidebar Menu End -->
         </div>
-        <div class="sidebar-footer"></div>
-    </aside> 
+    </div>
+    <div class="sidebar-footer"></div>
+</aside>
