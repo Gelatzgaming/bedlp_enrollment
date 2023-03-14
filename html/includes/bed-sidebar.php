@@ -225,8 +225,211 @@
                                 <span class="item-name">Dashboard</span>
                             </a>
                         </li>
-                      
-                        '; } elseif ($_SESSION['role'] == "Teacher") {
+
+                    <li class="nav-item static-item">
+                        <p class="nav-link static-item disabled" tabindex="-1">
+                            <span style="color:black; "><strong>Enrollment</strong></span>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../bed-super-admin/add.registrar.php" role="button" aria-expanded="false" aria-controls="sidebar-special">
+                                    <i class="fa fa-plus"></i>
+                                        <span class="item-name">Confirm Students</span>
+                            
+                                    </i>
+                                </a>     
+                            </li>
+                        </p>    
+                    </li>
+
+                    <li class="nav-item static-item">
+                        <p class="nav-link static-item disabled" tabindex="-1">
+                            <span style="color:black; "><strong>Maintenance</strong></span>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../bed-super-admin/add.registrar.php" role="button" aria-expanded="false" aria-controls="sidebar-special">
+                                    <i class="fa fa-plus"></i>
+                                        <span class="item-name">Student List</span>
+                            
+                                    </i>
+                                </a>     
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../bed-super-admin/add.registrar.php" role="button" aria-expanded="false" aria-controls="sidebar-special">
+                                    <i class="fa fa-plus"></i>
+                                        <span class="item-name">Adviser List</span>
+                            
+                                     </i>
+                                </a>     
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-special" role="button" aria-expanded="false" aria-controls="sidebar-special">
+                                    <i class="fa fa-plus"></i>
+                                        <span class="item-name">Subject List</span>
+                                     </i>
+                                     <i class="right-icon">
+                                        <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </i>
+                                </a>
+                                <ul class="sub-nav collapse" id="sidebar-special" data-bs-parent="#sidebar-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-super-admin/list.registrar.php">
+                                        <i class="icon">
+                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                            <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                        </i>
+                                            <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> Senior </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-super-admin/list.registrar.php">
+                                        <i class="icon">
+                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                            <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                        </i>
+                                            <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> Primary - Junior </span>
+                                    </a>
+                                </li>    
+                             </ul>     
+                            </li>
+                        </p>    
+                    </li>
+                    <li class="nav-item static-item">
+                        <p class="nav-link static-item disabled" tabindex="-1">
+                            <span style="color:black; "><strong>Forms</strong></span>
+                        </p>    
+                    </li>
+                        <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#drop-forms" role="button" aria-expanded="false" aria-controls="drop-forms">
+                                    <i class="fa fa-plus"></i>
+                                        <span class="item-name">Forms</span>
+                                     </i>
+                                     <i class="right-icon">
+                                        <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </i>
+                                </a>
+                                <ul class="sub-nav collapse" id="drop-forms" data-bs-parent="#sidebar-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-super-admin/list.registrar.php">
+                                        <i class="icon">
+                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                            <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                        </i>
+                                            <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> Pre-Enrollment </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-super-admin/list.registrar.php">
+                                        <i class="icon">
+                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                            <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                        </i>
+                                            <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> Reg Form </span>
+                                    </a>
+                                </li>    
+                             </ul>     
+                            </li> 
+                    <li class="nav-item static-item">
+                        <p class="nav-link static-item disabled" tabindex="-1">
+                            <span style="color:black; "><strong>Subjects</strong></span>
+                        </p>    
+                    </li>
+                        <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#subject-forms" role="button" aria-expanded="false" aria-controls="subject-forms">
+                                    <i class="fa fa-plus"></i>
+                                        <span class="item-name">View Subjects</span>
+                                     </i>
+                                     <i class="right-icon">
+                                        <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </i>
+                                </a>
+                                <ul class="sub-nav collapse" id="subject-forms" data-bs-parent="#sidebar-menu">
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-super-admin/list.registrar.php">
+                                        <i class="icon">
+                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                            <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                        </i>
+                                            <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> ABM </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-super-admin/list.registrar.php">
+                                        <i class="icon">
+                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                            <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                        </i>
+                                            <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> STEM </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-super-admin/list.registrar.php">
+                                        <i class="icon">
+                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                            <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                        </i>
+                                            <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> HUMMS </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-super-admin/list.registrar.php">
+                                        <i class="icon">
+                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                            <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                        </i>
+                                            <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> TVL-HE </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-super-admin/list.registrar.php">
+                                        <i class="icon">
+                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                            <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                        </i>
+                                            <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> TVL-ICT </span>
+                                    </a>
+                                </li>    
+                             </ul>     
+                            </li> '; } elseif ($_SESSION['role'] == "Teacher") {
                             echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
