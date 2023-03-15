@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
             $checkPWDhash = password_verify($password, $row['password']);
             if ($checkPWDhash == false) {
                 $_SESSION['pwd-error'] = true;
-                header("location: ../login.php");
+                header("location: ../user.login.php");
             } elseif ($checkPWDhash == true) {
                 $_SESSION['role'] = "Master Key";
                 $_SESSION['mk_id'] = $row['mk_id'];
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
             $checkPWDhash = password_verify($password, $row['password']);
             if ($checkPWDhash == false) {
                 $_SESSION['pwd-error'] = true;
-                header('location: ../login.php');
+                header('location: ../user.login.php');
             } elseif ($checkPWDhash == true) {
                 $_SESSION['role'] = "Registrar";
                 $_SESSION['reg_id'] = $row['reg_id'];
@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
             $checkPWDhash = password_verify($password, $row['password']);
             if ($checkPWDhash == false) {
                 $_SESSION['pwd-error'] = true;
-                header('location: ../login.php');
+                header('location: ../user.login.php');
             } elseif ($checkPWDhash == true) {
                 $_SESSION['role'] = "Principal";
                 $_SESSION['prin_id'] = $row['prin_id'];
@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
             $checkPWDhash = password_verify($password, $row['password']);
             if ($checkPWDhash == false) {
                 $_SESSION['pwd-error'] = true;
-                header('location: ../login.php');
+                header('location: ../user.login.php');
             } elseif ($checkPWDhash == true) {
                 $_SESSION['role'] = "Accounting";
                 $_SESSION['acc_id'] = $row['acc_id'];
@@ -92,7 +92,7 @@ if (isset($_POST['submit'])) {
             $checkPWDhash = password_verify($password, $row['password']);
             if ($checkPWDhash == false) {
                 $_SESSION['pwd-error'] = true;
-                header('location: ../login.php');
+                header('location: ../user.login.php');
             } elseif ($checkPWDhash == true) {
                 $_SESSION['role'] = "Admission";
                 $_SESSION['admission_id'] = $row['admission_id'];
@@ -104,7 +104,7 @@ if (isset($_POST['submit'])) {
             $checkPWDhash = password_verify($password, $row['password']);
             if ($checkPWDhash == false) {
                 $_SESSION['pwd-error'] = true;
-                header('location: ../login.php');
+                header('location: ../user.login.php');
             } elseif ($checkPWDhash == true) {
                 $_SESSION['role'] = "Teacher";
                 $_SESSION['teacher_id'] = $row['teacher_id'];
@@ -116,7 +116,7 @@ if (isset($_POST['submit'])) {
             $checkPWDhash = password_verify($password, $row['password']);
             if ($checkPWDhash == false) {
                 $_SESSION['pwd-error'] = true;
-                header('location: ../login.php');
+                header('location: ../user.login.php');
             } elseif ($checkPWDhash == true) {
                 $_SESSION['role'] = "Adviser";
                 $_SESSION['ad_id'] = $row['ad_id'];
@@ -128,7 +128,7 @@ if (isset($_POST['submit'])) {
             $checkPWDhash = password_verify($password, $row['password']);
             if ($checkPWDhash == false) {
                 $_SESSION['pwd-error'] = true;
-                header('location: ../login.php');
+                header('location: ../user.login.php');
             } elseif ($checkPWDhash == true) {
                 $_SESSION['role'] = "Student";
                 $_SESSION['stud_id'] = $row['student_id'];
@@ -137,7 +137,7 @@ if (isset($_POST['submit'])) {
         }
     } else {
         $_SESSION['no-input'] = true;
-        header("location: ../login.php");
+        header("location: ../user.login.php");
     }
 }
 // End password verify

@@ -10,7 +10,7 @@ if (!empty($_SESSION['role'])) {
         $user_img = $row_user['img'];
         $user_email = $row_user['email'];
         if ($mk_id == false) {
-            header("location: ../bed-login/bed-login.php");
+            header("location: ../bed-login/login.php");
         }
     } elseif ($_SESSION['role'] == "Registrar") {
         $reg_id = $_SESSION['reg_id'];
@@ -20,7 +20,7 @@ if (!empty($_SESSION['role'])) {
         $user_img = $row_user['img'];
         $user_email = $row_user['email'];
         if ($reg_id == false) {
-            header("location: ../bed-login/bed-login.php");
+            header("location: ../bed-login/login.php");
         }
     } elseif ($_SESSION['role'] == "Principal") {
         $prin_id = $_SESSION['prin_id'];
@@ -30,7 +30,7 @@ if (!empty($_SESSION['role'])) {
         $user_img = $row_user['img'];
         $user_email = $row_user['email'];
         if ($prin_id == false) {
-            header("location: ../bed-login/bed-login.php");
+            header("location: ../bed-login/login.php");
         }
     } elseif ($_SESSION['role'] == "Accounting") {
         $acc_id = $_SESSION['acc_id'];
@@ -40,7 +40,7 @@ if (!empty($_SESSION['role'])) {
         $user_img = $row_user['img'];
         $user_email = $row_user['email'];
         if ($acc_id == false) {
-            header("location: ../bed-login/bed-login.php");
+            header("location: ../bed-login/login.php");
         }
     } elseif ($_SESSION['role'] == "Admission") {
         $admission_id = $_SESSION['admission_id'];
@@ -50,7 +50,7 @@ if (!empty($_SESSION['role'])) {
         $user_img = $row_user['img'];
         $user_email = $row_user['email'];
         if ($admission_id == false) {
-            header("location: ../bed-login/bed-login.php");
+            header("location: ../bed-login/login.php");
         }
     } elseif ($_SESSION['role'] == "Teacher") {
         $teacher_id = $_SESSION['teacher_id'];
@@ -60,7 +60,7 @@ if (!empty($_SESSION['role'])) {
         $user_img = $row_user['img'];
         $user_email = $row_user['email'];
         if ($teacher_id == false) {
-            header("location: ../bed-login/bed-login.php");
+            header("location: ../bed-login/login.php");
         }
     } elseif ($_SESSION['role'] == "Adviser") {
         $ad_id = $_SESSION['ad_id'];
@@ -70,7 +70,7 @@ if (!empty($_SESSION['role'])) {
         $user_img = $row_user['img'];
         $user_email = $row_user['email'];
         if ($ad_id == false) {
-            header("location: ../bed-login/bed-login.php");
+            header("location: ../bed-login/login.php");
         }
     } elseif ($_SESSION['role'] == "Student") {
         $stud_id = $_SESSION['stud_id'];
@@ -80,14 +80,14 @@ if (!empty($_SESSION['role'])) {
         $user_img = $row_user['img'];
         $user_email = $row_user['email'];
         if ($stud_id == false) {
-            header("location: ../bed-login/bed-login.php");
+            header("location: ../bed-login/login.php");
         }
     } else {
         session_destroy();
-        header("location: ../bed-login/bed-login.php");
+        header("location: ../bed-login/login.php");
     }
 } else {
-    header("location: ../bed-login/bed-login.php");
+    header("location: ../bed-login/login.php");
 }
 
 

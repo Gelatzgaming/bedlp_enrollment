@@ -57,7 +57,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="../dashboard/index-horizontal.html">
+                                    <a class="nav-link " href="../bed-super-admin/add.principal.php">
                                     <i class="icon">
                                             <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
                                                 <g>
@@ -70,7 +70,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="../dashboard/index-horizontal.html">
+                                    <a class="nav-link " href="../bed-super-admin/add.adviser.php">
                                     <i class="icon">
                                             <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
                                                 <g>
@@ -149,7 +149,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="../dashboard/index-horizontal.html">
+                                    <a class="nav-link " href="../bed-super-admin/list.principal.php">
                                         <i class="icon">
                                         <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
                                             <g>
@@ -162,7 +162,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="../dashboard/index-horizontal.html">
+                                    <a class="nav-link " href="../bed-super-admin/list.adviser.php">
                                         <i class="icon">
                                         <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
                                             <g>
@@ -299,6 +299,50 @@
                                 <span class="item-name"> Adviser List </span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#subj-list" role="button"
+                        aria-expanded="false" aria-controls="subj-list">
+                        <i class="fa fa-book"></i>
+                        <span class="item-name">Subject List</span>
+                        <i class="right-icon">
+                            <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </i>
+                    </a>
+                    <ul class="sub-nav collapse" id="subj-list" data-bs-parent="#subj-list">
+                        <li class="nav-item">
+                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> H </i>
+                                <span class="item-name"> Senior </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> H </i>
+                                <span class="item-name"> Primary - Junior </span>
+                            </a>
+                        </li>
+                    </ul>
+                    </li> 
                     </ul>
                     </li>
 
@@ -344,6 +388,50 @@
                                 <span class="item-name"> Add Adviser </span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#subj-add" role="button"
+                        aria-expanded="false" aria-controls="subj-add">
+                        <i class="fa fa-plus-square"></i>
+                        <span class="item-name">Add Subjects</span>
+                        <i class="right-icon">
+                            <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </i>
+                    </a>
+                    <ul class="sub-nav collapse" id="subj-add" data-bs-parent="#subj-add">
+                        <li class="nav-item">
+                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> H </i>
+                                <span class="item-name"> Senior </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> H </i>
+                                <span class="item-name"> Primary - Junior </span>
+                            </a>
+                        </li>
+                    </ul>
+                    </li>
                     </ul>
                     </li>
 
@@ -476,103 +564,13 @@
                             </a>
                         </li>
                     </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#subj-list" role="button"
-                        aria-expanded="false" aria-controls="subj-list">
-                        <i class="fa fa-book"></i>
-                        <span class="item-name">Subject List</span>
-                        <i class="right-icon">
-                            <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5l7 7-7 7" />
-                            </svg>
-                        </i>
-                    </a>
-                    <ul class="sub-nav collapse" id="subj-list" data-bs-parent="#sidebar-menu">
-                        <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> Senior </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> Primary - Junior </span>
-                            </a>
-                        </li>
-                    </ul>
-                    </li> 
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#subj-add" role="button"
-                        aria-expanded="false" aria-controls="subj-add">
-                        <i class="fa fa-plus-square"></i>
-                        <span class="item-name">Add Subjects</span>
-                        <i class="right-icon">
-                            <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5l7 7-7 7" />
-                            </svg>
-                        </i>
-                    </a>
-                    <ul class="sub-nav collapse" id="subj-add" data-bs-parent="#sidebar-menu">
-                        <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> Senior </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> Primary - Junior </span>
-                            </a>
-                        </li>
-                    </ul>
                     </li>'; } elseif ($_SESSION['role'] == "Teacher") {
                             echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
                             </a>
-                        </li>
-                      
-                        '; } elseif ($_SESSION['role'] == "Principal") {
+                        </li>'; } elseif ($_SESSION['role'] == "Principal") {
                             echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
