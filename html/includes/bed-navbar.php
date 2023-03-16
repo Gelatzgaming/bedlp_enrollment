@@ -209,9 +209,27 @@
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="../dashboard/app/user-profile.html">Edit Profile</a></li>
+                        <?php if ($_SESSION['role'] == 'Registrar') {
+                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.registrar.php?reg_id= ' . $reg_id . '">Edit Profile</a></li>';
+                        } elseif ($_SESSION['role'] == 'Admission') {
+                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.admission.php?admission_id= ' . $admission_id . '">Edit Profile</a></li>'; 
+                        } elseif ($_SESSION['role'] == 'Adviser') {
+                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.adviser.php?ad_id= ' . $ad_id . '">Edit Profile</a></li>'; 
+                        } elseif ($_SESSION['role'] == 'Principal') {
+                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.principal.php?prin_id= ' . $prin_id . '">Edit Profile</a></li>'; 
+                        } elseif ($_SESSION['role'] == 'Teacher') {
+                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.teacher.php?teacher_id= ' . $teacher_id . '">Edit Profile</a></li>'; 
+                        } elseif ($_SESSION['role'] == 'Accounting') {
+                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.accounting.php?acc_id= ' . $acc_id . '">Edit Profile</a></li>'; 
+                        }
+                        ?>
+
+                        <?php if ($_SESSION['role'] == 'Registrar' || $_SESSION['role'] == 'Admission') {
+                            ?>
                         <li><a class="dropdown-item" href="../bed-date/add.date.php">Academic Year</a></li>
-                        <li><a class="dropdown-item" href="../dashboard/app/user-profile.html">Semester</a></li>
+                        <li><a class="dropdown-item" href="../bed-semester/add.sem.php">Semester</a></li>
+                        <?php }?>
+
                         <li>
                             <hr class="dropdown-divider">
                         </li>
