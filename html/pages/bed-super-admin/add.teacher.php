@@ -1,7 +1,7 @@
 
 <!doctype html>
 <html lang="en" dir="ltr">
-<title>Registrar Sign Up | SFAC Las Pinas</title>
+<title>Teacher Sign Up | SFAC Las Pinas</title>
     <?php include '../../includes/bed-header.php'; ?>
 
   <body class="  ">
@@ -30,13 +30,13 @@
                <div class="card">
                   <div class="card-header d-flex justify-content-between">
                      <div class="header-title">
-                        <h4 class="card-title"> Add Registrar</h4>
+                        <h4 class="card-title"> Add Teacher</h4>
                         <p class="text-muted font-14 mb-4">Fill up the forms.
                      </div>
                   </div>
                   <div class="card-body" style="color:black;">
                      
-                     <form action="userData/user.add.registrar.php" method="POST" enctype="multipart/form-data">
+                     <form action="userData/user.add.teacher.php" method="POST" enctype="multipart/form-data">
 
                      <?php
                                             if (!empty($_SESSION['errors'])) {
@@ -81,15 +81,15 @@
                                     </div>
                            <div class="col-md-4 mb-3">
                               <label class="form-label" for="example-text-input">First name</label>
-                              <input type="text" class="form-control" id="example-text-input" name="firstname" placeholder="First name" required>
+                              <input type="text" class="form-control" id="example-text-input" name="teacher_fname" placeholder="First name" required>
                            </div>
                            <div class="col-md-4 mb-3">
                               <label class="form-label" for="example-text-input">Middle name</label>
-                              <input type="text" class="form-control" id="example-text-input" name="midname" placeholder="Middle name" required>
+                              <input type="text" class="form-control" id="example-text-input" name="teacher_mname" placeholder="Middle name" required>
                            </div>
                            <div class="col-md-4 mb-3">
                               <label class="form-label" for="example-text-input">Last name</label>
-                              <input type="text" class="form-control" id="example-text-input" name="lastname" placeholder="Last name" required>
+                              <input type="text" class="form-control" id="example-text-input" name="teacher_lname" placeholder="Last name" required>
                            </div>
                            <div class="col-md-6 mb-3">
                               <label for="example-email-input" class="form-label">Email</label>

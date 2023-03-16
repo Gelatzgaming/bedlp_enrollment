@@ -1,7 +1,7 @@
 
 <!doctype html>
 <html lang="en" dir="ltr">
-<title>Registrar Sign Up | SFAC Las Pinas</title>
+<title>Admission Sign Up | SFAC Las Pinas</title>
     <?php include '../../includes/bed-header.php'; ?>
 
   <body class="  ">
@@ -30,13 +30,13 @@
                <div class="card">
                   <div class="card-header d-flex justify-content-between">
                      <div class="header-title">
-                        <h4 class="card-title"> Add Registrar</h4>
+                        <h4 class="card-title"> Edit admission</h4>
                         <p class="text-muted font-14 mb-4">Fill up the forms.
                      </div>
                   </div>
                   <div class="card-body" style="color:black;">
                      
-                     <form action="userData/user.add.registrar.php" method="POST" enctype="multipart/form-data">
+                     <form action="userData/user.edit.admission.php" method="POST" enctype="multipart/form-data">
 
                      <?php
                                             if (!empty($_SESSION['errors'])) {
@@ -52,14 +52,23 @@
                                                 unset($_SESSION['errors']);
                                             } elseif (!empty($_SESSION['success'])) {
                                                 echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Successfully Added.</strong>
+                                                    <strong>Successfully Edited.</strong>
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
                                                 </div>
                                             </div> ';
                                                 unset($_SESSION['success']);
                                             }
-                                            ?>           
+                                          
+                                            $get_admission = $conn->query("SELECT * FROM tbl_admissions WHERE admission_id = '$_GET[admission_id]'");
+                                            $res_count = $get_admission->num_rows;
+                                            if ($res_count == 0) {
+                                                // error code
+                                            }
+                                            $row = $get_admission->fetch_array();
 
+                                            ?>
+                                            <input class="form-control" type="text" name="admission_id"
+                                                value="<?php echo $row['admission_id']; ?>" hidden>
 
                         <div class="row">
                                     <div class="form-group mb-4">
@@ -81,36 +90,36 @@
                                     </div>
                            <div class="col-md-4 mb-3">
                               <label class="form-label" for="example-text-input">First name</label>
-                              <input type="text" class="form-control" id="example-text-input" name="firstname" placeholder="First name" required>
+                              <input type="text" class="form-control" id="example-text-input" name="admission_fname" placeholder="First name" value="<?php echo $row['admission_fname']; ?>" required>
                            </div>
                            <div class="col-md-4 mb-3">
                               <label class="form-label" for="example-text-input">Middle name</label>
-                              <input type="text" class="form-control" id="example-text-input" name="midname" placeholder="Middle name" required>
+                              <input type="text" class="form-control" id="example-text-input" name="admission_mname" placeholder="Middle name" value="<?php echo $row['admission_mname']; ?>" required>
                            </div>
                            <div class="col-md-4 mb-3">
                               <label class="form-label" for="example-text-input">Last name</label>
-                              <input type="text" class="form-control" id="example-text-input" name="lastname" placeholder="Last name" required>
+                              <input type="text" class="form-control" id="example-text-input" name="admission_lname" placeholder="Last name" value="<?php echo $row['admission_lname']; ?>" required>
                            </div>
                            <div class="col-md-6 mb-3">
                               <label for="example-email-input" class="form-label">Email</label>
-                                 <input type="text" class="form-control" id="example-email-input" aria-label="Email" aria-describedby="basic-addon1" name="email" placeholder="example@gmail.com" required>                             
+                                 <input type="text" class="form-control" id="example-email-input" aria-label="Email" aria-describedby="basic-addon1" name="email" placeholder="example@gmail.com"  value="<?php echo $row['email']; ?>"required>                             
                            </div>
                            <div class="col-md-6 mb-3">
                               <label for="example-text-input" class="form-label">Username</label>
-                                 <input type="text" class="form-control" id="example-text-input" aria-label="Username" name="username" placeholder="Username"  required>
+                                 <input type="text" class="form-control" id="example-text-input" aria-label="Username" name="username" placeholder="Username" value="<?php echo $row['username']; ?>" required>
                            </div>
                            <div class="col-md-6 mb-3">
                               <label class="form-label" for="example-text-input">Password</label>
-                              <input type="password" class="form-control" id="example-text-input" name="password" placeholder="Password" required>
+                              <input type="password" class="form-control" id="example-text-input" name="password" placeholder="Password">
                            </div>
                            <div class="col-md-6 mb-3">
                               <label class="form-label" for="example-text-input">Confirm Password</label>
-                              <input type="password" class="form-control" id="example-text-input" name="password2" placeholder="Confirm Password" required>
+                              <input type="password" class="form-control" id="example-text-input" name="password2" placeholder="Confirm Password">
                             </div>
                            
                         </div>
                         <div class="form-group float-end">
-                           <button class="btn btn-danger" type="submit" name="submit" >Submit</button>
+                           <button class="btn btn-danger" type="submit" name="submit" >Edit admission</button>
                         </div>
                      </form>
                   </div>
