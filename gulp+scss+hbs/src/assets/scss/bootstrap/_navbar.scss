@@ -89,8 +89,8 @@
   --#{$prefix}nav-link-padding-y: #{$nav-link-padding-y};
   @include rfs($nav-link-font-size, --#{$prefix}nav-link-font-size);
   --#{$prefix}nav-link-font-weight: #{$nav-link-font-weight};
-  --#{$prefix}nav-link-color: var(--#{$prefix}navbar-color);
-  --#{$prefix}nav-link-hover-color: var(--#{$prefix}navbar-hover-color);
+  --#{$prefix}nav-link-color: black;
+  --#{$prefix}nav-link-hover-color: red;
   --#{$prefix}nav-link-disabled-color: var(--#{$prefix}navbar-disabled-color);
   // scss-docs-end navbar-nav-css-vars
 

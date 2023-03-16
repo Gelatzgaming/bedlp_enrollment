@@ -211,7 +211,7 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="../dashboard/app/user-profile.html">Edit Profile</a></li>
                         <li><a class="dropdown-item" href="../bed-date/add.date.php">Academic Year</a></li>
-                        <li><a class="dropdown-item" href="../dashboard/app/user-profile.html">Semester</a></li>
+                        <li><a class="dropdown-item" href="../bed-semester/add.sem.php">Semester</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

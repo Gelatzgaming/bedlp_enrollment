@@ -53,7 +53,7 @@
   padding: var(--#{$prefix}dropdown-padding-y) var(--#{$prefix}dropdown-padding-x);
   margin: 0; // Override default margin of ul
   @include font-size(var(--#{$prefix}dropdown-font-size));
-  color: var(--#{$prefix}dropdown-color);
+  color: black;
   text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
   list-style: none;
   background-color: var(--#{$prefix}dropdown-bg);
@@ -178,7 +178,7 @@
   padding: var(--#{$prefix}dropdown-item-padding-y) var(--#{$prefix}dropdown-item-padding-x);
   clear: both;
   font-weight: $font-weight-normal;
-  color: var(--#{$prefix}dropdown-link-color);
+  color: black;
   text-align: inherit; // For `<button>`s
   text-decoration: if($link-decoration == none, null, none);
   white-space: nowrap; // prevent links from randomly breaking onto new lines
@@ -187,14 +187,14 @@
 
   &:hover,
   &:focus {
-    color: var(--#{$prefix}dropdown-link-hover-color);
+    color: #BC2C2C;
     text-decoration: if($link-hover-decoration == underline, none, null);
     @include gradient-bg(var(--#{$prefix}dropdown-link-hover-bg));
   }
 
   &.active,
   &:active {
-    color: var(--#{$prefix}dropdown-link-active-color);
+    color: #BC2C2C;
     text-decoration: none;
     @include gradient-bg(var(--#{$prefix}dropdown-link-active-bg));
   }
