@@ -272,7 +272,7 @@
                     </a>
                     <ul class="sub-nav collapse" id="maintenance" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-students/list.student.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -361,7 +361,7 @@
                     </a>
                     <ul class="sub-nav collapse" id="data-ent" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-students/add.student.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
