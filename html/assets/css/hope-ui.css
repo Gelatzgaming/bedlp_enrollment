@@ -19994,7 +19994,7 @@ body.offcanvas-active {
   display: none;
 }
 .sidebar-base .nav-item .nav-link:not(.disabled) {
-  color: #6c757d;
+  color: black;
 }
 .sidebar-base .nav-item .nav-link:not(.disabled) .right-icon {
   -webkit-transition: var(--sidebar-transition);
