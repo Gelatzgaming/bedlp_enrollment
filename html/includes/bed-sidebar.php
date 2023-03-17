@@ -450,7 +450,7 @@
                     </a>
                     <ul class="sub-nav collapse" id="class-sched" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-forms/allformsnodata.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -464,7 +464,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-forms/pre-en-plain.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -494,7 +494,7 @@
                     </a>
                     <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-hedCurr/abm.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -508,7 +508,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-hedCurr/stem.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -522,7 +522,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-hedCurr/humms.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -536,7 +536,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-hedCurr/tvl-he.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -550,7 +550,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-hedCurr/tvl-ict.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
