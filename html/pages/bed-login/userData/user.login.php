@@ -137,7 +137,7 @@ if (isset($_POST['submit'])) {
         }
     } else {
         $_SESSION['no-input'] = true;
-        header("location: ../user.login.php");
+        header("location: ../login.php");
     }
 }
 // End password verify

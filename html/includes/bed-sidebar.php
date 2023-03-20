@@ -328,7 +328,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-subjects/list.sub.k-10.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -417,7 +417,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-subjects/add.sub.k-10.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -1430,7 +1430,7 @@
                             </a>
                         </li> 
                         <li class="nav-item">
-                            <a href="../bed-dashboard/index.php" class="nav-link" aria-current="true">
+                            <a href="../bed-students/edit.infoStud.php" class="nav-link" aria-current="true">
                             <i class="fa fa-id-card-o"></i>
                                 <span class="item-name">Personal Info.</span>
                             </a>

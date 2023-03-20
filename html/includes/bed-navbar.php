@@ -221,6 +221,8 @@
                             echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.teacher.php?teacher_id= ' . $teacher_id . '">Edit Profile</a></li>'; 
                         } elseif ($_SESSION['role'] == 'Accounting') {
                             echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.accounting.php?acc_id= ' . $acc_id . '">Edit Profile</a></li>'; 
+                        } elseif ($_SESSION['role'] == 'Student') {
+                            echo '<li><a class="dropdown-item" href="../bed-students/edit.student.php?student_id= ' . $stud_id . '">Edit Profile</a></li>'; 
                         }
                         ?>
 
