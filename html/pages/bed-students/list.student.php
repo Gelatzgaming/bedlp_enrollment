@@ -44,7 +44,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $get_user = mysqli_query($conn, "SELECT *, CONCAT(tbl_students.student_lname, ', ', tbl_students.fname, ' ', tbl_students.mname) AS fullname 
+                                        <?php $get_user = mysqli_query($conn, "SELECT *, CONCAT(student_lname, ', ', student_fname, ' ', student_mname) AS fullname 
                                                 FROM tbl_students");
                                                 while ($row = mysqli_fetch_array($get_user)) {
                                                     $id = $row['student_id'];

@@ -37,7 +37,7 @@
                             </div>
                             <div class="card-body" style="color:black;">
 
-                                <form action="userData/user.add.registrar.php" method="POST"
+                                <form action="userData/user.add.sub.k-10.php" method="POST"
                                     enctype="multipart/form-data">
 
                                     <?php
@@ -75,12 +75,13 @@
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label" for="example-text-input">Code</label>
                                             <input type="text" class="form-control" id="example-text-input"
-                                                name="firstname" placeholder="Enter Subject Code" required>
+                                                name="subj_code" placeholder="Enter Subject Code" required>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label" for="example-text-input">Description</label>
                                             <input type="text" class="form-control" id="example-text-input"
-                                                name="midname" placeholder="Enter Subject Description" required>
+                                                name="subj_description" placeholder="Enter Subject Description"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="row justify-content-center">

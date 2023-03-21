@@ -60,6 +60,29 @@ if (isset($_GET['g1'])) {
                     <div class="card">
                         <div class="card-body">
                             <h4 class="header-title mb-3">Primary & Junior High Subjects List</h4>
+
+                            <?php
+                                            if (!empty($_SESSION['errors'])) {
+                                                echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                                                 ';
+                                                foreach ($_SESSION['errors'] as $error) {
+                                                    echo $error;
+                                                }
+                                                echo '
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
+                                                </div>
+                                            </div>';
+                                                unset($_SESSION['errors']);
+                                            } elseif (!empty($_SESSION['success-del'])) {
+                                                echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Successfully Deleted.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>
+                                            </div> ';
+                                                unset($_SESSION['success-del']);
+                                            }
+                                            ?>
+
                             <form action="list.sub.k-10.php" method="GET">
                                 <div class="row ">
                                     <div class="d-grid gap-3 d-flex justify-content-center">
@@ -153,13 +176,13 @@ if (isset($_GET['g1'])) {
                                                 class="btn btn-info mx-1"><i class="fa fa-edit"></i>
                                                 Update
                                             </a>
-                                            <button type="button" class="btn btn-danger mx-1" data-toggle="modal"
-                                                data-target="#delete<?php echo $row['subject_id'] ?>"><i
+                                            <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal"
+                                                data-bs-target="#delete<?php echo $row['subject_id'] ?>"><i
                                                     class="fa fa-trash"></i> Delete</button>
                                         </td>
                                     </tr>
                                     <!-- Delete modal start -->
-                                    <div class="modal fade" id="delete<?php echo $row['reg_id'] ?>"
+                                    <div class="modal fade" id="delete<?php echo $row['subject_id'] ?>"
                                         data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
@@ -172,14 +195,17 @@ if (isset($_GET['g1'])) {
                                                 <div class="modal-body text-center my-5">
                                                     <p>Are you sure you want to delete,
                                                         <br><strong><i
-                                                                class="font-weight-bold"><?php echo $row['fullname'] ?></i></strong>
+                                                                class="font-weight-bold"><?php echo $row['subject_code'] ?>
+                                                                | </i>
+                                                            <i
+                                                                class="font-weight-bold"><?php echo $row['subject_description'] ?></i></strong>
                                                         ?
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary"
                                                         data-bs-dismiss="modal">Close</button>
-                                                    <a href="userData/user.del.registrar.php?reg_id=<?php echo $row['reg_id'] ?>"
+                                                    <a href="userData/user.del.sub.k-10.php?subject_id=<?php echo $row['subject_id'] ?>"
                                                         class="btn btn-danger">Delete</a>
                                                 </div>
                                             </div>
