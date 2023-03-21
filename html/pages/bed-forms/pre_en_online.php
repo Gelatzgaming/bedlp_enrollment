@@ -1,5 +1,5 @@
 <?php
-require '../bed-fpdf/fpdf.php';
+require '../bedlp-fpdf/fpdf.php';
 require '../../includes/conn.php';
 
 

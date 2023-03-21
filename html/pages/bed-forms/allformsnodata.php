@@ -1,5 +1,5 @@
 <?php
-require('../bed-fpdf/fpdf.php');
+require('../bedlp-fpdf/fpdf.php');
 
 class PDF extends FPDF
 {
@@ -25,7 +25,7 @@ $pdf->SetTextColor(0, 0, 0);
 $pdf->SetFont('Arial', '', 11, 'C');
 
 
-$pdf->Cell(151, 5, 'Admiral Talon 5 Las '. utf8_decode('Piñas'), 0, 1, 'C');
+$pdf->Cell(151, 5, '045 Admiral Village, Talon 3, Las '. utf8_decode('Piñas') . ' City, 1740', 0, 1, 'C');
 
 $pdf->Ln(1);
 
@@ -301,7 +301,7 @@ $pdf->SetTextColor(0, 0, 0);
 $pdf->SetFont('Arial', '', 11, 'C');
 
 
-$pdf->Cell(151, 5, 'Admiral Talon 5 Las '. utf8_decode('Piñas'), 0, 1, 'C');
+$pdf->Cell(151, 5, '045 Admiral Village, Talon 3, Las '. utf8_decode('Piñas') . ' City, 1740', 0, 1, 'C');
 
 $pdf->Ln(1);
 $pdf->SetFont('Arial', '', 9);
@@ -521,7 +521,7 @@ $pdf->SetTextColor(0, 0, 0);
 $pdf->SetFont('Arial', '', 11, 'C');
 
 
-$pdf->Cell(151, 5, 'Admiral Talon 5 Las '. utf8_decode('Piñas'), 0, 1, 'C');
+$pdf->Cell(151, 5, '045 Admiral Village, Talon 3, Las '. utf8_decode('Piñas') . ' City, 1740', 0, 1, 'C');
 
 $pdf->Ln(1);
 
@@ -796,7 +796,7 @@ $pdf->SetTextColor(0, 0, 0);
 $pdf->SetFont('Arial', '', 11, 'C');
 
 
-$pdf->Cell(151, 5, 'Admiral Talon 5 Las '. utf8_decode('Piñas'), 0, 1, 'C');
+$pdf->Cell(151, 5, '045 Admiral Village, Talon 3, Las '. utf8_decode('Piñas') . ' City, 1740', 0, 1, 'C');
 
 $pdf->Ln(1);
 $pdf->SetFont('Arial', '', 11);

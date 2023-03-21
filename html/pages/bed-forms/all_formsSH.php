@@ -69,19 +69,19 @@ while ($row = mysqli_fetch_array($get_stud)) {
     //--------------------------Principal---------------------------------//
 
     // CELL (Width, height, text border, Next line, align)
-    $pdf->Image('../../assets/img/logo.png', 33, 9, 10, 10);
+    $pdf->Image('../../assets/images/auth/logo.jpg', 33, 9, 10, 10);
 
     $pdf->SetTextColor(255, 0, 0);
 
     $pdf->SetFont('Arial', 'B', 11);
 
-    $pdf->Cell(151, 5, 'SAINT FRANCIS OF ASSISI COLLEGE', 0, 1, 'C');
+    $pdf->Cell(151, 5, 'Saint Francis of Assisi College Las '. utf8_decode('Piñas ') . 'Campus', 0, 1, 'C');
 
     $pdf->SetTextColor(0, 0, 0);
     $pdf->SetFont('Arial', '', 11, 'C');
 
     $test = utf8_decode("");
-    $pdf->Cell(151, 5, '96 Bayanan ' . $test . ', City of Bacoor, Cavite', 0, 1, 'C');
+    $pdf->Cell(151, 5, '045 Admiral Village, Talon 3, Las '. utf8_decode('Piñas') . ' City, 1740', 0, 1, 'C');
 
     $pdf->Ln(1);
     $pdf->SetFont('Arial', '', 9);
@@ -432,19 +432,19 @@ $pdf->SetRightMargin(5);
 $pdf->SetAutoPageBreak(true, 8);
 $pdf->AddPage();
 
-$pdf->Image('../../assets/img/logo.png', 33, 9, 10, 10);
+$pdf->Image('../../assets/images/auth/logo.jpg', 33, 9, 10, 10);
 
 $pdf->SetTextColor(255, 0, 0);
 
 $pdf->SetFont('Arial', 'B', 11);
 
-$pdf->Cell(151, 5, 'SAINT FRANCIS OF ASSISI COLLEGE', 0, 1, 'C');
+$pdf->Cell(151, 5, 'Saint Francis of Assisi College Las '. utf8_decode('Piñas ') . 'Campus', 0, 1, 'C');
 
 $pdf->SetTextColor(0, 0, 0);
 $pdf->SetFont('Arial', '', 11, 'C');
 
 $test = utf8_decode("");
-$pdf->Cell(151, 5, '96 Bayanan ' . $test . ', City of Bacoor, Cavite', 0, 1, 'C');
+$pdf->Cell(151, 5, '045 Admiral Village, Talon 3, Las '. utf8_decode('Piñas') . ' City, 1740', 0, 1, 'C');
 
 $pdf->Ln(1);
 $pdf->SetFont('Arial', '', 9);
@@ -705,19 +705,19 @@ WHERE sy.student_id = $stud_id AND sy.ay_id = '$ay_id' AND sy.semester_id = '$se
 while ($row = mysqli_fetch_array($get_stud)) {
 
 
-    $pdf->Image('../../assets/img/logo.png', 33, 9, 10, 10);
+    $pdf->Image('../../assets/images/auth/logo.jpg', 33, 9, 10, 10);
 
     $pdf->SetTextColor(255, 0, 0);
 
     $pdf->SetFont('Arial', 'B', 11);
 
-    $pdf->Cell(151, 5, 'SAINT FRANCIS OF ASSISI COLLEGE', 0, 1, 'C');
+    $pdf->Cell(151, 5, 'Saint Francis of Assisi College Las '. utf8_decode('Piñas ') . 'Campus', 0, 1, 'C');
 
     $pdf->SetTextColor(0, 0, 0);
     $pdf->SetFont('Arial', '', 11, 'C');
 
     $test = utf8_decode("");
-    $pdf->Cell(151, 5, '96 Bayanan ' . $test . ', City of Bacoor, Cavite', 0, 1, 'C');
+    $pdf->Cell(151, 5, '045 Admiral Village, Talon 3, Las '. utf8_decode('Piñas') . ' City, 1740', 0, 1, 'C');
 
     $pdf->Ln(1);
     $pdf->SetFont('Arial', '', 9);
@@ -1080,19 +1080,19 @@ WHERE sy.student_id = '$stud_id' AND sy.ay_id = '$ay_id' AND sy.semester_id = '$
 while ($row = mysqli_fetch_array($get_stud)) {
 
 
-    $pdf->Image('../../assets/img/logo.png', 33, 9, 10, 10);
+    $pdf->Image('../../assets/images/auth/logo.jpg', 33, 9, 10, 10);
 
     $pdf->SetTextColor(255, 0, 0);
 
     $pdf->SetFont('Arial', 'B', 11);
 
-    $pdf->Cell(151, 5, 'SAINT FRANCIS OF ASSISI COLLEGE', 0, 1, 'C');
+    $pdf->Cell(151, 5, 'SSaint Francis of Assisi College Las '. utf8_decode('Piñas ') . 'Campus', 0, 1, 'C');
 
     $pdf->SetTextColor(0, 0, 0);
     $pdf->SetFont('Arial', '', 11, 'C');
 
     $test = utf8_decode("");
-    $pdf->Cell(151, 5, '96 Bayanan ' . $test . ', City of Bacoor, Cavite', 0, 1, 'C');
+    $pdf->Cell(151, 5, '045 Admiral Village, Talon 3, Las '. utf8_decode('Piñas') . ' City, 1740', 0, 1, 'C');
 
     $pdf->Ln(1);
     $pdf->SetFont('Arial', '', 9);

@@ -1,6 +1,6 @@
 <?php
 
-require('../bed-fpdf/fpdf.php');
+require('../bedlp-fpdf/fpdf.php');
 require '../../includes/conn.php';
 
 class PDF extends FPDF
@@ -29,9 +29,10 @@ $pdf->Cell(110, 5, 'Saint Francis of Assisi College Las '. utf8_decode('Piñas '
 $pdf->Ln(3);
 $pdf->SetTextColor(0, 0, 0);
 $pdf->SetFont('Arial', '', 10, 'C');
-$pdf->Cell(78, 5, '', 0, 0, 'L');
-$pdf->Cell(17, 3, 'CAMPUS: ', 0, 0, 'C');
-$pdf->Cell(55, 3, '', 'B', 1, 'R');
+$pdf->Cell(78, 5, '', 0, 0, '');
+$pdf->Cell(17, 3, '', 0, 0, '');
+$pdf->Ln(3);
+//$pdf->Cell(0.1, 3, '', 'B', 1, '');
 
 $pdf->Ln(2);
 $pdf->SetFont('Arial', 'B', 14, 'C');
