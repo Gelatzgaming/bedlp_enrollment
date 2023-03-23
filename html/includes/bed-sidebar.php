@@ -27,7 +27,7 @@
 
                 <!-- MASTER KEY -->
                 <?php if ($_SESSION['role'] == "Master Key") {
-                            echo '<li class="nav-item">
+                    echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
@@ -217,11 +217,11 @@
                                 </li>
                         </ul>
                     </li>';
-                            //   END OF MASTER KEY
+                    //   END OF MASTER KEY
 
-                            // REGISTRAR SIDE
-                        } elseif ($_SESSION['role'] == "Registrar") {
-                            echo '<li class="nav-item">
+                    // REGISTRAR SIDE
+                } elseif ($_SESSION['role'] == "Registrar") {
+                    echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
@@ -566,14 +566,16 @@
                             </a>
                         </li>
                     </ul>
-                    </li>'; } elseif ($_SESSION['role'] == "Teacher") {
-                            echo '<li class="nav-item">
+                    </li>';
+                } elseif ($_SESSION['role'] == "Teacher") {
+                    echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
                             </a>
-                        </li>'; } elseif ($_SESSION['role'] == "Principal") {
-                            echo '<li class="nav-item">
+                        </li>';
+                } elseif ($_SESSION['role'] == "Principal") {
+                    echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
@@ -753,8 +755,9 @@
                             </a>
                         </li>
                     </ul>
-                    </li> '; } elseif ($_SESSION['role'] == "Admission") {
-                            echo '<li class="nav-item">
+                    </li> ';
+                } elseif ($_SESSION['role'] == "Admission") {
+                    echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
@@ -928,7 +931,7 @@
                     </a>
                     <ul class="sub-nav collapse" id="offersub" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-subjects/list.offerSub.senior.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -942,7 +945,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-subjects/list.offerSub.k-10.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -973,7 +976,7 @@
                     </a>
                     <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-hedCurr/abm.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -987,7 +990,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-hedCurr/stem.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -1001,7 +1004,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-hedCurr/humms.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -1011,11 +1014,11 @@
                                     </svg>
                                 </i>
                                 <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> HUMMS </span>
+                                <span class="item-name"> HUMSS </span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-hedCurr/tvl-he.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -1029,7 +1032,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard/index-horizontal.html">
+                            <a class="nav-link " href="../bed-hedCurr/tvl-ict.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -1043,8 +1046,9 @@
                             </a>
                         </li>
                     </ul>
-                    </li> '; } elseif ($_SESSION['role'] == "Adviser") {
-                            echo '<li class="nav-item">
+                    </li> ';
+                } elseif ($_SESSION['role'] == "Adviser") {
+                    echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
@@ -1388,8 +1392,9 @@
                             </a>
                         </li>
                     </ul>
-                    </li>'; } elseif ($_SESSION['role'] == "Accounting") {
-                            echo '<li class="nav-item">
+                    </li>';
+                } elseif ($_SESSION['role'] == "Accounting") {
+                    echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
@@ -1424,8 +1429,9 @@
                             </a>
                         </li>
                     </ul>
-                    </li>'; } elseif ($_SESSION['role'] == "Student") {
-                            echo '<li class="nav-item">
+                    </li>';
+                } elseif ($_SESSION['role'] == "Student") {
+                    echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
@@ -1442,7 +1448,8 @@
                             <i class="fa fa-envelope"></i>
                                 <span class="item-name">Enrollment Info.</span>
                             </a>
-                        </li>'; }  ?>
+                        </li>';
+                }  ?>
 
             </ul>
             <!-- Sidebar Menu End -->

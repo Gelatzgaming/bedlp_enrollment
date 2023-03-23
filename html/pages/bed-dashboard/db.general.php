@@ -38,10 +38,10 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-5 mb-3">
                 <div class="card">
-                    <div class="small-box bg-success">
+                    <div class="small-box bg-info">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-group"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-group" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 New
                                 Students</div>
@@ -60,10 +60,10 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-5 mb-3">
                 <div class="card">
-                    <div class="small-box bg-secondary">
+                    <div class="small-box bg-info">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-group"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-group" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Old
                                 Students</div>
@@ -82,10 +82,10 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-5 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: olive;">
+                    <div class="small-box bg-info" >
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-clock-o"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-clock-o" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Pending Enrollees</div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -103,10 +103,10 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box bg-danger">
+                    <div class="small-box bg-info">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-minus-circle"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-minus-circle" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Dropped Students</div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -124,10 +124,10 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: navy;">
+                    <div class="small-box bg-info">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-minus-circle"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-minus-circle" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Online Inquiry</div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(or_id) AS total_stud FROM tbl_online_reg WHERE remark = 'Pending'") or die(mysqli_error($conn));
@@ -156,7 +156,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: black;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-support"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-support" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 11 Students in (STEM)</div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -177,7 +177,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: black;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-support"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-support" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 12 Students in (STEM)</div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -196,10 +196,10 @@ while ($row = mysqli_fetch_array($active_ay)) {
 
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: teal;">
+                    <div class="small-box bg-danger">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-line-chart"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-line-chart" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 11 Students in (ABM)</div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -217,10 +217,10 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: teal;">
+                    <div class="small-box bg-danger">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-line-chart"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-line-chart" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 12 Students in (ABM)</div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -242,7 +242,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: maroon;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-suitcase"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-suitcase" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 11 Students in (GAS)</div>
                             <?php $str_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -263,7 +263,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: maroon;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-suitcase"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-suitcase" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 12 Students in (GAS)</div>
                             <?php $str_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -285,7 +285,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: purple;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-comments"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-comments" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 11 Students in (HUMSS)</div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -306,7 +306,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: purple;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-comments"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-comments" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 12 Students in (HUMSS)</div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -328,7 +328,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: orange;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-cutlery"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-cutlery" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 11 Students in (TVL-HE)</div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -349,7 +349,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: orange;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-cutlery"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-cutlery" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 12 Students in (TVL-HE)</div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -378,7 +378,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #095073;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 10 Students </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -399,7 +399,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #095073;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 9 Students </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -420,7 +420,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #095073;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 8 Students </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -441,7 +441,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #095073;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 7 Students </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -462,7 +462,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #095073;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 6 Students </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -483,7 +483,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #095073;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 5 Students </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -504,7 +504,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #095073;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 4 Students </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -525,7 +525,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #095073;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 3 Students </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -546,7 +546,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #095073;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 2 Students </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -567,7 +567,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #095073;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Grade 1 Students </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -597,7 +597,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #850554;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Enrolled Students in (Kinder) </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -618,7 +618,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #850554;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Enrolled Students in (Pre-Kinder) </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
@@ -639,7 +639,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: #850554;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon"><i class="fa fa-star"></i><br><small> Total No.
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-star" style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
                                 Enrolled Students in (Nursery) </div>
                             <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
