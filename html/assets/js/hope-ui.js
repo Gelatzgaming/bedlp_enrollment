@@ -229,6 +229,8 @@ if (typeof Scrollbar !== typeof null) {
 if ($.fn.DataTable) {
   if ($('[data-toggle="data-table"]').length) {
     const table = $('[data-toggle="data-table"]').DataTable({
+      "autoWidth": false,
+      "ordering": false,
       "dom": '<"row align-items-center"<"col-md-6" l><"col-md-6" f>><"table-responsive border-bottom my-3" rt><"row align-items-center" <"col-md-6" i><"col-md-6" p>><"clear">',
     });
   }

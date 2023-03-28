@@ -37,13 +37,9 @@
     <!-- FontAwesome Css -->
     <link rel="stylesheet" href="../../assets/font-awesome-4.7.0/css/font-awesome.min.css" />
 
-    <!-- DataTables Css -->
-    <link rel="stylesheet" href="../../assets/css/datatables.min.css" />
+    <!-- datatables -->
+    <link rel="stylesheet" href="../../assets/css/responsive.dataTables.min.css">
 
-    <!-- <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" /> -->
 
-    <link rel="stylesheet" href="../../assets/css/dataTables.bootstrap.min.css" />
-
-    <link rel="stylesheet" href="../../assets/css/responsive.bootstrap.min.css" />
 
 </head>
