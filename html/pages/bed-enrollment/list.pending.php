@@ -52,7 +52,8 @@
                                 unset($_SESSION['success-update']);
                             } ?>
                             <div>
-                                <table id="datatable" class="table table-responsive nowrap table-striped" data-toggle="data-table" style="width: 100%;">
+                                <table id="datatable" class="table table-responsive table-striped"
+                                    data-toggle="data-table" style="width: 100%;">
                                     <thead class="text-capitalize">
                                         <tr>
                                             <th>Image</th>
@@ -82,26 +83,33 @@
                                             $stud_id = $row['student_id'];
                                             $glvl_id = $row['grade_level_id'];
                                         ?>
-                                            <tr>
-                                                <td><img class="img-fluid mr-4" src="data:image/jpeg;base64, <?php echo base64_encode($row['img']); ?>" alt="image" style="height: 80px; width: 100px"></td>
-                                                <td><?php echo $row['stud_no'] ?></td>
-                                                <td><?php echo $row['fullname'] ?></td>
-                                                <td><?php echo $row['grade_level'] ?></td>
-                                                <td><?php echo $row['stud_type'] ?></td>
-                                                <td><?php echo $row['date_enrolled'] ?></td>
-                                                <td>
-                                                    <?php echo $row['remark'] ?>
-                                                </td>
-                                                <td>
+                                        <tr>
+                                            <td><img class="img-fluid mr-4"
+                                                    src="data:image/jpeg;base64, <?php echo base64_encode($row['img']); ?>"
+                                                    alt="image" style="height: 80px; width: 100px"></td>
+                                            <td><?php echo $row['stud_no'] ?></td>
+                                            <td><?php echo $row['fullname'] ?></td>
+                                            <td><?php echo $row['grade_level'] ?></td>
+                                            <td><?php echo $row['stud_type'] ?></td>
+                                            <td><?php echo $row['date_enrolled'] ?></td>
+                                            <td>
+                                                <?php echo $row['remark'] ?>
+                                            </td>
+                                            <td>
 
-                                                    <div class="btn-group">
-                                                        <button class="btn btn-danger dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                                                        </button>
-                                                        <ul class="dropdown-menu aria-labelledby=" dropdownMenuClickable>
-                                                            <form action="userData/user.list.pending.php" method="POST">
+                                                <div class="btn-group">
+                                                    <button class="btn btn-danger dropdown-toggle" type="button"
+                                                        id="btnGroupDrop1" data-bs-toggle="dropdown"
+                                                        data-bs-auto-close="true" aria-expanded="false">
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1"
+                                                        dropdownMenuClickable>
+                                                        <form action="userData/user.list.pending.php" method="POST">
 
-                                                                <a href="userData/user.list.pending.php?id=<?php echo $id; ?>&remark=<?php echo $row['remark']; ?>" class="dropdown-item" name="btnRemark"><i class="fa fa-exchange"></i>
-                                                                    <?php
+                                                            <a href="userData/user.list.pending.php?id=<?php echo $id; ?>&remark=<?php echo $row['remark']; ?>"
+                                                                class="dropdown-item" name="btnRemark"><i
+                                                                    class="fa fa-exchange"></i>
+                                                                <?php
                                                                     if ($_SESSION['role'] == "Admission" || $_SESSION['role'] == "Adviser") {
                                                                         if ($row['remark'] == 'Pending' || $row['remark'] == 'Canceled') {
                                                                             echo 'Check';
@@ -116,74 +124,98 @@
                                                                         }
                                                                     }
                                                                     ?>
-                                                                </a>
-                                                            </form>
-                                                            <a href="../bed-students/edit.enrolledStud.php?<?php echo 'stud_id=' . $stud_id; ?>" type="button" class="dropdown-item "><i class="fa fa-edit"></i>
-                                                                Update
                                                             </a>
+                                                        </form>
+                                                        <a href="../bed-students/edit.enrolledStud.php?<?php echo 'stud_id=' . $stud_id; ?>"
+                                                            type="button" class="dropdown-item "><i
+                                                                class="fa fa-edit"></i>
+                                                            Update
+                                                        </a>
 
-                                                            <a href="../bedlp-subjects/list.enrolledSub.senior.php?<?php echo 'stud_id=' . $stud_id; ?>" type="button" class="dropdown-item "><i class="fa fa-book"></i>
-                                                                Subjects
-                                                            </a>
+                                                        <a href="../bed-subjects/list.enrolledSub.senior.php?<?php echo 'stud_id=' . $stud_id; ?>"
+                                                            type="button" class="dropdown-item "><i
+                                                                class="fa fa-book"></i>
+                                                            Subjects
+                                                        </a>
 
-                                                            <a href="../bed-forms/pre-en-data.php?<?php echo 'stud_id=' . $stud_id; ?>" type="button" class="dropdown-item "><i class="fa fa-eye"></i>
-                                                                Pre-Enroll
-                                                            </a>
-                                                            <a href="../bed-forms/accounting-laspi-shs.php?<?php echo 'stud_id=' . $stud_id; ?>" type="button" class="dropdown-item "><i class="fa fa-eye"></i>
-                                                                Main Reg Form
-                                                            </a>
-                                                            <?php if (!empty($glvl_id)) { ?>
-                                                                <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $stud_id . '&glvl_id=' . $glvl_id; ?>" type="button" class="dropdown-item "><i class="fa fa-eye"></i>
-                                                                    Accounting Form
-                                                                </a>
-                                                            <?php } else { ?>
-                                                                <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $stud_id; ?>" type="button" class="dropdown-item "><i class="fa fa-eye"></i>
-                                                                    Accounting Form
-                                                                </a>
-                                                            <?php } ?>
+                                                        <a href="../bed-forms/pre-en-data.php?<?php echo 'stud_id=' . $stud_id; ?>"
+                                                            type="button" class="dropdown-item "><i
+                                                                class="fa fa-eye"></i>
+                                                            Pre-Enroll
+                                                        </a>
+                                                        <a href="../bed-forms/accounting-laspi-shs.php?<?php echo 'stud_id=' . $stud_id; ?>"
+                                                            type="button" class="dropdown-item "><i
+                                                                class="fa fa-eye"></i>
+                                                            Main Reg Form
+                                                        </a>
+                                                        <?php if (!empty($glvl_id)) { ?>
+                                                        <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $stud_id . '&glvl_id=' . $glvl_id; ?>"
+                                                            type="button" class="dropdown-item "><i
+                                                                class="fa fa-eye"></i>
+                                                            Accounting Form
+                                                        </a>
+                                                        <?php } else { ?>
+                                                        <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $stud_id; ?>"
+                                                            type="button" class="dropdown-item "><i
+                                                                class="fa fa-eye"></i>
+                                                            Accounting Form
+                                                        </a>
+                                                        <?php } ?>
 
-                                                            <?php if (!empty($glvl_id)) { ?>
-                                                                <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $stud_id . '&glvl_id=' . $glvl_id; ?>" type="button" class="dropdown-item "><i class="fa fa-eye"></i>
-                                                                    Reg Form
-                                                                </a>
+                                                        <?php if (!empty($glvl_id)) { ?>
+                                                        <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $stud_id . '&glvl_id=' . $glvl_id; ?>"
+                                                            type="button" class="dropdown-item "><i
+                                                                class="fa fa-eye"></i>
+                                                            Reg Form
+                                                        </a>
 
-                                                            <?php } else { ?>
-                                                                <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $stud_id; ?>" type="button" class="dropdown-item "><i class="fa fa-eye"></i>
-                                                                    Reg Form
-                                                                </a>
-                                                            <?php } ?>
+                                                        <?php } else { ?>
+                                                        <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $stud_id; ?>"
+                                                            type="button" class="dropdown-item "><i
+                                                                class="fa fa-eye"></i>
+                                                            Reg Form
+                                                        </a>
+                                                        <?php } ?>
 
-                                                            <!-- Button trigger modal -->
-                                                            <hr class="dropdown-divider">
-                                                            <a type="button" class="dropdown-item" data-bs-toggle="modal" href="#delete<?php echo $row['student_id'] ?>"><i class="fa fa-trash"></i>
-                                                                Delete
-                                                            </a>
-                                                        </ul>
+                                                        <!-- Button trigger modal -->
+                                                        <hr class="dropdown-divider">
+                                                        <a type="button" class="dropdown-item" data-bs-toggle="modal"
+                                                            href="#delete<?php echo $row['student_id'] ?>"><i
+                                                                class="fa fa-trash"></i>
+                                                            Delete
+                                                        </a>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- Delete modal start -->
+                                        <div class="modal fade" id="delete<?php echo $row['student_id'] ?>"
+                                            data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
+                                                        <button type="button" class="btn-close"
+                                                            data-bs-dismiss="modal"></button>
                                                     </div>
-                                                </td>
-                                            </tr>
-                                            <!-- Delete modal start -->
-                                            <div class="modal fade" id="delete<?php echo $row['student_id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                        </div>
-                                                        <div class="modal-body text-center my-5">
-                                                            <p>Are you sure you want to delete,
-                                                                <br><strong><i class="font-weight-bold"><?php echo $row['fullname'] ?></i></strong>
-                                                                ?
-                                                            </p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                            <a href="userData/user.del.student.php?student_id=<?php echo $row['student_id'] ?>" class="btn btn-danger">Delete</a>
-                                                        </div>
+                                                    <div class="modal-body text-center my-5">
+                                                        <p>Are you sure you want to delete,
+                                                            <br><strong><i
+                                                                    class="font-weight-bold"><?php echo $row['fullname'] ?></i></strong>
+                                                            ?
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <a href="userData/user.del.student.php?student_id=<?php echo $row['student_id'] ?>"
+                                                            class="btn btn-danger">Delete</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- Delete modal end -->
+                                        </div>
+                                        <!-- Delete modal end -->
                                         <?php } ?>
                                     </tbody>
                                 </table>
@@ -208,11 +240,11 @@
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap.min.js"></script>
     <script src="">
-        $(document).ready(function() {
-            $('#datatable').DataTable({
-                responsive: true
-            });
+    $(document).ready(function() {
+        $('#datatable').DataTable({
+            responsive: true
         });
+    });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>

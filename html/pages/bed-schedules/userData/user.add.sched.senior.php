@@ -17,10 +17,10 @@ if (isset($_POST['submit'])) {
 
     if ($result > 0) {
         $_SESSION['dbl-sched'] = true;
-        header('location: ../list.sched.senior.php?sen_id=' . $_SESSION['sen_id']);
+        header('location: ../add.sched.senior.php?sen_id=' . $_SESSION['sen_id']);
     } else {
         $insert = mysqli_query($conn, "INSERT INTO tbl_schedules (subject_id, teacher_id, day, time, room, semester, acadyear) VALUES ('$sen_id', '$instruct', '$days', '$time', '$room', '$sem', '$acadyear')") or die(mysqli_error($conn));
         $_SESSION['success'] = true;
-        header('location: ../list.sched.senior.php?sen_id=' . $_SESSION['sen_id']);
+        header('location: ../add.sched.senior.php?sen_id=' . $_SESSION['sen_id']);
     }
 }

@@ -28,7 +28,7 @@ while ($row = mysqli_fetch_array($get_stud)) {
     $pdf->AddPage();
 
     // Logo(x axis, y axis, height, width)
-    $pdf->Image('../../assets/img/logo.png', 50, 5, 15, 15);
+    $pdf->Image('../../assets/images/auth/logo.jpg', 50, 5, 15, 15);
     // text color
     $pdf->SetTextColor(255, 0, 0);
     // font(font type,style,font size)
