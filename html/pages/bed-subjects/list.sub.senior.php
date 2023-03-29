@@ -11,8 +11,8 @@ if (isset($_GET['stem'])) {
     $str_name = $_GET['stem'];
 } elseif (isset($_GET['abm'])) {
     $str_name = $_GET['abm'];
-} elseif (isset($_GET['gas'])) {
-    $str_name = $_GET['gas'];
+} elseif (isset($_GET['ict'])) {
+    $str_name = $_GET['ict'];
 } elseif (isset($_GET['humss'])) {
     $str_name = $_GET['humss'];
 } elseif (isset($_GET['tvl'])) {
@@ -47,14 +47,14 @@ if (isset($_GET['stem'])) {
                 <!-- Dark table start -->
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-header">
                             <h4 class="header-title mb-3">Senior High Subjects List
                                 <?php if (isset($_GET['stem'])) {
                                     echo ' (STEM)';
                                 } elseif (isset($_GET['abm'])) {
                                     echo ' (ABM)';
-                                } elseif (isset($_GET['gas'])) {
-                                    echo ' (GAS)';
+                                } elseif (isset($_GET['ict'])) {
+                                    echo ' (TVL-ICT)';
                                 } elseif (isset($_GET['humss'])) {
                                     echo ' (HUMSS)';
                                 } elseif (isset($_GET['tvl'])) {
@@ -97,8 +97,8 @@ if (isset($_GET['stem'])) {
                                             <i class="fa fa-users"></i> ABM
                                         </button>
 
-                                        <button class="btn btn-dark mb-6 ml-1" value="GAS" name="gas">
-                                            <i class="fa fa-users"></i> GAS
+                                        <button class="btn btn-dark mb-6 ml-1" value="TVL - ICT" name="ict">
+                                            <i class="fa fa-users"></i> TVL - ICT
                                         </button>
 
                                         <button class="btn btn-dark mb-6 ml-1" value="HUMSS" name="humss">
@@ -106,7 +106,7 @@ if (isset($_GET['stem'])) {
                                         </button>
 
                                         <button class="btn btn-dark mb-6 ml-1" value="TVL - HE" name="tvl">
-                                            <i class="fa fa-users"></i> TVL
+                                            <i class="fa fa-users"></i> TVL - HE
                                         </button>
                                     </div>
                                 </div>
@@ -150,75 +150,76 @@ if (isset($_GET['stem'])) {
                         </div>
                         </form>
                         <hr class="bg-black mb-3">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="user-list-table" class="table table-hover responsive nowrap" role="grid" data-toggle="data-table" style="width: 100%">
+                                    <thead class="text-capitalize">
+                                        <tr class="light">
+                                            <th>Code</th>
+                                            <th>Description</th>
+                                            <th>Units</th>
+                                            <th>Pre-Requisites</th>
+                                            <th>Grade Level</th>
+                                            <th>Semester</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (!empty($efacadyear)) {
 
-                        <div class="data-tables datatable-dark">
-                            <table id="datatable" class="table table-striped" data-toggle="data-table" style="width: 100%;">
-                                <thead class="text-capitalize">
-                                    <tr>
-                                        <th>Code</th>
-                                        <th>Description</th>
-                                        <th>Units</th>
-                                        <th>Pre-Requisites</th>
-                                        <th>Grade Level</th>
-                                        <th>Semester</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php if (!empty($efacadyear)) {
-
-                                        $get_subjects = mysqli_query($conn, "SELECT * FROM tbl_subjects_senior
+                                            $get_subjects = mysqli_query($conn, "SELECT * FROM tbl_subjects_senior
                                     LEFT JOIN tbl_grade_levels ON tbl_grade_levels.grade_level_id = tbl_subjects_senior.grade_level_id
                                     LEFT JOIN tbl_semesters ON tbl_semesters.semester_id = tbl_subjects_senior.semester_id
                                     LEFT JOIN tbl_strands ON tbl_strands.strand_id = tbl_subjects_senior.strand_id
                                     LEFT JOIN tbl_efacadyears ON tbl_efacadyears.efacadyear_id = tbl_subjects_senior.efacadyear_id
                                     WHERE tbl_strands.strand_name IN ('$str_name') AND tbl_efacadyears.efacadyear IN ('$efacadyear') ORDER BY tbl_subjects_senior.semester_id ASC, subject_id") or die(mysqli_error($conn));
 
-                                    ?>
-                                        <tr>
-                                            <?php while ($row = mysqli_fetch_array($get_subjects)) {
-                                                $id = $row['subject_id'];
-                                            ?>
-                                                <td><?php echo $row['subject_code']; ?></td>
-                                                <td><?php echo $row['subject_description']; ?></td>
-                                                <td><?php echo $row['total_units']; ?></td>
-                                                <td><?php echo $row['pre_requisites']; ?></td>
-                                                <td><?php echo $row['grade_level']; ?></td>
-                                                <td><?php echo $row['semester']; ?></td>
-                                                <td><a href="edit.sub.senior.php<?php echo '?sen_id=' . $id; ?>" type="button" class="btn btn-info mx-1"><i class="fa fa-edit"></i>
-                                                        Update
-                                                    </a>
-                                                    <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['subject_id'] ?>"><i class="fa fa-trash"></i> Delete</button>
-                                                </td>
-                                        </tr>
-                                        <!-- Delete modal start -->
-                                        <div class="modal fade" id="delete<?php echo $row['subject_id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                    </div>
-                                                    <div class="modal-body text-center my-5">
-                                                        <p>Are you sure you want to delete,
-                                                            <br><strong><i class="font-weight-bold"><?php echo $row['subject_code'] ?>
-                                                                    | </i>
-                                                                <i class="font-weight-bold"><?php echo $row['subject_description'] ?></i></strong>
-                                                            ?
-                                                        </p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                        <a href="userData/user.del.sub.senior.php?sen_id=<?php echo $row['subject_id'] ?>" class="btn btn-danger">Delete</a>
+                                        ?>
+                                            <tr>
+                                                <?php while ($row = mysqli_fetch_array($get_subjects)) {
+                                                    $id = $row['subject_id'];
+                                                ?>
+                                                    <td><?php echo $row['subject_code']; ?></td>
+                                                    <td><?php echo $row['subject_description']; ?></td>
+                                                    <td><?php echo $row['total_units']; ?></td>
+                                                    <td><?php echo $row['pre_requisites']; ?></td>
+                                                    <td><?php echo $row['grade_level']; ?></td>
+                                                    <td><?php echo $row['semester']; ?></td>
+                                                    <td><a href="edit.sub.senior.php<?php echo '?sen_id=' . $id; ?>" type="button" class="btn btn-info mx-1"><i class="fa fa-edit"></i>
+                                                            Update
+                                                        </a>
+                                                        <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['subject_id'] ?>"><i class="fa fa-trash"></i> Delete</button>
+                                                    </td>
+                                            </tr>
+                                            <!-- Delete modal start -->
+                                            <div class="modal fade" id="delete<?php echo $row['subject_id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                        </div>
+                                                        <div class="modal-body text-center my-5">
+                                                            <p>Are you sure you want to delete,
+                                                                <br><strong><i class="font-weight-bold"><?php echo $row['subject_code'] ?>
+                                                                        | </i>
+                                                                    <i class="font-weight-bold"><?php echo $row['subject_description'] ?></i></strong>
+                                                                ?
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                            <a href="userData/user.del.sub.senior.php?sen_id=<?php echo $row['subject_id'] ?>" class="btn btn-danger">Delete</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- Delete modal end -->
+                                            <!-- Delete modal end -->
+                                        <?php } ?>
                                     <?php } ?>
-                                <?php } ?>
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

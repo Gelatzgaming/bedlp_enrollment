@@ -29,7 +29,7 @@ if ($_SESSION['role'] == "Admission" || $_SESSION['role'] == "Accounting" || $_S
     $result = mysqli_num_rows($get_level_id);
 
     if ($result > 0) {
-        header('location: list.enrolledSub.k-10.php?stud_id=' . $stud_id . '&glvl_id' . $glvl_id);
+        header('location: list.enrolledSub.senior.php?stud_id=' . $stud_id . '&glvl_id' . $glvl_id);
     } else {
 
         $get_level_id = mysqli_query($conn, "SELECT * FROM tbl_schoolyears
@@ -87,7 +87,7 @@ if ($_SESSION['role'] == "Student") {
                 <!-- Dark table start -->
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-header">
                             <h4 class="header-title mb-3">Enrollment Information</h4>
                             <?php
                             if (!empty($_SESSION['errors'])) {
@@ -103,15 +103,24 @@ if ($_SESSION['role'] == "Student") {
                                 unset($_SESSION['errors']);
                             } elseif (!empty($_SESSION['success-del'])) {
                                 echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Successfully Deleted.</strong>
+                                                    <strong>Successfully Dropped Subjects.</strong>
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
                                                 </div>
                                             </div> ';
                                 unset($_SESSION['success-del']);
+                            } elseif (!empty($_SESSION['success-add'])) {
+                                echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Subjects Added Successfully.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>
+                                            </div> ';
+                                unset($_SESSION['success-add']);
                             }
                             ?>
 
                             <hr class="bg-black mb-2">
+                        </div>
+                        <div class="card-body">
                             <div class="data-tables datatable-dark">
                                 <table id="dt3" class="text-center" style="width: 100%; color:black;">
                                     <thead class="text-capitalize">
@@ -164,15 +173,15 @@ if ($_SESSION['role'] == "Student") {
                         <div class="card-body">
                             <div class="row" style="margin-left: 3px;">
                                 <?php if ($_SESSION['role'] == "Student") { ?>
-                                    <form action="userData/ctrl.del.list.offeredSub.senior.php" method="POST">
+                                    <form action="userData/user.del.offeredSub.senior.php" method="POST">
                                     <?php } elseif ($_SESSION['role'] == "Admission" || $_SESSION['role'] == "Accounting" || $_SESSION['role'] == "Registrar" || $_SESSION['role'] == "Adviser") { ?>
 
-                                        <form action="userData/ctrl.del.list.offeredSub.senior.php?stud_id=<?php echo $stud_id; ?>" method="POST">
+                                        <form action="userData/user.del.offeredSub.senior.php?stud_id=<?php echo $stud_id; ?>" method="POST">
                                         <?php } ?>
-                                        <div class="data-tables datatable-dark">
-                                            <table id="datatable" class="table table-striped " data-toggle="data-table" style="width: 100%; color:black;">
+                                        <div class="table-responsive">
+                                            <table id="user-list-table" class="table table-hover responsive nowrap" role="grid" data-toggle="data-table" style="width: 100%">
                                                 <thead class="text-capitalize">
-                                                    <tr>
+                                                    <tr class="light">
                                                         <th><input type="checkbox" name="" id="select-all-cb"></th>
                                                         <th>Code</th>
                                                         <th>Description</th>

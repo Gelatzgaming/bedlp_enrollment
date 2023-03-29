@@ -33,7 +33,7 @@ $pdf->SetFont('Arial', '', 10, 'C');
 // dummy cell
 $pdf->Cell(50);
 // //cell(width,height,text,border,end line,[align])
-$pdf->Cell(90, 3, 'Admiral Talon 5 Las '. utf8_decode('Piñas'),0,0, 'C');
+$pdf->Cell(90, 3, '045 Admiral Village, Talon 3, Las ' . utf8_decode('Piñas') . ' City, 1740',0,0, 'C');
 // Line break
 $pdf->Ln(8);
 $pdf->SetFont('Arial', 'B', 10, 'C');
@@ -54,7 +54,7 @@ $pdf->SetFont('Arial', 'B', 10, 'C');
 // dummy cell
 $pdf->Cell(50);
 // //cell(width,height,text,border,end line,[align])
-$pdf->Cell(90, 4, 'Humanities and Social Sciences Strand (HUMMS)', 0, 1, 'C');
+$pdf->Cell(90, 4, 'Accountancy, Business and Management Strand (ABM)', 0, 1, 'C');
 
 // Line break
 
@@ -105,7 +105,7 @@ $pdf->SetFont('Arial', '', '9');
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'ENG', 0, 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
 $pdf->Cell(15, 4, '111', 0, 0);
 $pdf->Cell(90, 4, 'Oral Communication', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
@@ -114,8 +114,8 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'FIL', 0, 0);
-$pdf->Cell(15, 4, '111', 0, 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '112', 0, 0);
 $pdf->Cell(90, 4, 'Komunikasyon at Panaliksik at Wikang Filipino at Kulturang Pilipino', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
@@ -123,8 +123,8 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'HUM', 0, 0);
-$pdf->Cell(15, 4, '111', 0, 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '113', 0, 0);
 $pdf->Cell(90, 4, 'Contemporary Philippine Arts from the Regions', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
@@ -132,8 +132,8 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'MAT', 0, 0);
-$pdf->Cell(15, 4, '111', 0, 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '114', 0, 0);
 $pdf->Cell(90, 4, 'General Mathematics', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
@@ -141,8 +141,8 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'SCI', 0, 0);
-$pdf->Cell(15, 4, '111', 0, 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '115', 0, 0);
 $pdf->Cell(90, 4, 'Earth and Life Science(Lec/Lab)', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
@@ -150,8 +150,8 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'SOC', 0, 0);
-$pdf->Cell(15, 4, '111', 0, 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '116', 0, 0);
 $pdf->SetFont('Arial', '', '8');
 $pdf->Cell(90, 4, 'Personal Development', 0, 0);
 $pdf->SetFont('Arial', '', '9');
@@ -161,10 +161,10 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'PEH', 0, 0);
-$pdf->Cell(15, 4, '111', 0, 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '117', 0, 0);
 $pdf->SetFont('Arial', '', '9');
-$pdf->Cell(90, 4, 'Physical Education and Health', 0, 0);
+$pdf->Cell(90, 4, 'Physical Education and Health 1', 0, 0);
 $pdf->SetFont('Arial', '', '9');
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
@@ -173,8 +173,8 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'CHL', 0, 0);
-$pdf->Cell(15, 4, '111', 0, 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '118', 0, 0);
 $pdf->Cell(90, 4, 'Franciscan Orientation', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
@@ -182,8 +182,8 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'RES', 0, 0);
-$pdf->Cell(15, 4, '121', 0, 0);
+$pdf->Cell(18, 4, 'APPLIED', 0, 0);
+$pdf->Cell(15, 4, '111', 0, 0);
 $pdf->SetFont('Arial', '', '8');
 $pdf->Cell(90, 4, 'Qualitative Research in Daily Life', 0, 0);
 $pdf->SetFont('Arial', '', '9');
@@ -193,32 +193,22 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, '', 0, 0);
-$pdf->Cell(15, 4, '', 0, 0);
+$pdf->Cell(18, 4, 'ABM', 0, 0);
+$pdf->Cell(15, 4, '111', 0, 0);
 $pdf->SetFont('Arial', '', '8');
-$pdf->Cell(90, 4, 'Fundamentals of ABM 1', 0, 0);
+$pdf->Cell(90, 4, 'Fundamentals of Accountancy, Business and Management 1', 0, 0);
 $pdf->SetFont('Arial', '', '9');
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 1);
 
-$pdf->Cell(5, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, '', 0, 0);
-$pdf->Cell(15, 4, '', 0, 0);
-$pdf->SetFont('Arial', '', '8');
-$pdf->Cell(90, 4, 'Organization and Management', 0, 0);
-$pdf->SetFont('Arial', '', '9');
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 1);
 
 // LAST LINE PER SEM
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, '', 0, 0);
-$pdf->Cell(15, 4, '', 0, 0);
-$pdf->Cell(90, 4, 'Guidance & Counseling Program', 0, 0);
+$pdf->Cell(18, 4, 'ABM', 0, 0);
+$pdf->Cell(15, 4, '112', 0, 0);
+$pdf->Cell(90, 4, 'Organization and Management', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
 $pdf->Cell(9, 4, '', 'B', 0);
 $pdf->Cell(7, 4, '', 'B', 1);
@@ -253,16 +243,7 @@ $pdf->SetFont('Arial', '', '9');
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'HUM', 0, 0);
-$pdf->Cell(15, 4, '121', 0, 0);
-$pdf->Cell(90, 4, '21st Century Literature', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 1);
-
-$pdf->Cell(5, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'ENG', 0, 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
 $pdf->Cell(15, 4, '121', 0, 0);
 $pdf->Cell(90, 4, 'Reading and Writing', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
@@ -271,17 +252,26 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'PHI', 0, 0);
-$pdf->Cell(15, 4, '211', 0, 0);
-$pdf->Cell(90, 4, 'Introduction to Philosophy', 0, 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '122', 0, 0);
+$pdf->Cell(90, 4, 'Pagbasa at Pagsulat ng iba\'t ibang Teksto Tungo sa Pananaliksik', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'MAT', 0, 0);
-$pdf->Cell(15, 4, '122', 0, 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '123', 0, 0);
+$pdf->Cell(90, 4, 'Introduction to Philosophy of Human Person', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 1);
+
+$pdf->Cell(5, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 'B', 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '124', 0, 0);
 $pdf->Cell(90, 4, 'Statistics and Probability', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
@@ -289,58 +279,72 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'CHL', 0, 0);
-$pdf->Cell(15, 4, '121', 0, 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '125', 0, 0);
+$pdf->Cell(90, 4, 'Physical Science (Lec/Lab)', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 1);
+
+
+$pdf->Cell(5, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 'B', 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '126', 0, 0);
+$pdf->Cell(90, 4, '21st Century Literature from the Philippines and the World', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 1);
+
+$pdf->Cell(5, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 'B', 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '127', 0, 0);
+$pdf->Cell(90, 4, 'Physical Education and Health 2', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(20, 4, '', 0, 0);
+$pdf->SetFont('Arial', '', '9');
+$pdf->Cell(10, 4, 'CORE 117', 0, 1);
+
+
+$pdf->Cell(5, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 'B', 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
+$pdf->Cell(15, 4, '128', 0, 0);
 $pdf->Cell(90, 4, 'Franciscan Core Values', 0, 0);
 $pdf->SetFont('Arial', '', '9');
 $pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 1);
+$pdf->Cell(20, 4, '', 0, 0);
+$pdf->SetFont('Arial', '', '9');
+$pdf->Cell(10, 4, 'CORE 118', 0, 1);
+
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'FIL', 0, 0);
-$pdf->Cell(15, 4, '102', 0, 0);
-$pdf->Cell(90, 4, 'Pagbasa at Pagsulat', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 1);
-
-$pdf->Cell(5, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'PEH', 0, 0);
+$pdf->Cell(18, 4, 'APPLIED', 0, 0);
 $pdf->Cell(15, 4, '121', 0, 0);
-$pdf->Cell(90, 4, 'Physical Education and Health 2', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 1);
-
-
-$pdf->Cell(5, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, '', 0, 0);
-$pdf->Cell(15, 4, '', 0, 0);
-$pdf->Cell(90, 4, 'Physical Science', 0, 0);
+$pdf->Cell(90, 4, 'English for Academic and Professional Purposes', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, '', 0, 0);
-$pdf->Cell(15, 4, '', 0, 0);
+$pdf->Cell(18, 4, 'ABM', 0, 0);
+$pdf->Cell(15, 4, '121', 0, 0);
 $pdf->SetFont('Arial', '', '9');
-$pdf->Cell(90, 4, 'Fundamentals of ABM 2', 0, 0);
+$pdf->Cell(90, 4, 'Fundamentals of Accountancy, Business and Management 2', 0, 0);
 $pdf->SetFont('Arial', '', '9');
 $pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 1);
+$pdf->Cell(20, 4, '', 0, 0);
+$pdf->SetFont('Arial', '', '9');
+$pdf->Cell(10, 4, 'ABM 111', 0, 1);
 
 // LAST LINE PER SEM
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, '', 0, 0);
-$pdf->Cell(15, 4, '', 0, 0);
+$pdf->Cell(18, 4, 'ABM', 0, 0);
+$pdf->Cell(15, 4, '122', 0, 0);
 $pdf->Cell(90, 4, 'Business Mathematics', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
 $pdf->Cell(9, 4, '', 'B', 0);
@@ -367,72 +371,60 @@ $pdf->Cell(45, 5, 'Grade 12, First Semester', 0, 1);
 $pdf->SetFont('Arial', '', '9');
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'SOC', 0, 0);
-$pdf->Cell(15, 4, '111', 0, 0);
-$pdf->Cell(90, 4, 'Understanding Culture, Society and Politics', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 1);
-
-$pdf->Cell(5, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'MIL', 0, 0);
-$pdf->Cell(15, 4, '221', 0, 0);
-$pdf->Cell(90, 4, 'Media and Information Literacy', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 1);
-
-$pdf->Cell(5, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'PEH', 0, 0);
-$pdf->Cell(15, 4, '211', 0, 0);
-$pdf->SetFont('Arial', '', '9');
-$pdf->Cell(90, 4, 'Physical Education and Health 3', 0, 0);
-$pdf->SetFont('Arial', '', '9');
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 1);
-
-$pdf->Cell(5, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'RES', 0, 0);
-$pdf->Cell(15, 4, '211', 0, 0);
-$pdf->SetFont('Arial', '', '9');
-$pdf->Cell(90, 4, 'Quantitative Research in Daily Life', 0, 0);
-$pdf->SetFont('Arial', '', '9');
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 1);
-
-$pdf->Cell(5, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'FIL', 0, 0);
-$pdf->Cell(15, 4, '211', 0, 0);
-$pdf->Cell(90, 4, 'Pagsulat sa Filipino sa Piling Laranga', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 1);
-
-$pdf->Cell(5, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 'B', 0);
+$pdf->Cell(18, 4, 'UCSPLP2122ABMA', 0, 0);
 $pdf->Cell(15, 4, '', 0, 0);
-$pdf->Cell(15, 4, '', 0, 0);
-$pdf->Cell(90, 4, 'Business Finance', 0, 0);
+$pdf->Cell(90, 4, 'Understanding Culture, Society and Politics (LP)', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
+$pdf->Cell(18, 4, 'MILLP12ABMA', 0, 0);
 $pdf->Cell(15, 4, '', 0, 0);
+$pdf->Cell(90, 4, 'Media and Information Literacy (LP)', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 1);
+
+$pdf->Cell(5, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 'B', 0);
+$pdf->Cell(18, 4, 'PEHCLP12ABMA', 0, 0);
 $pdf->Cell(15, 4, '', 0, 0);
 $pdf->SetFont('Arial', '', '9');
-$pdf->Cell(90, 4, 'Principle of Marketing', 0, 0);
+$pdf->Cell(90, 4, 'Physical Education and Health 3 (LP)', 0, 0);
 $pdf->SetFont('Arial', '', '9');
 $pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 1);
+
+$pdf->Cell(5, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 'B', 0);
+$pdf->Cell(18, 4, 'QNRLP12ABMA', 0, 0);
+$pdf->Cell(15, 4, '', 0, 0);
+$pdf->SetFont('Arial', '', '9');
+$pdf->Cell(90, 4, 'Quantitative Research in Daily Life (LP)', 0, 0);
+$pdf->SetFont('Arial', '', '9');
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, 'APPLIED 111', 0, 1);
+
+$pdf->Cell(5, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 'B', 0);
+$pdf->Cell(18, 4, 'PSFPLLP12ABMA', 0, 0);
+$pdf->Cell(15, 4, '', 0, 0);
+$pdf->Cell(90, 4, 'Pagsulat sa Filipino sa Piling Laranga (LP)', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 1);
+
+$pdf->Cell(5, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 'B', 0);
+$pdf->Cell(18, 4, 'BFILP12ABMA', 0, 0);
+$pdf->Cell(15, 4, '', 0, 0);
+$pdf->Cell(90, 4, 'Business Finance (LP)', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 1);
@@ -441,9 +433,9 @@ $pdf->Cell(10, 4, '', 0, 1);
 // LAST LINE PER SEM
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'COM', 0, 0);
-$pdf->Cell(15, 4, '221', 0, 0);
-$pdf->Cell(90, 4, 'Guidance & Counseling Program', 0, 0);
+$pdf->Cell(18, 4, 'POMLP12ABMA', 0, 0);
+$pdf->Cell(15, 4, '', 0, 0);
+$pdf->Cell(90, 4, 'Principle of Marketing (LP)', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
 $pdf->Cell(9, 4, '', 'B', 0);
 $pdf->Cell(10, 4, '', 'B', 0);
@@ -461,28 +453,16 @@ $pdf->Cell(180, 6, '', 0, 1);
 $pdf->Cell(180, 6, '', 0, 1);
 
 
-
-
-
-
 //YEAR , SEMESTER
 $pdf->Cell(10, 5, '', 0, 0);
 $pdf->Cell(45, 5, 'Grade 12, Second Semester', 0, 1);
 $pdf->SetFont('Arial', '', '9');
 
 // SUBJECTS
-$pdf->Cell(5, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'COM', 0, 0);
-$pdf->Cell(15, 4, '221', 0, 0);
-$pdf->Cell(90, 4, 'Empowerment Technologies', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 0);
-$pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'ENT', 0, 0);
+$pdf->Cell(18, 4, 'APPLIED', 0, 0);
 $pdf->Cell(15, 4, '221', 0, 0);
 $pdf->SetFont('Arial', '', '9');
 $pdf->Cell(90, 4, 'Entrepreneurship', 0, 0);
@@ -494,7 +474,17 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'PEH', 0, 0);
+$pdf->Cell(18, 4, 'APPLIED', 0, 0);
+$pdf->Cell(15, 4, '222', 0, 0);
+$pdf->Cell(90, 4, 'Empowerment Technologies', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 1);
+
+
+$pdf->Cell(5, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 'B', 0);
+$pdf->Cell(18, 4, 'CORE', 0, 0);
 $pdf->Cell(15, 4, '221', 0, 0);
 $pdf->Cell(90, 4, 'Physical Education and Health 4', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
@@ -503,8 +493,18 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, '', 0, 0);
-$pdf->Cell(15, 4, '', 0, 0);
+$pdf->Cell(18, 4, 'APPLIED', 0, 0);
+$pdf->Cell(15, 4, '223', 0, 0);
+$pdf->Cell(90, 4, 'Inquiries, Investigations and Immersion', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 0, 0);
+$pdf->Cell(10, 4, 'Applied 121', 0, 1);
+
+$pdf->Cell(5, 4, '', 0, 0);
+$pdf->Cell(10, 4, '', 'B', 0);
+$pdf->Cell(18, 4, 'ABM', 0, 0);
+$pdf->Cell(15, 4, '221', 0, 0);
 $pdf->Cell(90, 4, 'Applied Economics', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
@@ -513,10 +513,10 @@ $pdf->Cell(10, 4, '', 0, 1);
 
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, '', 0, 0);
-$pdf->Cell(15, 4, '', 0, 0);
+$pdf->Cell(18, 4, 'ABM', 0, 0);
+$pdf->Cell(15, 4, '223', 0, 0);
 $pdf->SetFont('Arial', '', '9');
-$pdf->Cell(90, 4, 'Business Ethics', 0, 0);
+$pdf->Cell(90, 4, 'Business Ethics and Social Responsibility', 0, 0);
 $pdf->SetFont('Arial', '', '9');
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
@@ -526,8 +526,8 @@ $pdf->Cell(10, 4, '', 0, 1);
 // LAST LINE PER SEM
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
-$pdf->Cell(15, 4, 'ENT', 0, 0);
-$pdf->Cell(15, 4, '221', 0, 0);
+$pdf->Cell(18, 4, 'ABM', 0, 0);
+$pdf->Cell(15, 4, '223', 0, 0);
 $pdf->Cell(90, 4, 'Internship', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
 $pdf->Cell(9, 4, '', 'B', 0);

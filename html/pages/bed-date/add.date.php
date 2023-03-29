@@ -93,11 +93,11 @@
                                             Year</button>
                                     </div>
                                 </div>
-                                <div class="data-tables datatable-dark">
-                                    <table id="datatable" class="table table-striped" data-toggle="data-table"
-                                        style="width: 100%;">
+                                <div class="table-responsive">
+                                    <table id="user-list-table" class="table table-hover responsive nowrap" role="grid"
+                                        data-toggle="data-table">
                                         <thead class="text-capitalize">
-                                            <tr>
+                                            <tr class="light">
                                                 <th>Academic Year</th>
                                                 <th>Actions</th>
                                             </tr>

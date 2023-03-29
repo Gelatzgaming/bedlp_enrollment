@@ -12,8 +12,8 @@ if (isset($_GET['stem'])) {
     $str_name = $_GET['stem'];
 } elseif (isset($_GET['abm'])) {
     $str_name = $_GET['abm'];
-} elseif (isset($_GET['gas'])) {
-    $str_name = $_GET['gas'];
+} elseif (isset($_GET['ict'])) {
+    $str_name = $_GET['ict'];
 } elseif (isset($_GET['humss'])) {
     $str_name = $_GET['humss'];
 } elseif (isset($_GET['tvl'])) {
@@ -48,14 +48,14 @@ if (isset($_GET['stem'])) {
                 <!-- Dark table start -->
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-header">
                             <h4 class="header-title mb-3">Offer/Open Subjects | SFAC Las Piñas
                                 <?php if (isset($_GET['stem'])) {
                                     echo '(STEM)';
                                 } elseif (isset($_GET['abm'])) {
                                     echo ' (ABM)';
-                                } elseif (isset($_GET['gas'])) {
-                                    echo ' (GAS)';
+                                } elseif (isset($_GET['ict'])) {
+                                    echo ' (TVL-ICT)';
                                 } elseif (isset($_GET['humss'])) {
                                     echo ' (HUMSS)';
                                 } elseif (isset($_GET['tvl'])) {
@@ -98,8 +98,8 @@ if (isset($_GET['stem'])) {
                                             <i class="fa fa-users"></i> ABM
                                         </button>
 
-                                        <button class="btn btn-outline-dark mb-3" value="GAS" name="gas">
-                                            <i class="fa fa-users"></i> GAS
+                                        <button class="btn btn-outline-dark mb-3" value="TVL - ICT" name="ict">
+                                            <i class="fa fa-users"></i> TVL - ICT
                                         </button>
 
                                         <button class="btn btn-outline-dark mb-3" value="HUMSS" name="humss">
@@ -107,14 +107,15 @@ if (isset($_GET['stem'])) {
                                         </button>
 
                                         <button class="btn btn-outline-dark mb-3" value="TVL - HE" name="tvl">
-                                            <i class="fa fa-users"></i> TVL- HE
+                                            <i class="fa fa-users"></i> TVL - HE
                                         </button>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="col-md-4 mb-2 mt-2">
 
-                                        <select class="form-select" data-dropdown-css-class="select2-navy" data-bs-placeholder="Select Effective Academic Year" name="eay">
+                                        <select class="form-select" data-dropdown-css-class="select2-navy"
+                                            data-bs-placeholder="Select Effective Academic Year" name="eay">
                                             <option value="" disabled>Select Effective Academic
                                                 Year
                                             </option>
@@ -123,37 +124,40 @@ if (isset($_GET['stem'])) {
                                                 $get_eay = mysqli_query($conn, "SELECT * FROM tbl_efacadyears WHERE efacadyear = '$efacadyear'");
                                                 while ($row = mysqli_fetch_array($get_eay)) {
                                             ?>
-                                                    <option selected value="<?php echo $row['efacadyear'] ?>">
-                                                        Effective
-                                                        Academic Year <?php echo $row['efacadyear'];
+                                            <option selected value="<?php echo $row['efacadyear'] ?>">
+                                                Effective
+                                                Academic Year <?php echo $row['efacadyear'];
                                                                     } ?></option>
-                                                    <?php $get_eay2 = mysqli_query($conn, "SELECT * FROM tbl_efacadyears WHERE efacadyear NOT IN ('$efacadyear')");
+                                            <?php $get_eay2 = mysqli_query($conn, "SELECT * FROM tbl_efacadyears WHERE efacadyear NOT IN ('$efacadyear')");
                                                     while ($row2 = mysqli_fetch_array($get_eay2)) {
                                                     ?>
-                                                        <option value="<?php echo $row2['efacadyear'] ?>">
-                                                            Effective
-                                                            Academic Year <?php echo $row2['efacadyear'];
+                                            <option value="<?php echo $row2['efacadyear'] ?>">
+                                                Effective
+                                                Academic Year <?php echo $row2['efacadyear'];
                                                                         } ?></option>
-                                                        <?php } else {
+                                            <?php } else {
                                                         $get_eay = mysqli_query($conn, "SELECT * FROM tbl_efacadyears ORDER BY efacadyear_id DESC");
                                                         while ($row = mysqli_fetch_array($get_eay)) {
                                                         ?>
-                                                            <option value="<?php echo $row['efacadyear'] ?>">
-                                                                Effective
-                                                                Academic Year <?php echo $row['efacadyear'];
+                                            <option value="<?php echo $row['efacadyear'] ?>">
+                                                Effective
+                                                Academic Year <?php echo $row['efacadyear'];
                                                                             } ?></option>
-                                                        <?php  } ?>
+                                            <?php  } ?>
 
                                         </select>
 
                                     </div>
                                 </div>
                             </form>
-                            <hr class="bg-black mb-2">
-                            <div class="data-tables datatable-dark">
-                                <table id="datatable" class="table table-striped " data-toggle="data-table" style="width: 100%;">
+                        </div>
+                        <hr class="bg-black mb-2">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="user-list-table" class="table table-hover responsive nowrap" role="grid"
+                                    data-toggle="data-table" style="width: 100%">
                                     <thead class="text-capitalize">
-                                        <tr>
+                                        <tr class="light">
                                             <th>Code</th>
                                             <th>Description</th>
                                             <th>Units</th>
@@ -174,22 +178,24 @@ if (isset($_GET['stem'])) {
 
                                         ?>
 
-                                            <tr>
-                                                <?php while ($row = mysqli_fetch_array($get_subjects)) {
+                                        <tr>
+                                            <?php while ($row = mysqli_fetch_array($get_subjects)) {
                                                     $id = $row['subject_id']; ?>
-                                                    <td><?php echo $row['subject_code']; ?></td>
-                                                    <td><?php echo $row['subject_description']; ?></td>
-                                                    <td><?php echo $row['total_units']; ?></td>
-                                                    <td><?php echo $row['pre_requisites']; ?></td>
-                                                    <td><?php echo $row['grade_level']; ?></td>
-                                                    <td><?php echo $row['semester']; ?></td>
-                                                    <td><a href="../bed-schedules/add.sched.senior.php<?php echo '?sen_id=' . $id; ?>" type="button" class="btn btn-success mx-1"><i class="fa fa-plus-square"></i>
-                                                            Set Schedule
-                                                        </a>
-                                                    </td>
-                                            </tr>
+                                            <td><?php echo $row['subject_code']; ?></td>
+                                            <td><?php echo $row['subject_description']; ?></td>
+                                            <td><?php echo $row['total_units']; ?></td>
+                                            <td><?php echo $row['pre_requisites']; ?></td>
+                                            <td><?php echo $row['grade_level']; ?></td>
+                                            <td><?php echo $row['semester']; ?></td>
+                                            <td><a href="../bed-schedules/add.sched.senior.php<?php echo '?sen_id=' . $id; ?>"
+                                                    type="button" class="btn btn-success mx-1"><i
+                                                        class="fa fa-plus-square"></i>
+                                                    Set Schedule
+                                                </a>
+                                            </td>
+                                        </tr>
                                         <?php } ?>
-                                    <?php } ?>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                                 <div class="row" style="margin-left: 3px;">
@@ -216,13 +222,13 @@ if (isset($_GET['stem'])) {
                                                 Open Petitioned</a>
 
                                         </div>';
-                                        } elseif (isset($_GET['gas'])) {
+                                        } elseif (isset($_GET['ict'])) {
                                             echo '
                                         <hr class="bg-navy">
                                         <div class="col-md-3
                                             ">
 
-                                            <a href="../bed-schedules/add.petitioned.senior.php?str=GAS&eay=' . $efacadyear . '" type="button"
+                                            <a href="../bed-schedules/add.petitioned.senior.php?str=TVL - ICT&eay=' . $efacadyear . '" type="button"
                                                 class="btn btn-dark mb-3 "><i
                                                     class="fa fa-pencil mr-1"></i>
                                                 Open Petitioned</a>
@@ -259,8 +265,9 @@ if (isset($_GET['stem'])) {
                         </div>
                     </div>
                 </div>
-                <!-- Dark table end -->
             </div>
+            <!-- Dark table end -->
+        </div>
 
         </div>
 

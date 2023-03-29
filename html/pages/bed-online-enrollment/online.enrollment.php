@@ -1,8 +1,7 @@
 <?php
 include '../../includes/conn.php';
-if (!empty($_SESSION['role'])) {
-    header("location: ../bed-dashboard/index.php");
-} ?>
+
+?>
 
 <!doctype html>
 <html lang="en" dir="ltr">
@@ -10,7 +9,7 @@ if (!empty($_SESSION['role'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SFAC BED - Las Piñas</title>
+    <title>Online Inquiry - Las Piñas</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="../../assets/images/auth/logo.png" />
@@ -37,7 +36,8 @@ if (!empty($_SESSION['role'])) {
 
 </head>
 
-<body class=" " data-bs-spy="scroll" data-bs-target="#elements-section" data-bs-offset="0" tabindex="0">
+<body class="hold-transition login-page background" style="background-image: url('../../assets/images/auth/bg-2.png');"
+    data-bs-spy="scroll" data-bs-target="#elements-section" data-bs-offset="0" tabindex="0">
     <!-- loader Start -->
     <div id="loading">
         <div class="loader simple-loader">
@@ -46,7 +46,7 @@ if (!empty($_SESSION['role'])) {
     </div>
     <!-- loader END -->
 
-    <div class="wrapper">
+    <div class="content-wrapper">
         <section class="login-content">
             <div class="row m-0 align-items-center bg-white vh-100">
                 <div class="col-md-6">
@@ -111,8 +111,7 @@ if (!empty($_SESSION['role'])) {
                                         </div>
 
                                         <p class="mt-3 text-center">
-                                            <a href="../bed-online-enrollment/online.enrollment.php"
-                                                class="text-underline">Inquire Here!</a>
+                                            <a href="sign-up.html" class="text-underline">Inquire Here!</a>
                                         </p>
                                     </form>
                                 </div>
@@ -120,10 +119,6 @@ if (!empty($_SESSION['role'])) {
                         </div>
                     </div>
 
-                </div>
-                <div class="col-md-6 d-md-block d-none bg-primary p-0 mt-n1 vh-100 overflow-hidden">
-                    <img src="../../assets/images/auth/lp.jpg" class="img-fluid gradient-main animated-scaleX"
-                        alt="images">
                 </div>
             </div>
         </section>

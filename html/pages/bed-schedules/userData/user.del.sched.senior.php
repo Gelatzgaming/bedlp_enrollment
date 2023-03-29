@@ -10,8 +10,8 @@ if ($str_n == "ABM") {
     header('location: ../list.sched.senior.php?abm=' . $str_n);
 } else if ($str_n == "STEM") {
     header('location: ../list.sched.senior.php?stem=' . $str_n);
-} else if ($str_n == "GAS") {
-    header('location: ../list.sched.senior.php?gas=' . $str_n);
+} else if ($str_n == "TVL - ICT") {
+    header('location: ../list.sched.senior.php?ict=' . $str_n);
 } else if ($str_n == "HUMSS") {
     header('location: ../list.sched.senior.php?humss=' . $str_n);
 } else if ($str_n == "TVL - HE") {

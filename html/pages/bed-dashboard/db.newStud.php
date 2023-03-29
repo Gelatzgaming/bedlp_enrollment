@@ -40,11 +40,9 @@ include '../../includes/bed-header.php';
                                 <div class="col-md-5 mb-3 mt-4">
                                     <form method="GET">
                                         <div class="input-group">
-                                            <input type="search" class="form-control"
-                                                placeholder="Search for (Student no. or Name)" name="search">
+                                            <input type="search" class="form-control" placeholder="Search for (Student no. or Name)" name="search">
                                             <div class="input-group-append">
-                                                <button type="submit" name="look" class="btn bg-navy"
-                                                    data-toggle="tooltip" data-placement="bottom" title="Search">
+                                                <button type="submit" name="look" class="btn bg-navy" data-toggle="tooltip" data-placement="bottom" title="Search">
                                                     <i class="fa fa-search"></i>
                                                 </button>
                                             </div>
@@ -55,10 +53,9 @@ include '../../includes/bed-header.php';
                             <hr class="bg-black pb-1">
 
                             <div class="table-responsive">
-                                <table id="user-list-table" class="table table-hover responsive nowrap" role="grid"
-                                    data-toggle="data-table" style="width: 100%;">
+                                <table id="user-list-table" class="table table-hover responsive nowrap" role="grid" data-toggle="data-table" style="width: 100%">
                                     <thead class="text-capitalize">
-                                        <tr>
+                                        <tr class="light">
                                             <th>Image</th>
                                             <th>Student ID</th>
                                             <th>Fullname</th>
@@ -82,7 +79,7 @@ include '../../includes/bed-header.php';
 
 
 
-                                            $get_enrolled_stud = mysqli_query($conn, "SELECT *, CONCAT(stud.student_lname, ', ', stud.student_fname, ' ', stud.student_mname) AS fullname 
+                                            $get_new_stud = mysqli_query($conn, "SELECT *, CONCAT(stud.student_lname, ', ', stud.student_fname, ' ', stud.student_mname) AS fullname 
                                                 FROM tbl_schoolyears AS sy
                                                 LEFT JOIN tbl_students AS stud ON stud.student_id = sy.student_id
                                                 LEFT JOIN tbl_strands AS stds ON stds.strand_id = sy.strand_id
@@ -91,7 +88,7 @@ include '../../includes/bed-header.php';
                                                 LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id  
                                                 WHERE remark = 'Approved' AND ay.academic_year = '$act_acad' 
                                                 AND (sem.semester = '$act_sem' OR sy.semester_id = '0')
-                                                
+                                                AND sy.stud_type = 'New' -- added condition to select only 'New' students
                                                 
                                                 
                                                 AND (student_fname LIKE '%$_GET[search]%'
@@ -105,7 +102,7 @@ include '../../includes/bed-header.php';
                                                 ORDER BY sy.student_id DESC
                                                 ") or die(mysqli_error($conn));
 
-                                            while ($row = mysqli_fetch_array($get_enrolled_stud)) {
+                                            while ($row = mysqli_fetch_array($get_new_stud)) {
                                                 $id = $row['student_id'];
                                                 $sy_id = $row['sy_id'];
                                                 $_SESSION['stud_no'] = $row['stud_no'];
@@ -113,8 +110,8 @@ include '../../includes/bed-header.php';
                                                 $glvl_id = $row['grade_level_id'];
 
                                         ?>
-                                        <tr>
-                                            <td><?php
+                                                <tr>
+                                                    <td><?php
                                                         $_SESSION['orig_id'] = $row['student_id'];
                                                         if (!empty(base64_encode($row['img']))) {
                                                             echo '
@@ -125,85 +122,49 @@ include '../../includes/bed-header.php';
                                                             echo ' <img src="../../assets/images/icons/user.png" class="img zoom"
                                                             alt="User image" style="height: 80px; width: 100px">';
                                                         } ?>
-                                            </td>
-                                            <td><?php echo $row['stud_no']; ?></td>
-                                            <td><?php echo $row['fullname']; ?></td>
-                                            <?php if (empty($row['strand_def'])) {
+                                                    </td>
+                                                    <td><?php echo $row['stud_no']; ?></td>
+                                                    <td><?php echo $row['fullname']; ?></td>
+                                                    <?php if (empty($row['strand_def'])) {
                                                         echo '<td>Grade School</td>';
                                                     } else {
                                                         echo '<td>' . $row['strand_def'] . '</td>';
                                                     } ?>
-                                            <td><?php echo $row['grade_level']; ?></td>
-                                            <td><?php echo $row['stud_type']; ?></td>
-                                            <td><?php echo $row['date_enrolled']; ?></td>
-                                            <td>
-                                                <span class="badge bg-<?php if ($row['remark'] == "Checked" || $row['remark'] == "Approved") {
-                                                                                echo 'success';
-                                                                            } elseif ($row['remark'] == "Pending") {
-                                                                                echo 'warning';
-                                                                            } elseif ($row['remark'] == "Disapproved" || $row['remark'] == "Canceled") {
-                                                                                echo 'danger';
-                                                                            } else {
-                                                                                echo 'danger';
-                                                                            } ?>"><?php echo $row['remark'] ?></span>
-                                            </td>
+                                                    <td><?php echo $row['grade_level']; ?></td>
+                                                    <td><?php echo $row['stud_type']; ?></td>
+                                                    <td><?php echo $row['date_enrolled']; ?></td>
+                                                    <td>
+                                                        <span class="badge bg-<?php if ($row['remark'] == "Checked" || $row['remark'] == "Approved") {
+                                                                                    echo 'success';
+                                                                                } elseif ($row['remark'] == "Pending") {
+                                                                                    echo 'warning';
+                                                                                } elseif ($row['remark'] == "Disapproved" || $row['remark'] == "Canceled") {
+                                                                                    echo 'danger';
+                                                                                } else {
+                                                                                    echo 'danger';
+                                                                                } ?>"><?php echo $row['remark'] ?></span>
+                                                    </td>
 
-                                            <td>
+                                                    <td>
 
-                                                <br>
-                                                <a href="../bed-forms/pre-en-data.php?<?php echo 'stud_id=' . $id; ?>"
-                                                    type="button" class=" btn btn-success text-sm p-2 mb-2"><i
-                                                        class="fa fa-eye"></i>
-                                                    Pre-Enroll
-                                                </a>
-                                                <br>
+                                                        <br>
+                                                        <a href="../bed-forms/pre-en-data.php?<?php echo 'stud_id=' . $id; ?>" type="button" class=" btn btn-success text-sm p-2 mb-2"><i class="fa fa-eye"></i>
+                                                            Pre-Enroll
+                                                        </a>
+                                                        <br>
 
-                                                <?php if (!empty($glvl_id)) { ?>
-                                                <a href="../bed-forms/accounting-laspi-shs.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>"
-                                                    type="button" class=" btn btn-warning text-sm p-2 mb-2"><i
-                                                        class="fa fa-eye"></i>
-                                                    Reg Form Main
-                                                </a>
-                                                <?php } else { ?>
-                                                <a href="../bed-forms/accounting-laspi-shs.php?<?php echo 'stud_id=' . $id; ?>"
-                                                    type="button" class=" btn btn-warning text-sm p-2 mb-2"><i
-                                                        class="fa fa-eye"></i>
-                                                    Reg Form Main
-                                                </a>
-                                                <?php } ?>
-                                                <br>
-                                                <?php if (!empty($glvl_id)) { ?>
-                                                <a href="../bed-forms/bed-accountingSHS.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>"
-                                                    type="button" class=" btn btn-danger text-sm p-2 mb-2"><i
-                                                        class="fa fa-eye"></i>
-                                                    Accounting Form
-                                                </a>
-                                                <?php } else { ?>
-                                                <a href="../bed-forms/bed-accountingSHS.php?<?php echo 'stud_id=' . $id; ?>"
-                                                    type="button" class=" btn btn-danger text-sm p-2 mb-2"><i
-                                                        class="fa fa-eye"></i>
-                                                    Accounting Form
-                                                </a>
-                                                <?php } ?>
+                                                        <?php if (!empty($glvl_id)) { ?>
+                                                            <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>" type="button" class=" btn btn-secondary text-sm p-2 mb-2"><i class="fa fa-eye"></i>
+                                                                Reg Form
+                                                            </a>
+                                                        <?php } else { ?>
+                                                            <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $id; ?>" type="button" class=" btn btn-secondary text-sm p-2 mb-2"><i class="fa fa-eye"></i>
+                                                                Reg Form
+                                                            </a>
+                                                        <?php } ?>
 
-
-                                                <br>
-                                                <?php if (!empty($glvl_id)) { ?>
-                                                <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>"
-                                                    type="button" class=" btn btn-secondary text-sm p-2 mb-2"><i
-                                                        class="fa fa-eye"></i>
-                                                    Reg Form
-                                                </a>
-                                                <?php } else { ?>
-                                                <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $id; ?>"
-                                                    type="button" class=" btn btn-secondary text-sm p-2 mb-2"><i
-                                                        class="fa fa-eye"></i>
-                                                    Reg Form
-                                                </a>
-                                                <?php } ?>
-
-                                            </td>
-                                        </tr>
+                                                    </td>
+                                                </tr>
                                         <?php
                                             }
                                         }

@@ -55,7 +55,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                             <?php } ?>
                         </div>
                         <div style="margin: 0 auto; text-align: center;">
-                            <a href="dblp.newStud.php" class="small-box-footer"
+                            <a href="db.newStud.php" class="small-box-footer"
                                 style="color: white; margin: 0px; display:block; margin-bottom: 10px;">View
                                 Details <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
@@ -102,7 +102,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
                             <?php } ?>
                         </div>
                         <div style="margin: 0 auto; text-align: center;">
-                            <a href="dblp.pendingEnroll.php" class="small-box-footer"
+                            <a href="db.pendingEnroll.php" class="small-box-footer"
                                 style="color: white; margin: 0px; display:block; margin-bottom: 10px;">View
                                 Details <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
@@ -262,10 +262,10 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: maroon;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon" style="color: white;"><i class="fa fa-suitcase"
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-laptop"
                                     style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
-                                Grade 11 Students in (GAS)</div>
+                                Grade 11 Students in (TVL-ICT)</div>
                             <?php $str_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
                          WHERE ay_id = '$ay_id' AND remark = 'Approved' AND strand_id = '2' AND grade_level_id = '14' ") or die(mysqli_error($conn));
                             while ($row = mysqli_fetch_array($str_count)) { ?>
@@ -285,10 +285,10 @@ while ($row = mysqli_fetch_array($active_ay)) {
                     <div class="small-box" style="background-color: maroon;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
-                            <div class="seofct-icon" style="color: white;"><i class="fa fa-suitcase"
+                            <div class="seofct-icon" style="color: white;"><i class="fa fa-laptop"
                                     style="font-size: 50px;"></i><br><small> Total No.
                                     of</small><br>
-                                Grade 12 Students in (GAS)</div>
+                                Grade 12 Students in (TVL-ICT)</div>
                             <?php $str_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears
                          WHERE ay_id = '$ay_id' AND remark = 'Approved' AND strand_id = '2' AND grade_level_id = '15' ") or die(mysqli_error($conn));
                             while ($row = mysqli_fetch_array($str_count)) { ?>

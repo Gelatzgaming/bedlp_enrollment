@@ -58,7 +58,7 @@ if (isset($_GET['g1'])) {
                 <!-- Dark table start -->
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-header">
                             <h4 class="header-title mb-3">Offer/Open Subjects | SFAC Las Piñas</h4>
 
                             <?php
@@ -147,18 +147,20 @@ if (isset($_GET['g1'])) {
                         </div>
                         </form>
                         <hr class="bg-black mb-2">
-                        <div class="data-tables datatable-dark">
-                            <table id="datatable" class="table table-striped" data-toggle="data-table" style="width: 100%;">
-                                <thead class="text-capitalize">
-                                    <tr>
-                                        <th>Code</th>
-                                        <th>Description</th>
-                                        <th>Grade Level</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php if (!empty($grd_lvl)) {
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="user-list-table" class="table table-hover responsive nowrap" role="grid"
+                                    data-toggle="data-table" style="width: 100%">
+                                    <thead class="text-capitalize">
+                                        <tr class="light">
+                                            <th>Code</th>
+                                            <th>Description</th>
+                                            <th>Grade Level</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (!empty($grd_lvl)) {
 
                                         $get_sub = mysqli_query($conn, "SELECT * FROM tbl_subjects
                                     LEFT JOIN tbl_grade_levels ON tbl_grade_levels.grade_level_id = tbl_subjects.grade_level_id
@@ -169,20 +171,22 @@ if (isset($_GET['g1'])) {
                                             <?php while ($row = mysqli_fetch_array($get_sub)) {
                                                 $id = $row['subject_id'];
                                             ?>
-                                                <td><?php echo $row['subject_code']; ?></td>
-                                                <td><?php echo $row['subject_description']; ?></td>
-                                                <td><?php echo $row['grade_level']; ?></td>
-                                                <td><a href="../bed-schedules/add.sched.k-10.php<?php echo '?sub_id=' . $id; ?>" type="button" class="btn btn-success mx-1"><i class="fa fa-plus-square"></i>
-                                                        Set Schedule
-                                                    </a>
-                                                </td>
+                                            <td><?php echo $row['subject_code']; ?></td>
+                                            <td><?php echo $row['subject_description']; ?></td>
+                                            <td><?php echo $row['grade_level']; ?></td>
+                                            <td><a href="../bed-schedules/add.sched.k-10.php<?php echo '?sub_id=' . $id; ?>"
+                                                    type="button" class="btn btn-success mx-1"><i
+                                                        class="fa fa-plus-square"></i>
+                                                    Set Schedule
+                                                </a>
+                                            </td>
                                         </tr>
-                                    <?php } ?>
-                                <?php } ?>
-                                </tbody>
-                            </table>
-                            <div class="row" style="margin-left: 3px;">
-                                <?php if (!empty($grd_lvl)) {
+                                        <?php } ?>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                                <div class="row" style="margin-left: 3px;">
+                                    <?php if (!empty($grd_lvl)) {
                                     if (isset($_GET['g1'])) {
                                         echo '
                                                     <hr class="bg-navy">
@@ -315,6 +319,7 @@ if (isset($_GET['g1'])) {
                                                     </div>';
                                     }
                                 } ?>
+                                </div>
                             </div>
                         </div>
                     </div>
