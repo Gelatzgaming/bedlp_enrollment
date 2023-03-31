@@ -34,7 +34,7 @@ include '../../includes/bed-header.php';
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">List of Enrolled ABM Students</h4>
+                            <h4 class="header-title">List of Enrolled TVL - ICT Students</h4>
                             <div class="row justify-content-center">
                                 <div class="col-md-3 mt-3">
                                     <div class="card">
@@ -49,7 +49,7 @@ include '../../includes/bed-header.php';
                                                         <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears AS sy
                                                             LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
                                                             LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id
-                                                            WHERE ay.academic_year = '$act_acad' AND sem.semester = '$act_sem' AND remark = 'Approved' AND strand_id = '1' AND grade_level_id = '14' AND stud_type = 'New'") or die(mysqli_error($conn));
+                                                            WHERE ay.academic_year = '$act_acad' AND sem.semester = '$act_sem' AND remark = 'Approved' AND strand_id = '2' AND grade_level_id = '14' AND stud_type = 'New'") or die(mysqli_error($conn));
                                                         while ($row = mysqli_fetch_array($stud_count)) { ?>
                                                         <span class="info-box-number" style="color: white;">:
                                                             <?php echo $row['total_stud']; ?></span>
@@ -74,7 +74,7 @@ include '../../includes/bed-header.php';
                                                         <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears AS sy
                                                             LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
                                                             LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id
-                                                            WHERE ay.academic_year = '$act_acad' AND sem.semester = '$act_sem' AND remark = 'Approved' AND strand_id = '1' AND grade_level_id = '14' AND stud_type = 'Old'") or die(mysqli_error($conn));
+                                                            WHERE ay.academic_year = '$act_acad' AND sem.semester = '$act_sem' AND remark = 'Approved' AND strand_id = '2' AND grade_level_id = '14' AND stud_type = 'Old'") or die(mysqli_error($conn));
                                                         while ($row = mysqli_fetch_array($stud_count)) { ?>
                                                         <span class="info-box-number" style="color: white;">:
                                                             <?php echo $row['total_stud']; ?></span>
@@ -139,8 +139,9 @@ include '../../includes/bed-header.php';
                                                 LEFT JOIN tbl_strands AS stds ON stds.strand_id = sy.strand_id
                                                 LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
                                                 LEFT JOIN tbl_grade_levels AS gl ON gl.grade_level_id =sy.grade_level_id
-                                                LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id
-                                                WHERE remark = 'Approved' AND ay.academic_year = '$act_acad' AND sem.semester = '$act_sem' AND sy.strand_id = '1' AND sy.grade_level_id = '14'
+                                                LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id  
+                                                WHERE remark = 'Approved' AND ay.academic_year = '$act_acad' 
+                                                AND sem.semester = '$act_sem' AND sy.strand_id = '2' AND sy.grade_level_id = '14'
                                                 
                                                 
                                                 
@@ -172,7 +173,7 @@ include '../../includes/bed-header.php';
                                                         class="img zoom " alt="User image"
                                                         style="height: 80px; width: 100px">';
                                                         } else {
-                                                            echo ' <img src="../../assets/images/icons/user.png" class="img zoom"
+                                                            echo ' <img src="../../../assets/images/red_user.jpg" class="img zoom"
                                                             alt="User image" style="height: 80px; width: 100px">';
                                                         } ?>
                                             </td>
@@ -187,16 +188,12 @@ include '../../includes/bed-header.php';
                                             <td><?php echo $row['stud_type']; ?></td>
                                             <td><?php echo $row['date_enrolled']; ?></td>
                                             <td>
-                                                <span
-                                                    class="badge bg-<?php if ($row['remark'] == "Checked" || $row['remark'] == "Approved") {
-                                                                                    echo 'success';
-                                                                                } elseif ($row['remark'] == "Pending") {
-                                                                                    echo 'warning';
-                                                                                } elseif ($row['remark'] == "Disapproved" || $row['remark'] == "Canceled") {
-                                                                                    echo 'danger';
-                                                                                } else {
-                                                                                    echo 'danger';
-                                                                                } ?>"><?php echo $row['remark'] ?></span>
+                                                <p class="bg-gray-light rounded p-1 mb-0 text-center">
+                                                    <i>
+                                                        <mark
+                                                            style="color: green;"><b><?php echo $row['remark']; ?></mark></b>
+                                                    </i>
+                                                </p>
                                             </td>
 
                                             <td>

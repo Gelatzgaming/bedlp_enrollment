@@ -4,7 +4,8 @@ require '../../../includes/conn.php';
 
 if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST") {
 
-    $studentid = mysqli_real_escape_string($conn, $_POST['studentid']);
+
+    $studno = mysqli_real_escape_string($conn, $_POST['studno']);
     $lrn = mysqli_real_escape_string($conn, $_POST['lrn']);
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
@@ -13,7 +14,7 @@ if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST") {
     $failed = 0;
 
     if (empty($_FILES['prof_img']['tmp_name'])) {
-        $error_img = '<li> The <strong>upload prof_img</strong> is required.</li>';
+        $error_img = '<li> The <strong>upload profile</strong> is required.</li>';
         $failed = $failed + 1;
     }
     if (empty($username)) {
@@ -29,13 +30,13 @@ if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     if ($failed != 0) {
-        $_SESSION['prev_data'] = array($studentid, $lrn, $username,);
+        $_SESSION['prev_data'] = array($studno, $lrn, $username);
         $_SESSION['errors'] = array($error_img, $error_uname, $error_pass, $error_empty_pass);
         header('location: ../add.student.php');
     } else {
         $image = (!empty($_FILES['prof_img']['tmp_name'])) ? addslashes(file_get_contents($_FILES['prof_img']['tmp_name'])) : null;
         $hashpwd = password_hash($password, PASSWORD_BCRYPT);
-        $insertUser = mysqli_query($conn, "INSERT INTO tbl_students (img, student_id, lrn, username, password) VALUES ('$image', '$student_id', '$lrn', '$username', '$hashpwd')") or die(mysqli_error($conn));
+        $insertUser = mysqli_query($conn, "INSERT INTO tbl_students (img, stud_no, lrn, username, password) VALUES ('$image', '$studno', '$lrn', '$username', '$hashpwd')") or die(mysqli_error($conn));
         $_SESSION['success'] = true;
         header('location: ../add.student.php');
     }

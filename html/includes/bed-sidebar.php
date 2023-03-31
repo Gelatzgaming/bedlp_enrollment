@@ -5,14 +5,17 @@
             <!--logo End-->
 
             <img src="../../assets/images/auth/logo.png" alt="SFAC-Logo" height="25%" width="25%">
-            <h4 class="logo-title"><?php echo $school_name; ?> <br> <small class="text-sm"><?php echo $school_address; ?>
+            <h4 class="logo-title"><?php echo $school_name; ?> <br> <small
+                    class="text-sm"><?php echo $school_address; ?>
                 </small></h4>
         </a>
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
             <i class="icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </i>
         </div>
@@ -563,7 +566,51 @@
                             </a>
                         </li>
                     </ul>
-                    </li>';
+                    </li> 
+                    <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#sch_set" role="button"
+                    aria-expanded="false" aria-controls="sch_set">
+                    <i class="fa fa-cogs"></i>
+                    <span class="item-name">School Settings</span>
+                    <i class="right-icon">
+                        <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5l7 7-7 7" />
+                        </svg>
+                    </i>
+                </a>
+                <ul class="sub-nav collapse" id="sch_set" data-bs-parent="#sidebar-menu">
+                    <li class="nav-item">
+                        <a class="nav-link " href="../bed-semester/add.sem.php">
+                            <i class="icon">
+                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                            </i>
+                            <i class="sidenav-mini-icon"> H </i>
+                            <span class="item-name"> Semester </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="../bed-date/add.date.php">
+                            <i class="icon">
+                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                            </i>
+                            <i class="sidenav-mini-icon"> H </i>
+                            <span class="item-name"> Academic Year </span>
+                        </a>
+                    </li>
+                </ul>
+                </li>';
                 } elseif ($_SESSION['role'] == "Teacher") {
                     echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
@@ -1043,7 +1090,51 @@
                             </a>
                         </li>
                     </ul>
-                    </li> ';
+                    </li> 
+                    <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#sch_set" role="button"
+                    aria-expanded="false" aria-controls="sch_set">
+                    <i class="fa fa-cogs"></i>
+                    <span class="item-name">School Settings</span>
+                    <i class="right-icon">
+                        <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5l7 7-7 7" />
+                        </svg>
+                    </i>
+                </a>
+                <ul class="sub-nav collapse" id="sch_set" data-bs-parent="#sidebar-menu">
+                    <li class="nav-item">
+                        <a class="nav-link " href="../bed-semester/add.sem.php">
+                            <i class="icon">
+                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                            </i>
+                            <i class="sidenav-mini-icon"> H </i>
+                            <span class="item-name"> Semester </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="../bed-date/add.date.php">
+                            <i class="icon">
+                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                            </i>
+                            <i class="sidenav-mini-icon"> H </i>
+                            <span class="item-name"> Academic Year </span>
+                        </a>
+                    </li>
+                </ul>
+                </li>';
                 } elseif ($_SESSION['role'] == "Adviser") {
                     echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
@@ -1455,11 +1546,42 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../bed-dashboard/index.php" class="nav-link" aria-current="true">
-                            <i class="fa fa-envelope"></i>
-                                <span class="item-name">Enrollment Info.</span>
-                            </a>
-                        </li>';
+                            <a href="../bed-students/add.enroll.php" class="nav-link" aria-current="true">
+                            <i class="fa fa-globe" style="font-size:20px;"></i>
+                            <span class="item-name">';
+                    $get_active_sem = mysqli_query($conn, "SELECT * FROM tbl_active_semesters");
+                    while ($row = mysqli_fetch_array($get_active_sem)) {
+                        $sem = $row['semester_id'];
+                    }
+                    $get_active_acad = mysqli_query($conn, "SELECT * FROM tbl_active_acadyears");
+                    while ($row = mysqli_fetch_array($get_active_acad)) {
+                        $acad = $row['ay_id'];
+                    }
+                    $get_level_id = mysqli_query($conn, "SELECT * FROM tbl_schoolyears
+                                WHERE student_id = '$stud_id' AND semester_id = '0' AND ay_id = '$acad'") or
+                        die(mysqli_error($conn));
+                    $result = mysqli_num_rows($get_level_id);
+                    if ($result > 0) {
+                        echo 'Enrollment Info.</span>
+                </a>
+            </li>';
+        } else {
+
+            $get_level_id = mysqli_query($conn, "SELECT * FROM tbl_schoolyears
+WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or
+                die(mysqli_error($conn));
+            $result2 = mysqli_num_rows($get_level_id);
+
+            if ($result2 > 0) {
+                echo 'Enrollment Info.</span>
+            </a>
+            </li>';
+                        } else {
+                            echo 'Enroll Now</span>
+            </a>
+            </li>';
+                        }
+                    }
                 }  ?>
 
             </ul>
