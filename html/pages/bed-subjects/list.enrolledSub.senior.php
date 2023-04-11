@@ -3,7 +3,6 @@
 <title>Enrollment Information | SFAC Las Pinas</title>
 <?php include '../../includes/bed-header.php';
 
-$stud_id = $_GET['stud_id'];
 
 if (!empty($_GET['glvl_id'])) {
     $glvl_id = $_GET['glvl_id'];

@@ -3,8 +3,6 @@
 <title>Enrollment Information | SFAC Las Pinas</title>
 <?php include '../../includes/bed-header.php';
 
-$stud_id = $_GET['stud_id'];
-
 if ($_SESSION['role'] == "Admission" || $_SESSION['role'] == "Accounting" || $_SESSION['role'] == "Registrar" || $_SESSION['role'] == "Adviser") {
     $stud_id = $_GET['stud_id'];
 
@@ -51,7 +49,7 @@ LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
 WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semester_id = '0'") or die(mysqli_error($conn));
     $result = mysqli_num_rows($get_stud);
     if ($result == 0) {
-        header('location: ../bed-student/add.enroll.php');
+        // header('location: ../bed-students/add.enroll.php');
     }
 }
 
@@ -111,6 +109,13 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
                                                 </div>
                                             </div> ';
                                 unset($_SESSION['success-add']);
+                            } elseif (!empty($_SESSION['success'])) {
+                                echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Subjects Added Successfully.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>
+                                            </div> ';
+                                unset($_SESSION['success']);
                             }
                             ?>
 
@@ -314,21 +319,21 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
                                             <?php  } elseif ($_SESSION['role'] == "Student") {
                                                 if ($remark == 'Canceled' || $remark == 'Pending') { ?>
                                             <hr>
-                                            <div class="row justify-content-end float-right">
-                                                <div class="ml-1">
-                                                    <a href="list.offeredSub.k-10.php" class="btn btn-info p-2"><i
-                                                            class="fa fa-plus">
-                                                        </i>
-                                                        Add Subjects</a>
-                                                </div>
+                                            <div class="justify-content-end m-3">
 
-                                                <div class="ml-2">
-                                                    <button name="submit" class="btn btn-danger p-2"><i
-                                                            class="fa fa-trash-alt">
-                                                        </i>
-                                                        Drop Selected</a>
-                                                    </button>
-                                                </div>
+                                                <a href="list.offeredSub.k-10.php" class="btn btn-info p-2"><i
+                                                        class="fa fa-plus">
+                                                    </i>
+                                                    Add Subjects</a>
+
+
+
+                                                <button name="submit" class="btn btn-danger p-2"><i
+                                                        class="fa fa-trash-alt">
+                                                    </i>
+                                                    Drop Selected</a>
+                                                </button>
+
                                             </div>
                                             <?php }
                                             } ?>

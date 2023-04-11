@@ -31,3 +31,25 @@
 
 <!-- datatables -->
 <script src="../../assets/js/dataTables.responsive.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').DataTable({
+            'columnDefs': [{
+                'targets': 0,
+                'checkboxes': {
+                    'selectRow': true
+                }
+            }]
+        })
+        $('#select-all-cb').click(function(val) {
+            if (val.target.checked)
+                $('input.select-cb').prop("checked", true);
+            else {
+                $('input.select-cb').prop("checked", false);
+
+            }
+        });
+
+    })
+</script>
