@@ -28,7 +28,7 @@ if ($_SESSION['role'] == "Admission" || $_SESSION['role'] == "Accounting" || $_S
     $result = mysqli_num_rows($get_level_id);
 
     if ($result > 0) {
-        header('location: list.enrolledSub.senior.php?stud_id=' . $stud_id . '&glvl_id' . $glvl_id);
+        header('location: list.enrolledSub.k-10.php?stud_id=' . $stud_id . '&glvl_id=' . $glvl_id);
     } else {
 
         $get_level_id = mysqli_query($conn, "SELECT * FROM tbl_schoolyears
@@ -80,6 +80,31 @@ if ($_SESSION['role'] == "Student") {
             <!-- Nav Header Component End -->
             <!--Nav End-->
         </div>
+        <?php
+        if (!empty($_SESSION['errors'])) {
+            echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                                                 ';
+            foreach ($_SESSION['errors'] as $error) {
+                echo $error;
+            }
+            echo '
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
+                                                </div>';
+            unset($_SESSION['errors']);
+        } elseif (!empty($_SESSION['success-del'])) {
+            echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Successfully Dropped Subjects.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>';
+            unset($_SESSION['success-del']);
+        } elseif (!empty($_SESSION['success-add'])) {
+            echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Subjects Added Successfully.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>';
+            unset($_SESSION['success-add']);
+        }
+        ?>
         <div class="content">
             <div class="container-fluid pl-5 pr-5 pb-3">
                 <!-- main content pt.2 -->
@@ -88,34 +113,6 @@ if ($_SESSION['role'] == "Student") {
                     <div class="card">
                         <div class="card-header">
                             <h4 class="header-title mb-3">Enrollment Information</h4>
-                            <?php
-                            if (!empty($_SESSION['errors'])) {
-                                echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
-                                                 ';
-                                foreach ($_SESSION['errors'] as $error) {
-                                    echo $error;
-                                }
-                                echo '
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
-                                                </div>
-                                            </div>';
-                                unset($_SESSION['errors']);
-                            } elseif (!empty($_SESSION['success-del'])) {
-                                echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Successfully Dropped Subjects.</strong>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-                                                </div>
-                                            </div> ';
-                                unset($_SESSION['success-del']);
-                            } elseif (!empty($_SESSION['success-add'])) {
-                                echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Subjects Added Successfully.</strong>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-                                                </div>
-                                            </div> ';
-                                unset($_SESSION['success-add']);
-                            }
-                            ?>
 
                             <hr class="bg-black mb-2">
                         </div>

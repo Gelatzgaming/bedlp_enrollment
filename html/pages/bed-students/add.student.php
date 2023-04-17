@@ -25,6 +25,25 @@
         </div>
         <div class="conatiner-fluid content-inner mt-n5 py-0">
             <div>
+                <?php
+                if (!empty($_SESSION['errors'])) {
+                    echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                                                 ';
+                    foreach ($_SESSION['errors'] as $error) {
+                        echo $error;
+                    }
+                    echo '
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
+                                                </div>';
+                    unset($_SESSION['errors']);
+                } elseif (!empty($_SESSION['success'])) {
+                    echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Successfully Added.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>';
+                    unset($_SESSION['success']);
+                }
+                ?>
                 <div class="row">
                     <div class="col-sm-12 col-lg-12">
                         <div class="card">
@@ -36,46 +55,18 @@
                             </div>
                             <div class="card-body" style="color:black;">
 
-                                <form action="userData/user.add.student.php" method="POST"
-                                    enctype="multipart/form-data">
-
-                                    <?php
-                                    if (!empty($_SESSION['errors'])) {
-                                        echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
-                                                 ';
-                                        foreach ($_SESSION['errors'] as $error) {
-                                            echo $error;
-                                        }
-                                        echo '
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
-                                                </div>
-                                            </div>';
-                                        unset($_SESSION['errors']);
-                                    } elseif (!empty($_SESSION['success'])) {
-                                        echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Successfully Added.</strong>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-                                                </div>
-                                            </div> ';
-                                        unset($_SESSION['success']);
-                                    }
-                                    ?>
-
-
+                                <form action="userData/user.add.student.php" method="POST" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="form-group mb-4">
                                             <div class="custom-file">
                                                 <div class="text-center mb-3">
-                                                    <img class="img-fluid img-circle"
-                                                        src="../../assets/images/icons/user.png "
-                                                        alt="User profile picture" style="width: 145px; height: 145px;">
+                                                    <img class="img-fluid img-circle" src="../../assets/images/icons/user.png " alt="User profile picture" style="width: 145px; height: 145px;">
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group m-auto col-md-4">
                                                         <div class="input-group">
                                                             <div class="custom-file">
-                                                                <input type="file" class="form-control" name="prof_img"
-                                                                    required>
+                                                                <input type="file" class="form-control" name="prof_img" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -84,29 +75,24 @@
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label" for="example-text-input">Student ID</label>
-                                            <input type="text" class="form-control" id="example-text-input"
-                                                name="studno" placeholder="Student ID" required>
+                                            <input type="text" class="form-control" id="example-text-input" name="studno" placeholder="Student ID" required>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label" for="example-text-input">Learner Reference
                                                 Number</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="lrn"
-                                                placeholder="Learner Reference Number" required>
+                                            <input type="text" class="form-control" id="example-text-input" name="lrn" placeholder="Learner Reference Number" required>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label" for="example-text-input">Username</label>
-                                            <input type="text" class="form-control" id="example-text-input"
-                                                name="username" placeholder="Username" required>
+                                            <input type="text" class="form-control" id="example-text-input" name="username" placeholder="Username" required>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label" for="example-text-input">Password</label>
-                                            <input type="password" class="form-control" id="example-text-input"
-                                                name="password" placeholder="Password" required>
+                                            <input type="password" class="form-control" id="example-text-input" name="password" placeholder="Password" required>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label" for="example-text-input">Confirm Password</label>
-                                            <input type="password" class="form-control" id="example-text-input"
-                                                name="password2" placeholder="Confirm Password" required>
+                                            <input type="password" class="form-control" id="example-text-input" name="password2" placeholder="Confirm Password" required>
                                         </div>
 
                                     </div>

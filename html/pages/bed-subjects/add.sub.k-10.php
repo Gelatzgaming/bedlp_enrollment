@@ -25,6 +25,31 @@
         </div>
         <div class="conatiner-fluid content-inner mt-n5 py-0">
             <div>
+                <?php
+                if (!empty($_SESSION['errors'])) {
+                    echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                                                 ';
+                    foreach ($_SESSION['errors'] as $error) {
+                        echo $error;
+                    }
+                    echo '
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
+                                                </div>';
+                    unset($_SESSION['errors']);
+                } elseif (!empty($_SESSION['success'])) {
+                    echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Successfully Added.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>';
+                    unset($_SESSION['success']);
+                } elseif (!empty($_SESSION['subject_exists'])) {
+                    echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Subject Already Exists.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>';
+                    unset($_SESSION['subject_exists']);
+                }
+                ?>
                 <div class="row">
                     <div class="col-sm-12 col-lg-12">
                         <div class="card">
@@ -37,51 +62,17 @@
                             </div>
                             <div class="card-body" style="color:black;">
 
-                                <form action="userData/user.add.sub.k-10.php" method="POST"
-                                    enctype="multipart/form-data">
-
-                                    <?php
-                                            if (!empty($_SESSION['errors'])) {
-                                                echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
-                                                 ';
-                                                foreach ($_SESSION['errors'] as $error) {
-                                                    echo $error;
-                                                }
-                                                echo '
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
-                                                </div>
-                                            </div>';
-                                                unset($_SESSION['errors']);
-                                            } elseif (!empty($_SESSION['success'])) {
-                                                echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Successfully Added.</strong>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-                                                </div>
-                                            </div> ';
-                                                unset($_SESSION['success']);
-                                            } elseif (!empty($_SESSION['subject_exists'])) {
-                                                echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Subject Already Exists.</strong>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-                                                </div>
-                                            </div> ';
-                                                unset($_SESSION['subject_exists']);
-                                            }
-                                            ?>
-
+                                <form action="userData/user.add.sub.k-10.php" method="POST" enctype="multipart/form-data">
 
                                     <div class="row">
 
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label" for="example-text-input">Code</label>
-                                            <input type="text" class="form-control" id="example-text-input"
-                                                name="subj_code" placeholder="Enter Subject Code" required>
+                                            <input type="text" class="form-control" id="example-text-input" name="subj_code" placeholder="Enter Subject Code" required>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label" for="example-text-input">Description</label>
-                                            <input type="text" class="form-control" id="example-text-input"
-                                                name="subj_description" placeholder="Enter Subject Description"
-                                                required>
+                                            <input type="text" class="form-control" id="example-text-input" name="subj_description" placeholder="Enter Subject Description" required>
                                         </div>
                                     </div>
                                     <div class="row justify-content-center">
@@ -89,16 +80,15 @@
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label" for="example-text-input">Select Grade
                                                 Level</label>
-                                            <select class="form-select" data-dropdown-css-class="select2-info"
-                                                data-placeholder="Select Grade Level" name="grade_level">
+                                            <select class="form-select" data-dropdown-css-class="select2-info" data-placeholder="Select Grade Level" name="grade_level">
                                                 <option value="" disabled selected>Select Grade Level
                                                 </option>
                                                 <?php
-                                                    $query = mysqli_query($conn, "SELECT * from tbl_grade_levels LIMIT 13");
-                                                    while ($row2 = mysqli_fetch_array($query)) {
-                                                        echo '<option value="' . $row2['grade_level_id'] . '">' . $row2['grade_level'] . '</option>';
-                                                            }
-                                                            ?>
+                                                $query = mysqli_query($conn, "SELECT * from tbl_grade_levels LIMIT 13");
+                                                while ($row2 = mysqli_fetch_array($query)) {
+                                                    echo '<option value="' . $row2['grade_level_id'] . '">' . $row2['grade_level'] . '</option>';
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
@@ -121,7 +111,7 @@
         <!-- Footer Section End -->
     </main>
 
-    <?php  include '../../includes/bed-script.php' ?>
+    <?php include '../../includes/bed-script.php' ?>
 
 </body>
 

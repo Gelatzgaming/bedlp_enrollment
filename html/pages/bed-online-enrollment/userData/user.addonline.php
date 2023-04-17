@@ -1,8 +1,8 @@
 <?php
 
 require '../../../includes/conn.php';
-session_start();
-ob_start();
+
+// include '../../../includes/session.php';
 
 
 
@@ -30,27 +30,37 @@ if (isset($_POST['submit'])) {
     $landline = mysqli_real_escape_string($conn, $_POST['landline']);
     $cellphone = mysqli_real_escape_string($conn, $_POST['cellphone']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $fname = mysqli_real_escape_string($conn, $_POST['fname']);
-    $focc = mysqli_real_escape_string($conn, $_POST['focc']);
-    $fcontact = mysqli_real_escape_string($conn, $_POST['fcontact']);
-    $mname = mysqli_real_escape_string($conn, $_POST['mname']);
-    $mocc = mysqli_real_escape_string($conn, $_POST['mocc']);
-    $mcontact = mysqli_real_escape_string($conn, $_POST['mcontact']);
-    $month_inc  = mysqli_real_escape_string($conn, $_POST['month_inc']);
-    $no_sib = mysqli_real_escape_string($conn, $_POST['no_sib']);
-    $guardname = mysqli_real_escape_string($conn, $_POST['guardname']);
-    $gaddress = mysqli_real_escape_string($conn, $_POST['gaddress']);
-    $gcontact = mysqli_real_escape_string($conn, $_POST['gcontact']);
     $last_attend = mysqli_real_escape_string($conn, $_POST['last_attend']);
     $prev_grade_level = mysqli_real_escape_string($conn, $_POST['prev_grade_level']);
     $sch_year = mysqli_real_escape_string($conn, $_POST['sch_year']);
     $sch_address = mysqli_real_escape_string($conn, $_POST['sch_address']);
+    $sch_type = mysqli_real_escape_string($conn, $_POST['sch_type']);
+    $infos = mysqli_real_escape_string($conn, $_POST['info_name']);
 
-    $year = mysqli_real_escape_string($conn, $_POST['year']);
-    $semester = mysqli_real_escape_string($conn, $_POST['semester']);
 
-    $insertUser = mysqli_query($conn, "INSERT INTO tbl_online_reg (stud_type, grade_level_id, strand_id, lrn, student_lname, student_fname, student_mname, address, date_birth, place_birth, age, gender_id, nationality, religion, landline, cellphone, email, fname, focc, fcontact, mname, mocc, mcontact, month_inc, no_siblings, guardname, gaddress, gcontact, last_sch, prev_grade_level, sch_year, sch_address, academic_year, semester, remark ) VALUES ('New', '$grade', '$strand', '$lrn', '$firstname', '$lastname', '$midname', '$address', '$date_birth', '$place_birth', '$age', '$gender', '$nationality', '$religion', '$landline', '$cellphone', '$email', '$fname', '$focc', '$fcontact', '$mname', '$mocc', '$mcontact', '$month_inc', '$no_sib', '$guardname', '$gaddress', '$gcontact', '$last_attend', '$prev_grade_level', '$sch_year' , '$sch_address', '$year', '$semester', 'Pending')");
+    $get_acadYear = mysqli_query($conn, "SELECT * FROM tbl_active_acadyears LEFT JOIN tbl_acadyears USING(ay_id)");
+    $get_sem = mysqli_query($conn, "SELECT * FROM tbl_active_semesters LEFT JOIN tbl_semesters USING (semester_id)");
+    $row_acadyear = mysqli_fetch_array($get_acadYear);
+    $row_semester = mysqli_fetch_array($get_sem);
+    $acadyear_id = $row_acadyear['ay_id'];
+    $act_acad = $row_acadyear['academic_year'];
+    $semester_id = $row_semester['semester_id'];
+    $act_sem = $row_semester['semester'];
 
-    $_SESSION['success'] = true;
-    header('location: ../online_success.php');
+
+    $year = $act_acad;
+    $semester = $act_sem;
+
+    $check_double = mysqli_query($conn, "SELECT * FROM tbl_online_reg WHERE grade_level_id ='$grade' AND student_fname = '$firstname' AND student_lname = '$lastname' AND student_mname = '$midname' AND email = '$email'") or die(mysqli_error($conn));
+    $result = mysqli_num_rows($check_double);
+
+    if ($result > 0) {
+        $_SESSION['dbl-input'] = true;
+        header('location: ../online.enrollment.php');
+    } else {
+        $insertUser = mysqli_query($conn, "INSERT INTO tbl_online_reg (stud_type, grade_level_id, strand_id, lrn, student_lname, student_fname, student_mname, address, date_birth, place_birth, age, gender_id, nationality, religion, landline, cellphone, email, last_sch, prev_grade_level, sch_year, sch_address, sch_type, info_name, academic_year, semester, remark ) VALUES ('New', '$grade', '$strand', '$lrn', '$firstname', '$lastname', '$midname', '$address', '$date_birth', '$place_birth', '$age', '$gender', '$nationality', '$religion', '$landline', '$cellphone', '$email', '$last_attend', '$prev_grade_level', '$sch_year' , '$sch_address', '$sch_type', '$infos', '$year', '$semester', 'Pending')");
+
+        $_SESSION['success'] = true;
+        header('location: ../online.success.php');
+    }
 }

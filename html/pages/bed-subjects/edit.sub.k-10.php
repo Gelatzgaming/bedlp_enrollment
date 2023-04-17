@@ -30,6 +30,31 @@ $_SESSION['subject_id'] = $sub_id;
         </div>
         <div class="conatiner-fluid content-inner mt-n5 py-0">
             <div>
+                <?php
+                if (!empty($_SESSION['errors'])) {
+                    echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                                                 ';
+                    foreach ($_SESSION['errors'] as $error) {
+                        echo $error;
+                    }
+                    echo '
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
+                                                </div>';
+                    unset($_SESSION['errors']);
+                } elseif (!empty($_SESSION['success-edit'])) {
+                    echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Successfully Edited.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>';
+                    unset($_SESSION['success-edit']);
+                } elseif (!empty($_SESSION['subject_exists'])) {
+                    echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Subject Already Exists.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>';
+                    unset($_SESSION['subject_exists']);
+                }
+                ?>
                 <div class="row">
                     <div class="col-sm-12 col-lg-12">
                         <div class="card">
@@ -46,37 +71,6 @@ $_SESSION['subject_id'] = $sub_id;
                                     $gl = $row['grade_level'];
                                 ?>
                                     <form action="userData/user.edit.sub.k-10.php" method="POST" enctype="multipart/form-data">
-
-                                        <?php
-                                        if (!empty($_SESSION['errors'])) {
-                                            echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
-                                                 ';
-                                            foreach ($_SESSION['errors'] as $error) {
-                                                echo $error;
-                                            }
-                                            echo '
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
-                                                </div>
-                                            </div>';
-                                            unset($_SESSION['errors']);
-                                        } elseif (!empty($_SESSION['success-edit'])) {
-                                            echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Successfully Edited.</strong>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-                                                </div>
-                                            </div> ';
-                                            unset($_SESSION['success-edit']);
-                                        } elseif (!empty($_SESSION['subject_exists'])) {
-                                            echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Subject Already Exists.</strong>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-                                                </div>
-                                            </div> ';
-                                            unset($_SESSION['subject_exists']);
-                                        }
-                                        ?>
-
-
                                         <div class="row">
 
                                             <div class="col-md-6 mb-3">

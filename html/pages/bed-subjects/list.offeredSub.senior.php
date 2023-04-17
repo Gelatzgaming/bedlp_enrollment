@@ -83,65 +83,61 @@ if ($_SESSION['role'] == "Student") {
             <!-- Nav Header Component End -->
             <!--Nav End-->
         </div>
+        <?php
+        if (!empty($_SESSION['errors'])) {
+            echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                                                 ';
+            foreach ($_SESSION['errors'] as $error) {
+                echo $error;
+            }
+            echo '
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
+                                                </div>';
+            unset($_SESSION['errors']);
+        } elseif (!empty($_SESSION['success-del'])) {
+            echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Successfully Deleted.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>';
+            unset($_SESSION['success-del']);
+        }
+        ?>
         <div class="content">
             <div class="container-fluid pl-5 pr-5 pb-3">
                 <!-- main content pt.2 -->
                 <!-- Dark table start -->
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-body">
                             <h4 class="header-title mb-3">Select Your Subjects</h4>
                             <?php if ($_SESSION['role'] == "Student") { ?>
-                            <form action="userData/ctrl.list.offeredSub.senior.php" method="POST">
+                                <form action="userData/ctrl.list.offeredSub.senior.php" method="POST">
                                 <?php } elseif ($_SESSION['role'] == "Admission" || $_SESSION['role'] == "Accounting" || $_SESSION['role'] == "Registrar" || $_SESSION['role'] == "Adviser") { ?>
-                                <?php
-                                    if (!empty($_SESSION['errors'])) {
-                                        echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
-                                                 ';
-                                        foreach ($_SESSION['errors'] as $error) {
-                                            echo $error;
-                                        }
-                                        echo '
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
-                                                </div>
-                                            </div>';
-                                        unset($_SESSION['errors']);
-                                    } elseif (!empty($_SESSION['success-del'])) {
-                                        echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Successfully Deleted.</strong>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-                                                </div>
-                                            </div> ';
-                                        unset($_SESSION['success-del']);
-                                    }
-                                    ?>
-                                <form action="userData/user.add.offeredSub.senior.php?stud_id=<?php echo $stud_id; ?>"
-                                    method="POST">
+
+                                    <form action="userData/user.add.offeredSub.senior.php?stud_id=<?php echo $stud_id; ?>" method="POST">
                                     <?php } ?>
 
                                     <hr class="bg-black mb-2">
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="user-list-table" class="table table-hover responsive nowrap" role="grid"
-                                    data-toggle="data-table" style="width: 100%">
-                                    <thead class="text-capitalize">
-                                        <tr class="light">
-                                            <th><input type="checkbox" name="" id="select-all-cb"></th>
-                                            <th>Code</th>
-                                            <th>Description</th>
-                                            <th>Grade Level</th>
-                                            <th>Strand</th>
-                                            <th>Semester</th>
-                                            <th>Unit(s)</th>
-                                            <th>Days</th>
-                                            <th>Time</th>
-                                            <th>Room</th>
-                                            <th>Professor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php $get_enrolled_stud = mysqli_query($conn, "SELECT * FROM tbl_schoolyears AS sy 
+
+                                    <div class="table-responsive">
+                                        <table id="user-list-table" class="table table-hover responsive nowrap" role="grid" data-toggle="data-table" style="width: 100%">
+                                            <thead class="text-capitalize">
+                                                <tr class="light">
+                                                    <th><input type="checkbox" name="" id="select-all-cb"></th>
+                                                    <th>Code</th>
+                                                    <th>Description</th>
+                                                    <th>Grade Level</th>
+                                                    <th>Strand</th>
+                                                    <th>Semester</th>
+                                                    <th>Unit(s)</th>
+                                                    <th>Days</th>
+                                                    <th>Time</th>
+                                                    <th>Room</th>
+                                                    <th>Professor</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $get_enrolled_stud = mysqli_query($conn, "SELECT * FROM tbl_schoolyears AS sy 
                                                     LEFT JOIN tbl_strands AS strd ON sy.strand_id = strd.strand_id
                                                     LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id
                                                     LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
@@ -151,7 +147,7 @@ if ($_SESSION['role'] == "Student") {
                                                     $grade = $row['grade_level_id'];
                                                 } ?>
 
-                                        <?php
+                                                <?php
 
                                                 $get_offerSub = mysqli_query($conn, "SELECT *, CONCAT(teach.teacher_fname, ' ', LEFT(teach.teacher_mname,1), '. ', teach.teacher_lname) AS fullname FROM tbl_schedules AS sched
                                                 LEFT JOIN tbl_subjects_senior AS sub ON sub.subject_id = sched.subject_id
@@ -168,72 +164,62 @@ if ($_SESSION['role'] == "Student") {
                                                 while ($row = mysqli_fetch_array($get_offerSub)) {
 
                                                 ?>
-                                        <tr>
-                                            <td>
-                                                <input type="text" name="studID[]" value="<?php echo $stud_id ?>"
-                                                    hidden>
-                                                <input type="text" name="sched_id[]"
-                                                    value="<?php echo $row['schedule_id']; ?>" hidden>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input
-                                                        class="custom-control-input custom-control-input-navy select-cb"
-                                                        type="checkbox" id="option-a<?php echo $row['schedule_id'] ?>"
-                                                        name="checked[]" value="<?php echo $index++; ?>">
-                                                    <label for="option-a<?php echo $row['schedule_id'] ?>"
-                                                        class="custom-control-label"></label>
-                                                </div>
-                                            </td>
-                                            <td><?php echo $row['subject_code']; ?></td>
-                                            <td><?php echo $row['subject_description']; ?></td>
-                                            <td><?php echo $row['grade_level']; ?></td>
-                                            <td><?php echo $row['strand_name']; ?></td>
-                                            <td><?php echo $row['semester']; ?></td>
-                                            <td><?php echo $row['total_units']; ?></td>
-                                            <td><?php echo $row['day']; ?></td>
-                                            <td><?php echo $row['time']; ?></td>
-                                            <td><?php echo $row['room']; ?></td>
-                                            <?php if (empty($row['fullname'])) { ?>
-                                            <td>TBA</td>
-                                            <?php } else { ?>
-                                            <td><?php echo $row['fullname']; ?></td>
-                                            <?php } ?>
-                                        </tr>
-                                        <?php
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="studID[]" value="<?php echo $stud_id ?>" hidden>
+                                                            <input type="text" name="sched_id[]" value="<?php echo $row['schedule_id']; ?>" hidden>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input class="custom-control-input custom-control-input-navy select-cb" type="checkbox" id="option-a<?php echo $row['schedule_id'] ?>" name="checked[]" value="<?php echo $index++; ?>">
+                                                                <label for="option-a<?php echo $row['schedule_id'] ?>" class="custom-control-label"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td><?php echo $row['subject_code']; ?></td>
+                                                        <td><?php echo $row['subject_description']; ?></td>
+                                                        <td><?php echo $row['grade_level']; ?></td>
+                                                        <td><?php echo $row['strand_name']; ?></td>
+                                                        <td><?php echo $row['semester']; ?></td>
+                                                        <td><?php echo $row['total_units']; ?></td>
+                                                        <td><?php echo $row['day']; ?></td>
+                                                        <td><?php echo $row['time']; ?></td>
+                                                        <td><?php echo $row['room']; ?></td>
+                                                        <?php if (empty($row['fullname'])) { ?>
+                                                            <td>TBA</td>
+                                                        <?php } else { ?>
+                                                            <td><?php echo $row['fullname']; ?></td>
+                                                        <?php } ?>
+                                                    </tr>
+                                                <?php
                                                 }
                                                 ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="justify-content-end m-2">
-                            <button name="submit" type="submit" class="btn btn-danger p-2 m-1 float-end"><i
-                                    class="fa fa-plus">
-                                </i>
-                                Add Subjects</a>
-                            </button>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="justify-content-end m-2">
+                                        <button name="submit" type="submit" class="btn btn-danger p-2 m-1 float-end"><i class="fa fa-plus">
+                                            </i>
+                                            Add Subjects</a>
+                                        </button>
 
-                            <?php if ($_SESSION['role'] == "Student") { ?>
-                            <div class="ml-2">
-                                <a href="list.enrolledSub.senior.php" class="btn btn-secondary p-2"><i
-                                        class="fa fa-arrow-circle-left">
-                                    </i>
-                                    Back</a>
-                            </div>
-                            <?php } elseif ($_SESSION['role'] == "Admission" || $_SESSION['role'] == "Accounting" || $_SESSION['role'] == "Registrar" || $_SESSION['role'] == "Adviser") {
-                            ?>
-                            <div class="ml-2">
-                                <a href="list.enrolledSub.senior.php?stud_id=<?php echo $stud_id; ?>"
-                                    class="btn btn-secondary p-2"><i class="fa fa-arrow-circle-left">
-                                    </i>
-                                    Back</a>
-                            </div>
-                            <?php } ?>
+                                        <?php if ($_SESSION['role'] == "Student") { ?>
+                                            <div class="ml-2">
+                                                <a href="list.enrolledSub.senior.php" class="btn btn-secondary p-2"><i class="fa fa-arrow-circle-left">
+                                                    </i>
+                                                    Back</a>
+                                            </div>
+                                        <?php } elseif ($_SESSION['role'] == "Admission" || $_SESSION['role'] == "Accounting" || $_SESSION['role'] == "Registrar" || $_SESSION['role'] == "Adviser") {
+                                        ?>
+                                            <div class="ml-2">
+                                                <a href="list.enrolledSub.senior.php?stud_id=<?php echo $stud_id; ?>" class="btn btn-secondary p-2"><i class="fa fa-arrow-circle-left">
+                                                    </i>
+                                                    Back</a>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                    </form>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <!-- Dark table end -->
         </div>
@@ -249,14 +235,7 @@ if ($_SESSION['role'] == "Student") {
 
     <?php include '../../includes/bed-script.php' ?>
     <script>
-    $('#dt3').dataTable({
-        "paging": false,
-        "searching": false,
-        "info": false,
-        "sorting": false
-    });
-
-    $("#alertDel").delay(2000).fadeOut();
+        $("#alertDel").delay(2000).fadeOut();
     </script>
 
 </body>

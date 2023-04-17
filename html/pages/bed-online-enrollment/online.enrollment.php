@@ -73,14 +73,33 @@ include '../../includes/conn.php';
                         <div class="col-8 mt-3">
                             <div class="card">
                                 <div class="card-body">
+                                    <?php
+                                    if (!empty($_SESSION['errors'])) {
+                                        echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                                                 ';
+                                        foreach ($_SESSION['errors'] as $error) {
+                                            echo $error;
+                                        }
+                                        echo '
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
+                                                </div>';
+                                        unset($_SESSION['errors']);
+                                    } elseif (!empty($_SESSION['dbl-input'])) {
+                                        echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Information Already Submitted.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>';
+                                        unset($_SESSION['dbl-input']);
+                                    }
+                                    ?>
                                     <div class="card-header text-center">
                                         <a href="../bed-login/login.php" class="h1 justify-content-center"><img
                                                 height="90" width="90" src="../../assets/images/auth/logo.png"
                                                 alt="logo-signin"></a>
-                                        <h5 class="login-box-msg mt-3">Saint Francis of Assisi College Bacoor Campus
+                                        <h5 class="login-box-msg mt-3">Saint Francis of Assisi College Las Piñas Campus
                                         </h5>
                                     </div>
-                                    <form action="./userData/user.addonline.php" method="POST"
+                                    <form action="userData/user.addonline.php" method="POST"
                                         enctype="multipart/form-data">
 
                                         <hr style="border: 1px solid black;">
@@ -98,7 +117,7 @@ include '../../includes/conn.php';
                                                             class="col-form-label">Grade</label>
                                                         <select class="form-select form-select-md"
                                                             data-dropdown-css-class="select2-purple"
-                                                            data-placeholder="Select Grade" name="grade">
+                                                            data-placeholder="Select Grade" name="grade" required>
                                                             <option selected disabled>Select Grade</option>
                                                             <?php
                                                             $query = mysqli_query($conn, "SELECT * FROM tbl_grade_levels");
@@ -125,7 +144,7 @@ include '../../includes/conn.php';
                                                             class="col-form-label">Strand</label>
                                                         <select class="form-select form-select-md"
                                                             data-dropdown-css-class="select2-purple"
-                                                            data-placeholder="Select Strand" name="strand">
+                                                            data-placeholder="Select Strand" name="strand" required>
                                                             <option selected disabled>Select Strand</option>
                                                             <?php
                                                             $query = mysqli_query($conn, "SELECT * FROM tbl_strands");
@@ -150,7 +169,7 @@ include '../../includes/conn.php';
                                                         <label for="example-url-input" class="col-form-label">Last
                                                             Name</label>
                                                         <input class="form-control" type="text" placeholder="Last Name"
-                                                            name="lastname" id="example-url-input">
+                                                            name="lastname" id="example-url-input" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -158,7 +177,7 @@ include '../../includes/conn.php';
                                                         <label for="example-url-input" class="col-form-label">First
                                                             Name</label>
                                                         <input class="form-control" type="text" placeholder="First Name"
-                                                            name="firstname" id="example-url-input">
+                                                            name="firstname" id="example-url-input" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -167,7 +186,7 @@ include '../../includes/conn.php';
                                                             Name</label>
                                                         <input class="form-control" type="text"
                                                             placeholder="Middle name" name="midname"
-                                                            id="example-search-input">
+                                                            id="example-search-input" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -178,7 +197,7 @@ include '../../includes/conn.php';
                                                             Address</label>
                                                         <input class="form-control" type="text"
                                                             placeholder="Unit number, house number, street name, barangay, city, province"
-                                                            name="address" id="example-search-input">
+                                                            name="address" id="example-search-input" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -192,7 +211,7 @@ include '../../includes/conn.php';
                                                         <input type="text" class="form-control focss"
                                                             data-inputmask-alias="datetime"
                                                             data-inputmask-inputformat="dd/mm/yyyy" data-mask
-                                                            name="date_birth" placeholder="dd/mm/yyyy">
+                                                            name="date_birth" placeholder="dd/mm/yyyy" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -210,7 +229,7 @@ include '../../includes/conn.php';
                                                         <label for="example-search-input"
                                                             class="col-form-label">Age</label>
                                                         <input class="form-control" type="text" placeholder="Age"
-                                                            name="age" id="example-search-input">
+                                                            name="age" id="example-search-input" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -221,7 +240,7 @@ include '../../includes/conn.php';
                                                             class="col-form-label">Gender</label>
                                                         <select class="form-select form-select-md"
                                                             data-dropdown-css-class="select2-purple"
-                                                            data-placeholder="Select Gender" name="gender" required>
+                                                            data-placeholder="Select Gender" name="gender">
                                                             <?php if (empty($row['gender_id'])) {
                                                                 echo '<option value="" disabled selected>Select Gender</option>';
                                                                 $get_gender = mysqli_query($conn, "SELECT * FROM tbl_genders");
@@ -268,7 +287,7 @@ include '../../includes/conn.php';
                                                         <label for="example-url-input" class="col-form-label">Landline
                                                             No.</label>
                                                         <input type="text" class="form-control"
-                                                            placeholder="Landline Number" name="landline">
+                                                            placeholder="Landline Number" name="landline" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 ">
@@ -276,7 +295,7 @@ include '../../includes/conn.php';
                                                         <label for="example-url-input" class="col-form-label">Cellphone
                                                             No.</label>
                                                         <input type="text" class="form-control"
-                                                            placeholder="Cellphone Number" name="cellphone">
+                                                            placeholder="Cellphone Number" name="cellphone" required>
                                                     </div>
                                                 </div>
 
@@ -288,7 +307,7 @@ include '../../includes/conn.php';
                                                         <label for="example-url-input" class="col-form-label">Email
                                                             Address</label>
                                                         <input type="email" class="form-control focss"
-                                                            placeholder="example@gmail.com" name="email">
+                                                            placeholder="example@gmail.com" name="email" required>
                                                     </div>
                                                 </div>
 
@@ -307,19 +326,20 @@ include '../../includes/conn.php';
                                                         Attended</label>
                                                     <input class="form-control" type="text"
                                                         placeholder="School Last Attended" name="last_attend"
-                                                        id="example-url-input">
+                                                        id="example-url-input" required>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="example-url-input" class="col-form-label">Grade
                                                         Level</label>
                                                     <select class="form-select form-select-md"
                                                         data-dropdown-css-class="select2-purple"
-                                                        data-placeholder="Select Grade Level" name="prev_grade_level">
+                                                        data-placeholder="Select Grade Level" name="prev_grade_level"
+                                                        required>
                                                         <?php
                                                         $get = mysqli_query($conn, "SELECT * FROM tbl_grade_levels");
                                                         while ($row2 = mysqli_fetch_array($get)) {
@@ -330,12 +350,25 @@ include '../../includes/conn.php';
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="example-url-input" class="col-form-label">School
                                                         Year</label>
                                                     <input class="form-control" type="text" placeholder="0000-0000"
-                                                        name="sch_year" id="example-url-input">
+                                                        name="sch_year" id="example-url-input" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="example-url-input" class="col-form-label">School
+                                                        Type</label>
+                                                    <select class="form-select form-select-md"
+                                                        data-dropdown-css-class="select2-purple"
+                                                        data-placeholder="Select Grade Level" name="sch_type" required>
+                                                        <option selected disabled>Select School Type</option>
+                                                        <option value="private">Private</option>
+                                                        <option value="public">Public</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -345,7 +378,7 @@ include '../../includes/conn.php';
                                                     <label for="example-url-input" class="col-form-label">School
                                                         Address</label>
                                                     <input class="form-control" type="text" placeholder="School Address"
-                                                        name="sch_address" id="example-url-input">
+                                                        name="sch_address" id="example-url-input" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -362,7 +395,7 @@ include '../../includes/conn.php';
                                                         find us?</label>
                                                     <select class="form-select form-select-md"
                                                         data-dropdown-css-class="select2-purple"
-                                                        data-placeholder="Select Your Answer" name="infos">
+                                                        data-placeholder="Select Your Answer" name="info_name" required>
                                                         <option selected disabled>Select Your Answer</option>
                                                         <?php
                                                         $get = mysqli_query($conn, "SELECT * FROM tbl_information");
@@ -395,8 +428,8 @@ include '../../includes/conn.php';
                                                     class="btn btn-danger mb-3 mt-3">Register</button>
                                             </div>
                                         </div>
-
                                     </form>
+
                                 </div>
                             </div>
                         </div>
@@ -405,6 +438,7 @@ include '../../includes/conn.php';
 
 
             </div>
+        </section>
     </div>
 
     <!-- Library Bundle Script -->

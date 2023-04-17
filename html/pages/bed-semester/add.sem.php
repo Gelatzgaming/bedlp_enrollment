@@ -71,6 +71,7 @@
             }
             ?>
         </div>
+
         <div class="content">
             <div class="container-fluid pl-5 pr-5 pb-3">
                 <!-- main content pt.2 -->

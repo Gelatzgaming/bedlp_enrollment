@@ -41,6 +41,31 @@ if ($result > 0) {
         </div>
         <div class="conatiner-fluid content-inner mt-n5 py-0">
             <div>
+                <?php
+                                        if (!empty($_SESSION['errors'])) {
+                                            echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                                                 ';
+                                            foreach ($_SESSION['errors'] as $error) {
+                                                echo $error;
+                                            }
+                                            echo '
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
+                                                </div>';
+                                            unset($_SESSION['errors']);
+                                        } elseif (!empty($_SESSION['success-edit'])) {
+                                            echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Successfully Updated.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>';
+                                            unset($_SESSION['success-edit']);
+                                        } elseif (!empty($_SESSION['dbl-sched'])) {
+                                            echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Double Schedule!.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>';
+                                            unset($_SESSION['dbl-sched']);
+                                        }
+                                        ?>
                 <div class="row">
                     <div class="col-sm-12 col-lg-12">
                         <div class="card">
@@ -68,35 +93,6 @@ if ($result > 0) {
 
                                 <form action="userData/user.edit.sched.senior.php" method="POST"
                                     enctype="multipart/form-data">
-
-                                    <?php
-                                        if (!empty($_SESSION['errors'])) {
-                                            echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
-                                                 ';
-                                            foreach ($_SESSION['errors'] as $error) {
-                                                echo $error;
-                                            }
-                                            echo '
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
-                                                </div>
-                                            </div>';
-                                            unset($_SESSION['errors']);
-                                        } elseif (!empty($_SESSION['success-edit'])) {
-                                            echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Successfully Updated.</strong>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-                                                </div>
-                                            </div> ';
-                                            unset($_SESSION['success-edit']);
-                                        } elseif (!empty($_SESSION['dbl-sched'])) {
-                                            echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Double Schedule!.</strong>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-                                                </div>
-                                            </div> ';
-                                            unset($_SESSION['dbl-sched']);
-                                        }
-                                        ?>
 
                                     <input value="<?php echo $act_acad; ?>" hidden name="acadyear">
                                     <input value="<?php echo $act_sem; ?> " hidden name="sem">

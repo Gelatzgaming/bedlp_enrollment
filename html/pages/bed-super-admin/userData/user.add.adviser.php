@@ -8,6 +8,7 @@ if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST") {
     $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
     $midname = mysqli_real_escape_string($conn, $_POST['midname']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $dept = mysqli_real_escape_string($conn, $_POST['dept']);
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $password2 = mysqli_real_escape_string($conn, $_POST['password2']);
@@ -37,7 +38,7 @@ if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST") {
     } else {
         $image = (!empty($_FILES['prof_img']['tmp_name'])) ? addslashes(file_get_contents($_FILES['prof_img']['tmp_name'])) : null;
         $hashpwd = password_hash($password, PASSWORD_BCRYPT);
-        $insertUser = mysqli_query($conn, "INSERT INTO tbl_adviser (img, ad_fname, ad_lname, ad_mname, activation_code, email, username, password) VALUES ('$image', '$firstname', '$lastname', '$midname', '', '$email', '$username', '$hashpwd')") or die(mysqli_error($conn));
+        $insertUser = mysqli_query($conn, "INSERT INTO tbl_adviser (img, ad_fname, ad_lname, ad_mname, activation_code, email, ad_dept, username, password) VALUES ('$image', '$firstname', '$lastname', '$midname', '', '$email', '$dept','$username', '$hashpwd')") or die(mysqli_error($conn));
         $_SESSION['success'] = true;
         header('location: ../add.adviser.php');
     }

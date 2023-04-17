@@ -51,6 +51,7 @@ if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST") {
     $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
     $midname = mysqli_real_escape_string($conn, $_POST['midname']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $dept = mysqli_real_escape_string($conn, $_POST['dept']);
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $password2 = mysqli_real_escape_string($conn, $_POST['password2']);
@@ -74,13 +75,13 @@ if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST") {
     }
 
     if ($failed != 0) {
-        $_SESSION['prev_data'] = array($firstname, $lastname, $midname, $email, $username);
+        $_SESSION['prev_data'] = array($firstname, $lastname, $midname, $email, $dept, $username);
         $_SESSION['errors'] = array($error_img, $error_uname, $error_pass, $error_empty_pass);
         header('location: ../edit.adviser.php?ad_id=' . $ad_id);
     } else {
         $image = (!empty($_FILES['prof_img']['tmp_name'])) ? addslashes(file_get_contents($_FILES['prof_img']['tmp_name'])) : null;
         $hashpwd = password_hash($password, PASSWORD_BCRYPT);
-        $insertUser = mysqli_query($conn, "UPDATE tbl_adviser SET img = '$image', ad_fname = '$firstname', ad_lname = '$lastname', ad_mname = '$midname', email = '$email', username = '$username', password = '$hashpwd' WHERE ad_id = '$ad_id'") or die(mysqli_error($conn));
+        $insertUser = mysqli_query($conn, "UPDATE tbl_adviser SET img = '$image', ad_fname = '$firstname', ad_lname = '$lastname', ad_mname = '$midname', email = '$email', ad_dept = '$dept', username = '$username', password = '$hashpwd' WHERE ad_id = '$ad_id'") or die(mysqli_error($conn));
         $_SESSION['success-edit'] = true;
         header('location: ../edit.adviser.php?ad_id=' . $ad_id);
     }

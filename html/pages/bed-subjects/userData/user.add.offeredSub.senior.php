@@ -5,14 +5,11 @@ require '../../../includes/conn.php';
 if (isset($_POST['submit'])) {
 
 
-
     if (empty($_POST['checked'])) {
         $_SESSION['empty-check'] = true;
         if ($_SESSION['role'] == "Admission" || $_SESSION['role'] == "Accounting" || $_SESSION['role'] == "Registrar" || $_SESSION['role'] == "Adviser") {
-            $_SESSION['success-add'] = true;
             header('location: ../list.offeredSub.senior.php?stud_id=' . $_SESSION['studtID']);
         } else if ($_SESSION['role'] == "Student") {
-            $_SESSION['success-add'] = true;
             header('location: ../list.offeredSub.senior.php');
         }
     } else {

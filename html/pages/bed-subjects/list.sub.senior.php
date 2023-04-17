@@ -41,6 +41,25 @@ if (isset($_GET['stem'])) {
             <!-- Nav Header Component End -->
             <!--Nav End-->
         </div>
+        <?php
+        if (!empty($_SESSION['errors'])) {
+            echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                                                 ';
+            foreach ($_SESSION['errors'] as $error) {
+                echo $error;
+            }
+            echo '
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
+                                                </div>';
+            unset($_SESSION['errors']);
+        } elseif (!empty($_SESSION['success-del'])) {
+            echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Successfully Deleted.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div>';
+            unset($_SESSION['success-del']);
+        }
+        ?>
         <div class="content">
             <div class="container-fluid pl-5 pr-5 pb-3">
                 <!-- main content pt.2 -->
@@ -63,28 +82,6 @@ if (isset($_GET['stem'])) {
                                     echo ' (STEM)';
                                 } ?>
                             </h4>
-
-                            <?php
-                            if (!empty($_SESSION['errors'])) {
-                                echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
-                                                 ';
-                                foreach ($_SESSION['errors'] as $error) {
-                                    echo $error;
-                                }
-                                echo '
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
-                                                </div>
-                                            </div>';
-                                unset($_SESSION['errors']);
-                            } elseif (!empty($_SESSION['success-del'])) {
-                                echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Successfully Deleted.</strong>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
-                                                </div>
-                                            </div> ';
-                                unset($_SESSION['success-del']);
-                            }
-                            ?>
 
                             <form action="list.sub.senior.php" method="GET">
                                 <div class="row ">

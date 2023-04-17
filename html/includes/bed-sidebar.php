@@ -5,17 +5,14 @@
             <!--logo End-->
 
             <img src="../../assets/images/auth/logo.png" alt="SFAC-Logo" height="25%" width="25%">
-            <h4 class="logo-title"><?php echo $school_name; ?> <br> <small
-                    class="text-sm"><?php echo $school_address; ?>
+            <h4 class="logo-title"><?php echo $school_name; ?> <br> <small class="text-sm"><?php echo $school_address; ?>
                 </small></h4>
         </a>
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
             <i class="icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </i>
         </div>
@@ -882,6 +879,22 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="sub-nav collapse" id="maintenance" data-bs-parent="#sidebar-menu">
+                        <li class="nav-item">
+                            <a class="nav-link " href="../bed-choices/list.choices.php">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> H </i>
+                                <span class="item-name"> Choices List </span>
+                            </a>
+                        </li>
+                    </ul>
                     </li>
 
                     <li class="nav-item">
@@ -910,6 +923,22 @@
                                 </i>
                                 <i class="sidenav-mini-icon"> H </i>
                                 <span class="item-name"> Add Students </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="sub-nav collapse" id="data-ent" data-bs-parent="#sidebar-menu">
+                        <li class="nav-item">
+                            <a class="nav-link " href="../bed-choices/add.choices.php">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> H </i>
+                                <span class="item-name"> Add Choices </span>
                             </a>
                         </li>
                     </ul>
@@ -944,7 +973,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../bed-schedules/list.sched.senior.php">
+                            <a class="nav-link " href="../bed-schedules/list.sched.k-10.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -1565,15 +1594,15 @@
                         echo 'Enrollment Info.</span>
                 </a>
             </li>';
-        } else {
+                    } else {
 
-            $get_level_id = mysqli_query($conn, "SELECT * FROM tbl_schoolyears
+                        $get_level_id = mysqli_query($conn, "SELECT * FROM tbl_schoolyears
 WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or
-                die(mysqli_error($conn));
-            $result2 = mysqli_num_rows($get_level_id);
+                            die(mysqli_error($conn));
+                        $result2 = mysqli_num_rows($get_level_id);
 
-            if ($result2 > 0) {
-                echo 'Enrollment Info.</span>
+                        if ($result2 > 0) {
+                            echo 'Enrollment Info.</span>
             </a>
             </li>';
                         } else {

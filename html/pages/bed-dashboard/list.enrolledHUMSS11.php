@@ -34,8 +34,59 @@ include '../../includes/bed-header.php';
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">List of Grade 11 Students</h4> <!-- Ariate's edit part-->
+                            <h4 class="header-title">List of Enrolled Grade 11 HUMSS Students</h4> <!--Ariate's Edit part-->
+                            <div class="row justify-content-center">
+                                <div class="col-md-3 mt-3">
+                                    <div class="card">
+                                        <div class="small-box bg-dark" style="border-radius: 20px;">
+                                            <div class="p-3 d-flex justify-content-center">
 
+                                                <div class="info-box-content">
+                                                    <center><b><span class="info-box-text" style="color: white;"><i
+                                                                    class="fa fa-users"
+                                                                    style="font-size: 30px;"></i><br> New
+                                                                Students</span></b>
+                                                        <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears AS sy
+                                                            LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
+                                                            LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id
+                                                            WHERE ay.academic_year = '$act_acad' AND sem.semester = '$act_sem' AND remark = 'Approved' AND strand_id = '3' AND grade_level_id = '14' AND stud_type = 'New'") or die(mysqli_error($conn)); // Ariate's Edit part //
+                                                        while ($row = mysqli_fetch_array($stud_count)) { ?>
+                                                        <span class="info-box-number" style="color: white;">:
+                                                            <?php echo $row['total_stud']; ?></span>
+                                                    </center>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-md-3 mt-3">
+                                    <div class="card">
+                                        <div class="small-box bg-dark" style="border-radius: 20px;">
+                                            <div class="p-3 d-flex justify-content-center">
+
+                                                <div class="info-box-content">
+                                                    <center><b><span class="info-box-text" style="color: white;"><i
+                                                                    class="fa fa-users"
+                                                                    style="font-size: 30px;"></i><br> Old
+                                                                Students</span></b>
+                                                        <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears AS sy
+                                                            LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
+                                                            LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id
+                                                            WHERE ay.academic_year = '$act_acad' AND sem.semester = '$act_sem' AND remark = 'Approved' AND strand_id = '3' AND grade_level_id = '14' AND stud_type = 'Old'") or die(mysqli_error($conn)); // Ariate's Edit part //
+                                                        while ($row = mysqli_fetch_array($stud_count)) { ?>
+                                                        <span class="info-box-number" style="color: white;">:
+                                                            <?php echo $row['total_stud']; ?></span>
+                                                    </center>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-5 mb-3 mt-4">
                                     <form method="GET">
@@ -56,9 +107,9 @@ include '../../includes/bed-header.php';
 
                             <div class="table-responsive">
                                 <table id="user-list-table" class="table table-hover responsive nowrap" role="grid"
-                                    data-toggle="data-table" style="width: 100%;">
+                                    data-toggle="data-table" style="width: 100%">
                                     <thead class="text-capitalize">
-                                        <tr>
+                                        <tr class="light">
                                             <th>Image</th>
                                             <th>Student ID</th>
                                             <th>Fullname</th>
@@ -88,11 +139,8 @@ include '../../includes/bed-header.php';
                                                 LEFT JOIN tbl_strands AS stds ON stds.strand_id = sy.strand_id
                                                 LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
                                                 LEFT JOIN tbl_grade_levels AS gl ON gl.grade_level_id =sy.grade_level_id
-                                                LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id  
-                                                WHERE remark = 'Approved'
-                                                AND strand_name = 'HUMSS' # Ariate's edit part. I change the a href in db.general.php path too
-                                                AND ay.academic_year = '$act_acad' 
-                                                AND (sem.semester = '$act_sem' OR sy.semester_id = '0')
+                                                LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id
+                                                WHERE remark = 'Approved' AND ay.academic_year = '$act_acad' AND sem.semester = '$act_sem' AND sy.strand_id = '3' AND sy.grade_level_id = '14' /* Ariate's Edit part */
                                                 
                                                 
                                                 
@@ -139,15 +187,16 @@ include '../../includes/bed-header.php';
                                             <td><?php echo $row['stud_type']; ?></td>
                                             <td><?php echo $row['date_enrolled']; ?></td>
                                             <td>
-                                                <span class="badge bg-<?php if ($row['remark'] == "Checked" || $row['remark'] == "Approved") {
-                                                                                echo 'success';
-                                                                            } elseif ($row['remark'] == "Pending") {
-                                                                                echo 'warning';
-                                                                            } elseif ($row['remark'] == "Disapproved" || $row['remark'] == "Canceled") {
-                                                                                echo 'danger';
-                                                                            } else {
-                                                                                echo 'danger';
-                                                                            } ?>"><?php echo $row['remark'] ?></span>
+                                                <span
+                                                    class="badge bg-<?php if ($row['remark'] == "Checked" || $row['remark'] == "Approved") {
+                                                                                    echo 'success';
+                                                                                } elseif ($row['remark'] == "Pending") {
+                                                                                    echo 'warning';
+                                                                                } elseif ($row['remark'] == "Disapproved" || $row['remark'] == "Canceled") {
+                                                                                    echo 'danger';
+                                                                                } else {
+                                                                                    echo 'danger';
+                                                                                } ?>"><?php echo $row['remark'] ?></span>
                                             </td>
 
                                             <td>

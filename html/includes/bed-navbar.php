@@ -184,19 +184,19 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <?php if ($_SESSION['role'] == 'Registrar') {
-                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.registrar.php?reg_id= ' . $reg_id . '">Edit Profile</a></li>';
+                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.registrar.php?reg_id=' . $reg_id . '">Edit Profile</a></li>';
                         } elseif ($_SESSION['role'] == 'Admission') {
-                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.admission.php?admission_id= ' . $admission_id . '">Edit Profile</a></li>';
+                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.admission.php?admission_id=' . $admission_id . '">Edit Profile</a></li>';
                         } elseif ($_SESSION['role'] == 'Adviser') {
-                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.adviser.php?ad_id= ' . $ad_id . '">Edit Profile</a></li>';
+                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.adviser.php?ad_id=' . $ad_id . '">Edit Profile</a></li>';
                         } elseif ($_SESSION['role'] == 'Principal') {
-                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.principal.php?prin_id= ' . $prin_id . '">Edit Profile</a></li>';
+                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.principal.php?prin_id=' . $prin_id . '">Edit Profile</a></li>';
                         } elseif ($_SESSION['role'] == 'Teacher') {
-                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.teacher.php?teacher_id= ' . $teacher_id . '">Edit Profile</a></li>';
+                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.teacher.php?teacher_id=' . $teacher_id . '">Edit Profile</a></li>';
                         } elseif ($_SESSION['role'] == 'Accounting') {
-                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.accounting.php?acc_id= ' . $acc_id . '">Edit Profile</a></li>';
+                            echo '<li><a class="dropdown-item" href="../bed-super-admin/edit.accounting.php?acc_id=' . $acc_id . '">Edit Profile</a></li>';
                         } elseif ($_SESSION['role'] == 'Student') {
-                            echo '<li><a class="dropdown-item" href="../bed-students/edit.student.php?student_id= ' . $stud_id . '">Edit Profile</a></li>';
+                            echo '<li><a class="dropdown-item" href="../bed-students/edit.student.php?student_id=' . $stud_id . '">Edit Profile</a></li>';
                         }
                         ?>
                         <li>
@@ -216,12 +216,12 @@
                 <div class="flex-wrap d-flex justify-content-between align-items-center">
                     <div>
                         <h1>Welcome Franciscans!</h1>
-                        <p>If you're not a good shot today, don't worry. There are other ways to be useful.</p>
+                        <p>Be one of US!</p>
                     </div>
                     <div>
-                        <a href="" class="btn btn-link btn-soft-light">
+                        <a href="https://www.facebook.com/lorenzo.elia.gutierrez.47" class="btn btn-link btn-soft-light">
 
-                            Play Valorant!
+                            Dashboard
                         </a>
                     </div>
                 </div>
