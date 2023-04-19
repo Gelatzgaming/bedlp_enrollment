@@ -61,7 +61,8 @@ if (!empty($_SESSION['role'])) {
                                     <!--Logo start-->
                                     <div class="logo-main mb-2" style="text-align: center;">
                                         <div class="logo-normal">
-                                            <img src="../../assets/images/auth/logo.png" alt="SFAC-Logo" height="100px" width="100px">
+                                            <img src="../../assets/images/auth/logo.png" alt="SFAC-Logo" height="100px"
+                                                width="100px">
 
                                         </div>
 
@@ -88,8 +89,8 @@ if (!empty($_SESSION['role'])) {
                                                 </div>';
                                                 unset($_SESSION['errors']);
                                             } elseif (!empty($_SESSION['pwd-error'])) {
-                                                echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
-                                                    <strong>Password is incorrect.</strong>
+                                                echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert"><i class="fa fa-exclamation-triangle"></i>
+                                                    <strong> Password is incorrect.</strong>
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
                                                 </div> ';
                                                 unset($_SESSION['pwd-error']);
@@ -99,20 +100,23 @@ if (!empty($_SESSION['role'])) {
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="username" class="form-label">Username</label>
-                                                    <input type="username" class="form-control" id="username" name="username" aria-describedby="username" placeholder="Username" required>
+                                                    <input type="username" class="form-control" id="username"
+                                                        name="username" aria-describedby="username"
+                                                        placeholder="Username" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="password" class="form-label">Password</label>
-                                                    <input type="password" class="form-control" id="password" name="password" aria-describedby="password" placeholder="Password" required>
+                                                    <input type="password" class="form-control" id="password"
+                                                        name="password" aria-describedby="password"
+                                                        placeholder="Password" required>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 d-flex justify-content-between">
-                                                <div class="form-check mb-3">
-                                                    <input type="checkbox" class="form-check-input" id="customCheck1">
-                                                    <label class="form-check-label" for="customCheck1">Remember
-                                                        Me</label>
+                                                <div class="mb-3">
+                                                    <a href="../bed-login/sign-up.guest.php"
+                                                        class="text-underline">Sign-up as Guest</a>
                                                 </div>
                                                 <a href="recoverpw.html">Forgot Password?</a>
                                             </div>
@@ -122,7 +126,8 @@ if (!empty($_SESSION['role'])) {
                                         </div>
 
                                         <p class="mt-3 text-center">
-                                            <a href="../bed-online-enrollment/online.enrollment.php" class="text-underline">Inquire Here!</a>
+                                            <a href="../bed-online-enrollment/online.enrollment.php"
+                                                class="text-underline">Inquire Here!</a>
                                         </p>
                                     </form>
                                 </div>
@@ -132,7 +137,8 @@ if (!empty($_SESSION['role'])) {
 
                 </div>
                 <div class="col-md-6 d-md-block d-none bg-primary p-0 mt-n1 vh-100 overflow-hidden">
-                    <img src="../../assets/images/auth/lp.jpg" class="img-fluid gradient-main animated-scaleX" alt="images">
+                    <img src="../../assets/images/auth/lp.jpg" class="img-fluid gradient-main animated-scaleX"
+                        alt="images">
                 </div>
             </div>
         </section>

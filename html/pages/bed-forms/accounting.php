@@ -30,7 +30,7 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem_id' AND ay_id = '$ay_id'")
     $result2 = mysqli_num_rows($get_level_id);
 
     if ($result2 > 0) {
-        header('location: bed-accountingSHS.php?stud_id=' . $stud_id . '&glvl_id=' . $glvl_id);
+        header('location: accountingSH.php?stud_id=' . $stud_id . '&glvl_id=' . $glvl_id);
     } else {
         header('location: ../bed-404/page404.php');
     }

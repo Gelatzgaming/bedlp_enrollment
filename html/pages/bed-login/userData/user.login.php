@@ -30,6 +30,9 @@ if (isset($_POST['submit'])) {
     $adviser = mysqli_query($conn, "SELECT * FROM tbl_adviser WHERE username = '$username'");
     $numrow_adviser = mysqli_num_rows($adviser);
 
+    $guest = mysqli_query($conn, "SELECT * FROM tbl_guests WHERE username = '$username'");
+    $numrow_guest = mysqli_num_rows($guest);
+
     $student = mysqli_query($conn, "SELECT * FROM tbl_students WHERE username = '$username'");
     $numrow_student = mysqli_num_rows($student);
 
@@ -120,6 +123,18 @@ if (isset($_POST['submit'])) {
             } elseif ($checkPWDhash == true) {
                 $_SESSION['role'] = "Adviser";
                 $_SESSION['ad_id'] = $row['ad_id'];
+                header('location: ../../bed-dashboard/index.php');
+            }
+        }
+    } elseif ($numrow_guest > 0) {
+        while ($row = mysqli_fetch_array($guest)) {
+            $checkPWDhash = password_verify($password, $row['password']);
+            if ($checkPWDhash == false) {
+                $_SESSION['pwd-error'] = true;
+                header('location: ../login.php');
+            } elseif ($checkPWDhash == true) {
+                $_SESSION['role'] = "Guest";
+                $_SESSION['guest_id'] = $row['guest_id'];
                 header('location: ../../bed-dashboard/index.php');
             }
         }

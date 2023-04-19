@@ -25,7 +25,7 @@
 
         </div>
         <div class="container-fluid content-inner mt-n5 py-0">
-            <?php if ($_SESSION['role'] == "Accounting" || $_SESSION['role'] == "Admission" || $_SESSION['role'] == "Registrar" || $_SESSION['role'] == "Adviser" || $_SESSION['role'] == "Principal" || $_SESSION['role'] == "Master Key") {
+            <?php if ($_SESSION['role'] == "Accounting" || $_SESSION['role'] == "Admission" || $_SESSION['role'] == "Registrar" || $_SESSION['role'] == "Adviser" || $_SESSION['role'] == "Principal" || $_SESSION['role'] == "Master Key" || $_SESSION['role'] == "Guest") {
                 include 'db.general.php';
             } else if ($_SESSION['role'] == "Student") {
 

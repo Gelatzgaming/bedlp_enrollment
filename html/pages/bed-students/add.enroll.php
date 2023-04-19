@@ -55,36 +55,36 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or 
         <div class="conatiner-fluid content-inner mt-n5 py-0">
             <div>
                 <?php
-                                        if (!empty($_SESSION['errors'])) {
-                                            echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                if (!empty($_SESSION['errors'])) {
+                    echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
                                                  ';
-                                            foreach ($_SESSION['errors'] as $error) {
-                                                echo $error;
-                                            }
-                                            echo '
+                    foreach ($_SESSION['errors'] as $error) {
+                        echo $error;
+                    }
+                    echo '
                                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
                                                 </div>';
-                                            unset($_SESSION['errors']);
-                                        } elseif (!empty($_SESSION['success'])) {
-                                            echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                    unset($_SESSION['errors']);
+                } elseif (!empty($_SESSION['success'])) {
+                    echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
                                                     <strong>Successfully Enrolled.</strong>
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
                                                 </div>';
-                                            unset($_SESSION['success']);
-                                        } elseif (!empty($_SESSION['dbl-stud'])) {
-                                            echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
+                    unset($_SESSION['success']);
+                } elseif (!empty($_SESSION['dbl-stud'])) {
+                    echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
                                                     <strong>This Student has already submitted.</strong>
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
                                                 </div>';
-                                            unset($_SESSION['dbl-stud']);
-                                        } elseif (!empty($_SESSION['field_required'])) {
-                                            echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
+                    unset($_SESSION['dbl-stud']);
+                } elseif (!empty($_SESSION['field_required'])) {
+                    echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
                                                     <strong>All fields are required.</strong>
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
                                                 </div>';
-                                            unset($_SESSION['field_required']);
-                                        }
-                                        ?>
+                    unset($_SESSION['field_required']);
+                }
+                ?>
                 <div class="row">
                     <div class="col-sm-12 col-lg-12">
                         <div class="card">
@@ -160,7 +160,7 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or 
                                                 <option value="" selected disabled>Select Type</option>
                                                 <option value="New">New Student</option>
                                                 <option value="Old">Old Student</option>
-                                                <option value="Transferee">Transferee</option>
+                                                <option value="Balik Franciscano">Balik Franciscano</option>
                                             </select>
                                         </div>
                                     </div>
@@ -169,8 +169,7 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or 
                                             <label class="form-label" for="example-text-input">Strand</label>
                                             <select class="form-select form-select-md"
                                                 data-dropdown-css-class="select2-info"
-                                                data-placeholder="Select Strand (for Senior High School)"
-                                                name="grade_level">
+                                                data-placeholder="Select Strand (for Senior High School)" name="strand">
                                                 <option value="" disabled selected>Select Strand
                                                 </option>
                                                 <?php

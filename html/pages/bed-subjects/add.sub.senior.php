@@ -62,44 +62,53 @@
                             </div>
                             <div class="card-body" style="color:black;">
 
-                                <form action="userData/user.add.sub.senior.php" method="POST" enctype="multipart/form-data">
+                                <form action="userData/user.add.sub.senior.php" method="POST"
+                                    enctype="multipart/form-data">
 
                                     <div class="row">
 
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label" for="example-text-input">Code</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="subject_code" placeholder="Enter Subject Code" required>
+                                            <input type="text" class="form-control" id="example-text-input"
+                                                name="subject_code" placeholder="Enter Subject Code" required>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label" for="example-text-input">Description</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="subject_description" placeholder="Enter Subject Description" required>
+                                            <input type="text" class="form-control" id="example-text-input"
+                                                name="subject_description" placeholder="Enter Subject Description"
+                                                required>
                                         </div>
                                     </div>
                                     <div class="row">
 
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label" for="example-text-input">Lecture Unit(s)</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="lec_units" placeholder="Enter No. of Unit(s)" required>
+                                            <input type="text" class="form-control" id="example-text-input"
+                                                name="lec_units" placeholder="Enter No. of Unit(s)" required>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label" for="example-text-input">Laboratory
                                                 Unit(s)</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="lab_units" placeholder="Enter No. of Unit(s)" required>
+                                            <input type="text" class="form-control" id="example-text-input"
+                                                name="lab_units" placeholder="Enter No. of Unit(s)" required>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label" for="example-text-input">Total Unit(s)</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="total_units" placeholder="Enter Total Unit(s)" required>
+                                            <input type="text" class="form-control" id="example-text-input"
+                                                name="total_units" placeholder="Enter Total Unit(s)" required>
                                         </div>
                                     </div>
                                     <div class="row">
 
                                         <div class="col-md-8 mb-3">
                                             <label class="form-label" for="example-text-input">Pre-Requisites</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="prerequisites" placeholder="Enter Pre-Requisites" required>
+                                            <input type="text" class="form-control" id="example-text-input"
+                                                name="prerequisites" placeholder="Enter Pre-Requisites">
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label" for="example-text-input">E.A.Y</label>
-                                            <select class="form-select" data-dropdown-css-class="select2-info" data-placeholder="Select Effective Academic Year" name="eay" required>
+                                            <select class="form-select" data-dropdown-css-class="select2-info"
+                                                data-placeholder="Select Effective Academic Year" name="eay" required>
                                                 <option value="" disabled selected>Select Effective Academic
                                                     Year</option>
                                                 <?php
@@ -115,7 +124,8 @@
 
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label" for="example-text-input">Semester</label>
-                                            <select class="form-select" data-dropdown-css-class="select2-info" data-placeholder="Select Semester" name="semester">
+                                            <select class="form-select" data-dropdown-css-class="select2-info"
+                                                data-placeholder="Select Semester" name="semester">
                                                 <option value="" disabled selected>Select Semester</option>
                                                 <?php
                                                 $query = mysqli_query($conn, "SELECT * from tbl_semesters");
@@ -128,7 +138,8 @@
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label" for="example-text-input">Grade
                                                 Level</label>
-                                            <select class="form-select" data-dropdown-css-class="select2-info" data-placeholder="Select Grade Level" name="grade_level" required>
+                                            <select class="form-select" data-dropdown-css-class="select2-info"
+                                                data-placeholder="Select Grade Level" name="grade_level" required>
                                                 <option value="" disabled selected>Select Grade Level
                                                 </option>
                                                 <?php
@@ -141,7 +152,8 @@
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label class="form-label" for="example-text-input">Strand</label>
-                                            <select class="form-select" data-dropdown-css-class="select2-info" data-placeholder="Select Strand" name="strand_name" required>
+                                            <select class="form-select" data-dropdown-css-class="select2-info"
+                                                data-placeholder="Select Strand" name="strand_name" required>
                                                 <option value="" disabled selected>Select Strand</option>
                                                 <?php
                                                 $query = mysqli_query($conn, "SELECT * from tbl_strands");

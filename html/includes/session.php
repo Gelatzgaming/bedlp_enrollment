@@ -73,6 +73,15 @@ if (!empty($_SESSION['role'])) {
         if ($ad_id == false) {
             header("location: ../bed-login/login.php");
         }
+    } elseif ($_SESSION['role'] == "Guest") {
+        $guest_id = $_SESSION['guest_id'];
+        $user = $conn->query("SELECT * FROM tbl_guests WHERE guest_id = '$guest_id'");
+        $row_user = $user->fetch_array();
+        $user_fullname = $row_user['guest_fname'] . " " . $row_user['guest_lname'];
+        $user_email = $row_user['email'];
+        if ($guest_id == false) {
+            header("location: ../bed-login/login.php");
+        }
     } elseif ($_SESSION['role'] == "Student") {
         $stud_id = $_SESSION['stud_id'];
         $user = $conn->query("SELECT * FROM tbl_students WHERE student_id = '$stud_id'");

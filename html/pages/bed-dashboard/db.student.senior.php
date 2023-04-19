@@ -27,13 +27,13 @@
                             LEFT JOIN tbl_subjects_senior AS sub ON sub.subject_id = sched.subject_id
                             LEFT JOIN tbl_grade_levels AS gl ON gl.grade_level_id = sub.grade_level_id
                             LEFT JOIN tbl_teachers AS teach ON teach.teacher_id = sched.teacher_id
-                            WHERE stud.student_id = $stud_id AND sched.semester = '$sem_n' AND sched.acadyear = '$acad_n'") or die(mysqli_error($conn));
+                            WHERE stud.student_id = $stud_id AND sched.semester = '$act_sem' AND sched.acadyear = '$act_acad'") or die(mysqli_error($conn));
                                 while ($row = mysqli_fetch_array($get_enrolled_sub)) {
                             ?>
-                                    <h1><?php echo $row['csub']; ?></h1>
+                                    <h1 class="mb-5" style="color: white;"><?php echo $row['csub']; ?></h1>
                                 <?php }
                             } else { ?>
-                                <h1>0</h1>
+                                <h1 class="mb-5" style="color: white;">0</h1>
                             <?php } ?>
                         </div>
                         <div style="margin: 0 auto; text-align: center;">

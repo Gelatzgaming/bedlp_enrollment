@@ -15,7 +15,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
         <div class="row">
             <div class="col-md-3 mt-5 mb-3">
                 <div class="card">
-                    <div class="small-box bg-info">
+                    <div class="small-box bg-info" style="border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-group mb-1"
@@ -40,7 +40,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-5 mb-3">
                 <div class="card">
-                    <div class="small-box bg-info">
+                    <div class="small-box bg-info" style="border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-group"
@@ -64,7 +64,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-5 mb-3">
                 <div class="card">
-                    <div class="small-box bg-info">
+                    <div class="small-box bg-info" style="border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-group"
@@ -88,7 +88,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-5 mb-3">
                 <div class="card">
-                    <div class="small-box bg-info">
+                    <div class="small-box bg-info" style="border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-clock-o"
@@ -111,7 +111,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box bg-info">
+                    <div class="small-box bg-info" style="border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-minus-circle"
@@ -134,7 +134,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box bg-info">
+                    <div class="small-box bg-info" style="border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-minus-circle"
@@ -165,7 +165,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             <!-- small box -->
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: black;">
+                    <div class="small-box" style="background-color: black; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-support"
@@ -188,7 +188,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: black;">
+                    <div class="small-box" style="background-color: black; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-support"
@@ -212,7 +212,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
 
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box bg-danger">
+                    <div class="small-box bg-danger" style="border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-line-chart"
@@ -235,7 +235,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box bg-danger">
+                    <div class="small-box bg-danger" style="border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-line-chart"
@@ -259,7 +259,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
 
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: maroon;">
+                    <div class="small-box" style="background-color: maroon; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-laptop"
@@ -282,7 +282,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: maroon;">
+                    <div class="small-box" style="background-color: maroon; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-laptop"
@@ -306,7 +306,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
 
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: purple;">
+                    <div class="small-box" style="background-color: purple; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-comments"
@@ -329,7 +329,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: purple;">
+                    <div class="small-box" style="background-color: purple; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-comments"
@@ -353,7 +353,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
 
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: orange;">
+                    <div class="small-box" style="background-color: orange; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-cutlery"
@@ -376,7 +376,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: orange;">
+                    <div class="small-box" style="background-color: orange; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-cutlery"
@@ -407,7 +407,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
 
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #095073;">
+                    <div class="small-box" style="background-color: #095073; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"
@@ -430,7 +430,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #095073;">
+                    <div class="small-box" style="background-color: #095073; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"
@@ -453,7 +453,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #095073;">
+                    <div class="small-box" style="background-color: #095073; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"
@@ -476,7 +476,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #095073;">
+                    <div class="small-box" style="background-color: #095073; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"
@@ -499,7 +499,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #095073;">
+                    <div class="small-box" style="background-color: #095073; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"
@@ -522,7 +522,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #095073;">
+                    <div class="small-box" style="background-color: #095073; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"
@@ -545,7 +545,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #095073;">
+                    <div class="small-box" style="background-color: #095073; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"
@@ -568,7 +568,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #095073;">
+                    <div class="small-box" style="background-color: #095073; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"
@@ -591,7 +591,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #095073;">
+                    <div class="small-box" style="background-color: #095073; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"
@@ -614,7 +614,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #095073;">
+                    <div class="small-box" style="background-color: #095073; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"
@@ -646,7 +646,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
 
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #850554;">
+                    <div class="small-box" style="background-color: #850554; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"
@@ -669,7 +669,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #850554;">
+                    <div class="small-box" style="background-color: #850554; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"
@@ -692,7 +692,7 @@ while ($row = mysqli_fetch_array($active_ay)) {
             </div>
             <div class="col-md-3 mt-2 mb-3">
                 <div class="card">
-                    <div class="small-box" style="background-color: #850554;">
+                    <div class="small-box" style="background-color: #850554; border-radius: 15px;">
                         <div class="p-4 d-flex justify-content-between align-items-center">
 
                             <div class="seofct-icon" style="color: white;"><i class="fa fa-star"

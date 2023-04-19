@@ -209,18 +209,14 @@ while ($row = mysqli_fetch_array($get_stud)) {
     $fontsize = 8;
     $tempFontSize = $fontsize;
     $cellwidth = 60;
-    while ($pdf->GetStringWidth($row['fname']) > $cellwidth) {
-        $pdf->SetFontSize($tempFontSize -= 0.1);
-    }
-    $pdf->Cell(65, 7, utf8_decode($row['fname']), 1, 0, 'C');
+
+    $pdf->Cell(65, 7, '', 1, 0, 'C');
 
     $fontsize = 8;
     $tempFontSize = $fontsize;
     $cellwidth = 60;
-    while ($pdf->GetStringWidth($row['mname']) > $cellwidth) {
-        $pdf->SetFontSize($tempFontSize -= 0.1);
-    }
-    $pdf->Cell(65, 7, utf8_decode($row['mname']), 1, 1, 'C');
+
+    $pdf->Cell(65, 7, '', 1, 1, 'C');
 
     $pdf->Cell(65, 7, 'AGE', 1, 0, 'C');
     $pdf->Cell(65, 7, '', 1, 0, 'C');
@@ -235,8 +231,8 @@ while ($row = mysqli_fetch_array($get_stud)) {
     $pdf->Cell(65, 7, '', 1, 1, 'C');
 
     $pdf->Cell(65, 7, 'CELLPHONE NO.', 1, 0, 'C');
-    $pdf->Cell(65, 7, $row['fcontact'], 1, 0, 'C');
-    $pdf->Cell(65, 7, $row['mcontact'], 1, 1, 'C');
+    $pdf->Cell(65, 7, '', 1, 0, 'C');
+    $pdf->Cell(65, 7, '', 1, 1, 'C');
 
     $pdf->Cell(65, 7, 'EDUCATIONAL ATTAINMENT', 1, 0, 'C');
     $pdf->Cell(65, 7, '', 1, 0, 'C');
@@ -247,8 +243,8 @@ while ($row = mysqli_fetch_array($get_stud)) {
     $pdf->Cell(65, 7, '', 1, 1, 'C');
 
     $pdf->Cell(65, 7, 'OCCUPATION', 1, 0, 'C');
-    $pdf->Cell(65, 7, $row['focc'], 1, 0, 'C');
-    $pdf->Cell(65, 7, $row['mocc'], 1, 1, 'C');
+    $pdf->Cell(65, 7, '', 1, 0, 'C');
+    $pdf->Cell(65, 7, '', 1, 1, 'C');
 
     $pdf->Cell(65, 7, 'EMPLOYER(Name of Company)', 1, 0, 'C');
     $pdf->Cell(65, 7, '', 1, 0, 'C');
@@ -263,12 +259,12 @@ while ($row = mysqli_fetch_array($get_stud)) {
     $pdf->Cell(65, 7, '', 1, 1, 'C');
 
     $pdf->Cell(65, 7, 'AVERAGE MONTHLY INCOME', 1, 0, 'C');
-    $pdf->Cell(65, 7, $row['month_inc'], 1, 0, 'C');
+    $pdf->Cell(65, 7, '', 1, 0, 'C');
     $pdf->Cell(65, 7, '', 1, 1, 'C');
 
     $pdf->Ln(3);
     $pdf->Cell(70, 4, 'GUARDIANS NAME(if child not living with parents)', 0, 0);
-    $pdf->Cell(65, 4, $row['guardname'], 'B', 0, 'C');
+    $pdf->Cell(65, 4, '', 'B', 0, 'C');
     $pdf->Cell(5, 5, '', 0, 0);
     $pdf->Cell(18, 4, 'Relationship', 0, 0);
     $pdf->Cell(37, 4, '', 'B', 1, 'C');
@@ -277,16 +273,14 @@ while ($row = mysqli_fetch_array($get_stud)) {
     $fontsize = 8;
     $tempFontSize = $fontsize;
     $cellwidth = 150;
-    while ($pdf->GetStringWidth($row['gaddress']) > $cellwidth) {
-        $pdf->SetFontSize($tempFontSize -= 0.1);
-    }
-    $pdf->Cell(162, 4, $row['gaddress'], 'B', 1, 'L');
+
+    $pdf->Cell(162, 4, '', 'B', 1, 'L');
     $pdf->Ln(3);
     $pdf->Cell(30, 4, 'GUARDIANS TEL.NO.', 0, 0);
-    $pdf->Cell(33, 4, $row['gcontact'], 'B', 0, 'C');
+    $pdf->Cell(33, 4, '', 'B', 0, 'C');
     $pdf->Cell(5, 5, '', 0, 0);
     $pdf->Cell(23, 4, 'CELLPHONE NO.', 0, 0);
-    $pdf->Cell(33, 4, $row['cellphone'], 'B', 0, 'C');
+    $pdf->Cell(33, 4, '', 'B', 0, 'C');
     $pdf->Cell(2, 5, '', 0, 0);
     $pdf->Cell(26, 4, 'E-mail ADDRESS:', 0, 0);
     $fontsize = 9;

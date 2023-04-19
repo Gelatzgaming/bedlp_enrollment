@@ -117,8 +117,8 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
 
                             <hr class="bg-black mb-2">
 
-                            <div class="data-tables datatable-dark">
-                                <table id="dt1" class="text-center" style="width: 100%; color:black;">
+                            <div class="table-responsive">
+                                <table id="dt1" class="table table-hover responsive nowrap" style="width: 100%; color:black;">
                                     <thead class="text-capitalize">
                                         <tr>
                                             <th>Student ID:</th>
@@ -198,22 +198,21 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
                                                     ?>
                                                         <tr>
                                                             <td class="pt-3 pb-3">
-                                                                <?php if ($_SESSION['role'] == " Admission" || $_SESSION['role'] == "Accounting" || $_SESSION['role'] == "Registrar" || $_SESSION['role'] == "Adviser") { ?>
-                                                                    <div class="custom-control custom-checkbox justify-content-center">
-                                                                        <input type="text" name="enrolled_subID[]" value="<?php echo $row['enrolled_sub_id'] ?>" hidden>
-                                                                        <input class="custom-control-input custom-control-input-navy select-cb" type="checkbox" name="checked[]" value="<?php echo $index++; ?>" id="option-a<?php echo $row['enrolled_sub_id'] ?>">
-                                                                        <label for="option-a<?php echo $row['enrolled_sub_id'] ?>" class="custom-control-label"></label>
-                                                                    </div>
-                                                                    <?php } else if ($_SESSION['role'] == "Student") {
+                                                                <?php if ($_SESSION['role'] == "Student") {
                                                                     if ($remark == 'Canceled' || $remark == 'Pending') { ?>
-
                                                                         <div class="custom-control custom-checkbox justify-content-center">
                                                                             <input type="text" name="enrolled_subID[]" value="<?php echo $row['enrolled_sub_id'] ?>" hidden>
                                                                             <input class="custom-control-input custom-control-input-navy select-cb" type="checkbox" name="checked[]" value="<?php echo $index++; ?>" id="option-a<?php echo $row['enrolled_sub_id'] ?>">
                                                                             <label for="option-a<?php echo $row['enrolled_sub_id'] ?>" class="custom-control-label"></label>
                                                                         </div>
-                                                                <?php }
-                                                                } ?>
+                                                                    <?php }
+                                                                } elseif ($_SESSION['role'] == "Admission" || $_SESSION['role'] == "Accounting" || $_SESSION['role'] == "Registrar" || $_SESSION['role'] == "Adviser") { ?>
+                                                                    <div class="custom-control custom-checkbox justify-content-center">
+                                                                        <input type="text" name="enrolled_subID[]" value="<?php echo $row['enrolled_sub_id'] ?>" hidden>
+                                                                        <input class="custom-control-input custom-control-input-navy select-cb" type="checkbox" name="checked[]" value="<?php echo $index++; ?>" id="option-a<?php echo $row['enrolled_sub_id'] ?>">
+                                                                        <label for="option-a<?php echo $row['enrolled_sub_id'] ?>" class="custom-control-label"></label>
+                                                                    </div>
+                                                                <?php } ?>
                                                             </td>
 
 
