@@ -324,7 +324,7 @@ while ($row = mysqli_fetch_array($get_stud)) {
     $get_enrolled_sub2 = mysqli_query($conn, "SELECT * FROM tbl_enrolled_subjects AS ensub
         LEFT JOIN tbl_schedules AS sched ON sched.schedule_id = ensub.schedule_id
         LEFT JOIN tbl_students AS stud ON stud.student_id = ensub.student_id
-        LEFT JOIN tbl_subjects_senior AS sub ON sub.subject_id = sched.subject_id
+        LEFT JOIN tbl_subjects AS sub ON sub.subject_id = sched.subject_id
         LEFT JOIN tbl_grade_levels AS gl ON gl.grade_level_id = sub.grade_level_id
 
         WHERE stud.student_id = '$stud_id' AND sched.acadyear = '$acad'") or die(mysqli_error($conn));

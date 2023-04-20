@@ -297,9 +297,9 @@ while ($row = mysqli_fetch_array($get_stud)) {
     }
     $pdf->Cell(60, 6, $row['gemail'], 1, 1, 'C');
     $pdf->SetFont('Arial', '', 8);
-    $pdf->Cell(39, 10, 'Complete Address:', 1, 0, 'C');
-    $pdf->Cell(49, 10, '', 1, 0, 'C');
-    $pdf->Cell(55, 10, '', 1, 0, 'C');
+    $pdf->Cell(39, 6, 'Complete Address:', 1, 0, 'C');
+    $pdf->Cell(49, 6, '', 1, 0, 'C');
+    $pdf->Cell(55, 6, '', 1, 0, 'C');
     $pdf->SetFont('Arial', '', 8);
     $fontsize = 8;
     $tempFontSize = $fontsize;
@@ -307,25 +307,25 @@ while ($row = mysqli_fetch_array($get_stud)) {
     while ($pdf->GetStringWidth($row['gaddress']) > $cellwidth) {
         $pdf->SetFontSize($tempFontSize -= 0.1);
     }
-    $pdf->Cell(60, 10, $row['gaddress'], 1, 1, 'C');
+    $pdf->Cell(60, 6, $row['gaddress'], 1, 1, 'C');
 
     $pdf->Ln(1);
     $pdf->SetFont('Arial', 'B', 9);
-    $pdf->Cell(203, 6, 'LIST OF SUBJECTS', 1, 1, 'C');
+    $pdf->Cell(203, 5, 'LIST OF SUBJECTS', 1, 1, 'C');
 
     $pdf->SetFont('Arial', 'B', 8);
-    $pdf->Cell(101.5, 6, 'First Semester', 1, 0, 'C');
-    $pdf->Cell(101.5, 6, 'Second Semester', 1, 1, 'C');
+    $pdf->Cell(101.5, 5, 'First Semester', 1, 0, 'C');
+    $pdf->Cell(101.5, 5, 'Second Semester', 1, 1, 'C');
 
-    $pdf->Cell(25, 6, 'Subject Code', 'T,L,B', 0, 'C');
-    $pdf->Cell(76.5, 6, 'Subjects', 'T,L,B', 0, 'C');
-    $pdf->Cell(25, 6, 'Subject Code', 'T,L,B', 0, 'C');
-    $pdf->Cell(76.5, 6, 'Subjects', 'T,L,R,B', 0, 'C');
+    $pdf->Cell(25, 5, 'Subject Code', 'T,L,B', 0, 'C');
+    $pdf->Cell(76.5, 5, 'Subjects', 'T,L,B', 0, 'C');
+    $pdf->Cell(25, 5, 'Subject Code', 'T,L,B', 0, 'C');
+    $pdf->Cell(76.5, 5, 'Subjects', 'T,L,R,B', 0, 'C');
     $pdf->Cell(0, 4, '', 0, 1);
 
     $pdf->Ln(1);
-    $xy = 109;
-    $xy2 = 109;
+    $xy = 102;
+    $xy2 = 102;
 
     $get_enrolled_sub = mysqli_query($conn, "SELECT * FROM tbl_enrolled_subjects AS ensub
         LEFT JOIN tbl_schedules AS sched ON sched.schedule_id = ensub.schedule_id
@@ -360,20 +360,20 @@ while ($row = mysqli_fetch_array($get_stud)) {
     while ($row3 = mysqli_fetch_array($get_enrolled_sub2)) {
         $pdf->SetXY(108, $xy2);
         $pdf->SetFont('Arial', '', 8);
-        $pdf->Cell(25, 5, $row3['subject_code'], 1, 0, 'L');
+        $pdf->Cell(25, 4, $row3['subject_code'], 1, 0, 'L');
         $fontsize = 8;
         $tempFontSize = $fontsize;
         $cellwidth = 75;
         while ($pdf->GetStringWidth($row3['subject_description']) > $cellwidth) {
             $pdf->SetFontSize($tempFontSize -= 0.1);
         }
-        $pdf->Cell(76.5, 5, $row3['subject_description'], 1, 0, 'L');
+        $pdf->Cell(76.5, 4, $row3['subject_description'], 1, 0, 'L');
         $xy2 += 5;
     }
 
     // echo $xy;
 
-    $addbox = (159 - $xy) / 5;
+    $addbox = (160 - $xy) / 5;
     $x = 0;
     $laney = $xy;
 
@@ -384,7 +384,7 @@ while ($row = mysqli_fetch_array($get_stud)) {
         $laney += 5;
     }
 
-    $addbox2 = (159 - $xy2) / 5;
+    $addbox2 = (160 - $xy2) / 5;
     $x2 = 0;
     $laney2 = $xy2;
 
@@ -414,32 +414,32 @@ while ($row = mysqli_fetch_array($get_stud)) {
 
     $pdf->Ln(1);
     $pdf->SetFont('Arial', '', 8);
-    $pdf->Rect(8, 175.5, 5, 3); // box
+    $pdf->Rect(8, 173, 5, 3); // box
     $pdf->Cell(14, 4, '', 0, 0);
     $pdf->Cell(15, 5, 'PSA Birth Certificate', 0, 0, 'C');
 
-    $pdf->Rect(44, 175.5, 5, 3); // box
+    $pdf->Rect(44, 173, 5, 3); // box
     $pdf->Cell(21, 4, '', 0, 0);
     $pdf->Cell(15, 5, 'Report Card (F-138)', 0, 0, 'C');
 
-    $pdf->Rect(81, 175.5, 5, 3); // box
+    $pdf->Rect(81, 173, 5, 3); // box
     $pdf->Cell(25, 4, '', 0, 0);
     $pdf->Cell(18, 5, 'Permanent Record (F-138)', 0, 0, 'C');
 
-    $pdf->Rect(127, 175.5, 5, 3); // box
+    $pdf->Rect(127, 173, 5, 3); // box
     $pdf->Cell(15, 4, '', 0, 0);
     $pdf->Cell(16, 5, 'GMC', 0, 0, 'C');
 
-    $pdf->Rect(142, 175.5, 5, 3); // box
+    $pdf->Rect(142, 173, 5, 3); // box
     $pdf->Cell(9, 4, '', 0, 0);
     $pdf->Cell(9, 5, '2pcs 2x2 ID Pic', 0, 0, 'C');
 
-    $pdf->Rect(171, 175.5, 5, 3); // box
+    $pdf->Rect(171, 173, 5, 3); // box
     $pdf->Cell(10, 4, '', 0, 0);
     $pdf->Cell(17, 5, 'NCAE', 0, 0, 'C');
 
-    $pdf->Rect(189, 175.5, 5, 3); // box
-    $pdf->Cell(7, 4, '', 0, 0);
+    $pdf->Rect(189, 173, 5, 3); // box
+    $pdf->Cell(5, 4, '', 0, 0);
     $pdf->Cell(12, 5, '', 'B', 1, 'C');
 
     $pdf->Ln(1);
@@ -448,21 +448,21 @@ while ($row = mysqli_fetch_array($get_stud)) {
 
     $pdf->Ln(1);
     $pdf->SetFont('Arial', '', 8);
-    $pdf->Rect(8, 187, 5, 3); // box
+    $pdf->Rect(8, 185, 5, 3); // box
     $pdf->Cell(4, 4, '', 0, 0);
     $pdf->Cell(16, 4, 'ESC', 0, 0, 'C');
 
-    $pdf->Rect(44, 187, 5, 3); // box
+    $pdf->Rect(44, 185, 5, 3); // box
     $pdf->Cell(25, 4, '', 0, 0);
     $pdf->Cell(25, 4, 'VOUCHER (NTU)', 0, 0, 'C');
     $pdf->Cell(25, 4, '', 'B', 0, 'C');
 
-    $pdf->Rect(108, 187, 5, 3); // box
+    $pdf->Rect(108, 185, 5, 3); // box
     $pdf->Cell(12, 4, '', 0, 0);
     $pdf->Cell(30, 4, 'VOUCHER (WTU)', 0, 0, 'C');
     $pdf->Cell(25, 4, '', 'B', 0, 'C');
 
-    $pdf->Rect(175, 187, 5, 3); // box
+    $pdf->Rect(175, 185, 5, 3); // box
     $pdf->Cell(12, 4, '', 0, 0);
     $pdf->Cell(27, 4, 'NO VOUCHER', 0, 1, 'C');
 
@@ -508,7 +508,7 @@ while ($row = mysqli_fetch_array($get_stud)) {
     $pdf->Cell(30, 4, '', 0, 0);
     $pdf->Cell(25, 4, 'School Head', 0, 1, 'C');
 
-    $pdf->Ln(0);
+    $pdf->Ln(1);
     $pdf->SetFont('Arial', 'B', 9);
     $pdf->Rect(6.5, 209, 203, 20);
     $pdf->Cell(200, 7, 'REMARKS', 0, 1, 'L');

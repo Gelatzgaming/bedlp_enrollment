@@ -275,11 +275,11 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
                                                 </div>
 
                                                 <div class="justify-content-end m-2">
-                                                    <a href="list.offeredSub.k-10.php?stud_id=<?php echo $stud_id; ?>" class="btn btn-danger p-2 m-1"><i class="fa fa-plus">
+                                                    <a href="list.offeredSub.k-10.php?stud_id=<?php echo $stud_id; ?>" class="btn btn-info p-2 m-1"><i class="fa fa-plus">
                                                         </i>
                                                         Add Subjects</a>
 
-                                                    <button name="submit" class="btn btn-secondary p-2 m-1"><i class="fa fa-trash">
+                                                    <button name="submit" class="btn btn-danger p-2 m-1"><i class="fa fa-trash">
                                                         </i>
                                                         Drop Selected</a>
                                                     </button>
@@ -291,16 +291,10 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
                                                     <hr>
                                                     <div class="justify-content-end m-3">
 
-                                                        <a href="list.offeredSub.k-10.php" class="btn btn-danger p-2"><i class="fa fa-plus">
+                                                        <a href="list.offeredSub.k-10.php" class="btn btn-info p-2"><i class="fa fa-plus">
                                                             </i>
                                                             Add Subjects</a>
 
-
-
-                                                        <button name="submit" class="btn btn-secondary p-2"><i class="fa fa-trash-alt">
-                                                            </i>
-                                                            Drop Selected</a>
-                                                        </button>
 
                                                     </div>
                                             <?php }
@@ -330,13 +324,15 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
             "paging": false,
             "searching": false,
             "info": false,
-            "sorting": false,
+            "sorting": false
 
         });
+        $('#user-list-table').dataTable({
+            "pageLength": 50
 
+        });
         $("#alertDel").delay(2000).fadeOut();
     </script>
-
 
 
 
