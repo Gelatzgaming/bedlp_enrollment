@@ -5,17 +5,14 @@
             <!--logo End-->
 
             <img src="../../assets/images/auth/logo.png" alt="SFAC-Logo" height="25%" width="25%">
-            <h4 class="logo-title"><?php echo $school_name; ?> <br> <small
-                    class="text-sm"><?php echo $school_address; ?>
+            <h4 class="logo-title"><?php echo $school_name; ?> <br> <small class="text-sm"><?php echo $school_address; ?>
                 </small></h4>
         </a>
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
             <i class="icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </i>
         </div>
@@ -494,79 +491,33 @@
                             </svg>
                         </i>
                     </a>
-                    <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/abm.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> ABM </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/stem.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> STEM </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/humss.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> HUMMS </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/tvl-he.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> TVL-HE </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/tvl-ict.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> TVL-ICT </span>
-                            </a>
-                        </li>
-                    </ul>
-                    </li> 
+                    ';
+                ?>
+                    <?php
+                    $totalStrand = mysqli_query($conn, "SELECT * FROM tbl_strands");
+                    while ($rowInfo = mysqli_fetch_array($totalStrand)) {
+
+                        echo '
+                                            <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
+                    <li class="nav-item">
+                        <a class="nav-link " href="../bed-hedCurr/' . $rowInfo['strand_name'] . '.php">
+                            <i class="icon">
+                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                            </i>
+                            <i class="sidenav-mini-icon"> H </i>
+                            <span class="item-name"> ' . $rowInfo['strand_name'] . ' </span>
+                        </a>
+                    </li>
+                    </ul
+                    </li>';
+                    }
+                    ?> <?php echo '
+
                     <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#sch_set" role="button"
                     aria-expanded="false" aria-controls="sch_set">
@@ -609,17 +560,45 @@
                             <span class="item-name"> Academic Year </span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="../bed-eay/add.eay.php">
+                            <i class="icon">
+                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                            </i>
+                            <i class="sidenav-mini-icon"> H </i>
+                            <span class="item-name"> Curriculum </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link " href="../bed-strand/add.strand.php">
+                        <i class="icon">
+                            <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <g>
+                                    <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                </g>
+                            </svg>
+                        </i>
+                        <i class="sidenav-mini-icon"> H </i>
+                        <span class="item-name"> Strand </span>
+                    </a>
+                </li>
                 </ul>
                 </li>';
-                } elseif ($_SESSION['role'] == "Teacher") {
-                    echo '<li class="nav-item">
+                    } elseif ($_SESSION['role'] == "Teacher") {
+                        echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
                             </a>
                         </li>';
-                } elseif ($_SESSION['role'] == "Principal") {
-                    echo '<li class="nav-item">
+                    } elseif ($_SESSION['role'] == "Principal") {
+                        echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
@@ -727,81 +706,34 @@
                             </svg>
                         </i>
                     </a>
-                    <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/abm.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> ABM </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/stem.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> STEM </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/humss.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> HUMSS </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/tvl-he.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> TVL-HE </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/tvl-ict.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> TVL-ICT </span>
-                            </a>
-                        </li>
-                    </ul>
-                    </li> ';
-                } elseif ($_SESSION['role'] == "Admission") {
-                    echo '<li class="nav-item">
+                    ';
+                        ?>
+                    <?php
+                        $totalStrand = mysqli_query($conn, "SELECT * FROM tbl_strands");
+                        while ($rowInfo = mysqli_fetch_array($totalStrand)) {
+
+                            echo '
+                                            <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
+                    <li class="nav-item">
+                        <a class="nav-link " href="../bed-hedCurr/' . $rowInfo['strand_name'] . '.php">
+                            <i class="icon">
+                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                            </i>
+                            <i class="sidenav-mini-icon"> H </i>
+                            <span class="item-name"> ' . $rowInfo['strand_name'] . ' </span>
+                        </a>
+                    </li>
+                    </ul
+                    </li>';
+                        }
+                    ?> <?php
+                    } elseif ($_SESSION['role'] == "Admission") {
+                        echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
@@ -948,96 +880,6 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#class-sched" role="button"
-                        aria-expanded="false" aria-controls="class-sched">
-                        <i class="fa fa-clock-o"></i>
-                        <span class="item-name">Class Schedule</span>
-                        <i class="right-icon">
-                            <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5l7 7-7 7" />
-                            </svg>
-                        </i>
-                    </a>
-                    <ul class="sub-nav collapse" id="class-sched" data-bs-parent="#sidebar-menu">
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-schedules/list.sched.senior.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> Senior </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-schedules/list.sched.k-10.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> Primary - Junior </span>
-                            </a>
-                        </li>
-                    </ul>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#offersub" role="button"
-                        aria-expanded="false" aria-controls="offersub">
-                        <i class="fa fa-calendar"></i>
-                        <span class="item-name"><small>Offer/Open Subjects</small></span>
-                        <i class="right-icon">
-                            <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5l7 7-7 7" />
-                            </svg>
-                        </i>
-                    </a>
-                    <ul class="sub-nav collapse" id="offersub" data-bs-parent="#sidebar-menu">
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-subjects/list.offerSub.senior.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> Senior </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-subjects/list.offerSub.k-10.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> Primary - Junior </span>
-                            </a>
-                        </li>
-                    </ul>
-                    </li>
-
-                    <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#viewsub" role="button"
                         aria-expanded="false" aria-controls="viewsub">
                         <i class="fa fa-binoculars"></i>
@@ -1050,132 +892,45 @@
                             </svg>
                         </i>
                     </a>
-                    <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/abm.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> ABM </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/stem.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> STEM </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/humss.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> HUMSS </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/tvl-he.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> TVL-HE </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/tvl-ict.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> TVL-ICT </span>
-                            </a>
-                        </li>
-                    </ul>
-                    </li> 
+                    ';
+                        ?>
+                    <?php
+                        $totalStrand = mysqli_query($conn, "SELECT * FROM tbl_strands");
+                        while ($rowInfo = mysqli_fetch_array($totalStrand)) {
+
+                            echo '
+                                            <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
                     <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#sch_set" role="button"
-                    aria-expanded="false" aria-controls="sch_set">
-                    <i class="fa fa-cogs"></i>
-                    <span class="item-name">School Settings</span>
-                    <i class="right-icon">
-                        <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 5l7 7-7 7" />
-                        </svg>
-                    </i>
-                </a>
-                <ul class="sub-nav collapse" id="sch_set" data-bs-parent="#sidebar-menu">
-                    <li class="nav-item">
-                        <a class="nav-link " href="../bed-semester/add.sem.php">
+                        <a class="nav-link " href="../bed-hedCurr/' . $rowInfo['strand_name'] . '.php">
                             <i class="icon">
-                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                    viewBox="0 0 24 24" fill="currentColor">
+                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                    fill="currentColor">
                                     <g>
                                         <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
                                     </g>
                                 </svg>
                             </i>
                             <i class="sidenav-mini-icon"> H </i>
-                            <span class="item-name"> Semester </span>
+                            <span class="item-name"> ' . $rowInfo['strand_name'] . ' </span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="../bed-date/add.date.php">
-                            <i class="icon">
-                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                    viewBox="0 0 24 24" fill="currentColor">
-                                    <g>
-                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                    </g>
-                                </svg>
-                            </i>
-                            <i class="sidenav-mini-icon"> H </i>
-                            <span class="item-name"> Academic Year </span>
-                        </a>
-                    </li>
-                </ul>
-                </li>';
-                } elseif ($_SESSION['role'] == "Adviser") {
-                    echo '<li class="nav-item">
-                            <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
-                            <i class="fa fa-tachometer"></i>
-                                <span class="item-name">Dashboard</span>
-                            </a>
-                        </li> 
-                        <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#horizontal-menu" role="button"
+                    </ul
+                    </li>';
+                        }
+
+
+                    ?>
+
+                <?php
+                    } elseif ($_SESSION['role'] == "Adviser") {
+                        echo '<li class="nav-item">
+                    <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
+                        <i class="fa fa-tachometer"></i>
+                        <span class="item-name">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#horizontal-menu" role="button"
                         aria-expanded="false" aria-controls="horizontal-menu">
                         <i class="fa fa-list"></i>
                         <span class="item-name">Enrollment</span>
@@ -1217,10 +972,10 @@
                             </a>
                         </li>
                     </ul>
-                    </li>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#maintenance" role="button"
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#maintenance" role="button"
                         aria-expanded="false" aria-controls="maintenance">
                         <i class="fa fa-cogs"></i>
                         <span class="item-name">Maintenance</span>
@@ -1262,55 +1017,55 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#subj-list" role="button"
-                        aria-expanded="false" aria-controls="subj-list">
-                        <i class="fa fa-book"></i>
-                        <span class="item-name">Subject List</span>
-                        <i class="right-icon">
-                            <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 5l7 7-7 7" />
-                            </svg>
-                        </i>
-                    </a>
-                    <ul class="sub-nav collapse" id="subj-list" data-bs-parent="#subj-list">
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-subjects/list.sub.senior.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
+                            <a class="nav-link" data-bs-toggle="collapse" href="#subj-list" role="button"
+                                aria-expanded="false" aria-controls="subj-list">
+                                <i class="fa fa-book"></i>
+                                <span class="item-name">Subject List</span>
+                                <i class="right-icon">
+                                    <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7" />
                                     </svg>
                                 </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> Senior </span>
                             </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-subjects/list.sub.k-10.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> Primary - Junior </span>
-                            </a>
+                            <ul class="sub-nav collapse" id="subj-list" data-bs-parent="#subj-list">
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-subjects/list.sub.senior.php">
+                                        <i class="icon">
+                                            <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                                viewBox="0 0 24 24" fill="currentColor">
+                                                <g>
+                                                    <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                                </g>
+                                            </svg>
+                                        </i>
+                                        <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> Senior </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-subjects/list.sub.k-10.php">
+                                        <i class="icon">
+                                            <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                                viewBox="0 0 24 24" fill="currentColor">
+                                                <g>
+                                                    <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                                </g>
+                                            </svg>
+                                        </i>
+                                        <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> Primary - Junior </span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
-                    </li> 
-                    </ul>
-                    </li>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#data-ent" role="button"
-                        aria-expanded="false" aria-controls="data-ent">
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#data-ent" role="button" aria-expanded="false"
+                        aria-controls="data-ent">
                         <i class="fa fa-user-plus"></i>
                         <span class="item-name">Data Entry</span>
                         <i class="right-icon">
@@ -1351,10 +1106,56 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#subj-add" role="button"
-                        aria-expanded="false" aria-controls="subj-add">
-                        <i class="fa fa-plus-square"></i>
-                        <span class="item-name">Add Subjects</span>
+                            <a class="nav-link" data-bs-toggle="collapse" href="#subj-add" role="button"
+                                aria-expanded="false" aria-controls="subj-add">
+                                <i class="fa fa-plus-square"></i>
+                                <span class="item-name">Add Subjects</span>
+                                <i class="right-icon">
+                                    <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </i>
+                            </a>
+                            <ul class="sub-nav collapse" id="subj-add" data-bs-parent="#subj-add">
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-subjects/add.sub.senior.php">
+                                        <i class="icon">
+                                            <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                                viewBox="0 0 24 24" fill="currentColor">
+                                                <g>
+                                                    <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                                </g>
+                                            </svg>
+                                        </i>
+                                        <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> Senior </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link " href="../bed-subjects/add.sub.k-10.php">
+                                        <i class="icon">
+                                            <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                                viewBox="0 0 24 24" fill="currentColor">
+                                                <g>
+                                                    <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                                </g>
+                                            </svg>
+                                        </i>
+                                        <i class="sidenav-mini-icon"> H </i>
+                                        <span class="item-name"> Primary - Junior </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#class-sched" role="button"
+                        aria-expanded="false" aria-controls="class-sched">
+                        <i class="fa fa-clock-o"></i>
+                        <span class="item-name">Class Schedule</span>
                         <i class="right-icon">
                             <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -1363,9 +1164,9 @@
                             </svg>
                         </i>
                     </a>
-                    <ul class="sub-nav collapse" id="subj-add" data-bs-parent="#subj-add">
+                    <ul class="sub-nav collapse" id="class-sched" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link " href="../bed-subjects/add.sub.senior.php">
+                            <a class="nav-link " href="../bed-schedules/list.sched.senior.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -1379,7 +1180,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../bed-subjects/add.sub.k-10.php">
+                            <a class="nav-link " href="../bed-schedules/list.sched.k-10.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -1393,13 +1194,56 @@
                             </a>
                         </li>
                     </ul>
-                    </li>
-                    </ul>
-                    </li>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#class-sched" role="button"
-                        aria-expanded="false" aria-controls="class-sched">
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#offersub" role="button" aria-expanded="false"
+                        aria-controls="offersub">
+                        <i class="fa fa-calendar"></i>
+                        <span class="item-name"><small>Offer/Open Subjects</small></span>
+                        <i class="right-icon">
+                            <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </i>
+                    </a>
+                    <ul class="sub-nav collapse" id="offersub" data-bs-parent="#sidebar-menu">
+                        <li class="nav-item">
+                            <a class="nav-link " href="../bed-subjects/list.offerSub.senior.php">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> H </i>
+                                <span class="item-name"> Senior </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="../bed-subjects/list.offerSub.k-10.php">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> H </i>
+                                <span class="item-name"> Primary - Junior </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#enroll_forms" role="button"
+                        aria-expanded="false" aria-controls="enroll_forms">
                         <i class="fa fa-file-code-o"></i>
                         <span class="item-name"> Forms</span>
                         <i class="right-icon">
@@ -1410,7 +1254,7 @@
                             </svg>
                         </i>
                     </a>
-                    <ul class="sub-nav collapse" id="class-sched" data-bs-parent="#sidebar-menu">
+                    <ul class="sub-nav collapse" id="enroll_forms" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
                             <a class="nav-link " href="../bed-forms/pre-en-plain.php">
                                 <i class="icon">
@@ -1440,10 +1284,59 @@
                             </a>
                         </li>
                     </ul>
-                    </li>
+                </li>
+                ' ?>
+                    <?php
+                        $ad_info = mysqli_query($conn, "SELECT * FROM tbl_adviser WHERE ad_id = '$ad_id'");
+                        $row5 = mysqli_fetch_array($ad_info);
+                        $dept = $row5['ad_dept'];
+
+                        if ($dept == "Grade 11" || $dept == "Grade 12") {
+                            echo '
+                                <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#viewsub" role="button"
+                                aria-expanded="false" aria-controls="viewsub">
+                                <i class="fa fa-binoculars"></i>
+                                <span class="item-name">View Subjects</span>
+                                <i class="right-icon">
+                                    <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </i>
+                            </a>
+                            ';
+                    ?>
+                        <?php
+                            $totalStrand = mysqli_query($conn, "SELECT * FROM tbl_strands");
+                            while ($rowInfo = mysqli_fetch_array($totalStrand)) {
+
+                                echo '
+                                                    <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
+                            <li class="nav-item">
+                                <a class="nav-link " href="../bed-hedCurr/' . $rowInfo['strand_name'] . '.php">
+                                    <i class="icon">
+                                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> H </i>
+                                    <span class="item-name"> ' . $rowInfo['strand_name'] . ' </span>
+                                </a>
+                            </li>
+                            </ul
+                            </li>';
+                            }
+                        ?> <?php
+                        } elseif ($dept == "Pre-Kinder to Grade 6") {
+                            echo '
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="collapse" href="#viewsub" role="button"
-                        aria-expanded="false" aria-controls="viewsub">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#basic-sub" role="button"
+                        aria-expanded="false" aria-controls="basic-sub">
                         <i class="fa fa-binoculars"></i>
                         <span class="item-name">View Subjects</span>
                         <i class="right-icon">
@@ -1454,9 +1347,9 @@
                             </svg>
                         </i>
                     </a>
-                    <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
+                    <ul class="sub-nav collapse" id="basic-sub" data-bs-parent="#sidebar-menu">
                         <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/abm.php">
+                            <a class="nav-link " href="../bed-curr/BEDCur.php">
                                 <i class="icon">
                                     <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
                                         viewBox="0 0 24 24" fill="currentColor">
@@ -1466,69 +1359,50 @@
                                     </svg>
                                 </i>
                                 <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> ABM </span>
+                                <span class="item-name"> Primary </span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/stem.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> STEM </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/humss.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> HUMSS </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/tvl-he.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> TVL-HE </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/tvl-ict.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> TVL-ICT </span>
-                            </a>
-                        </li>
+                        
                     </ul>
                     </li>';
-                } elseif ($_SESSION['role'] == "Accounting") {
-                    echo '<li class="nav-item">
+                            ?> <?php
+                                } elseif ($dept == "Grade 7 to Grade 10") {
+                                    echo '
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#basic-sub" role="button"
+                    aria-expanded="false" aria-controls="basic-sub">
+                    <i class="fa fa-binoculars"></i>
+                    <span class="item-name">View Subjects</span>
+                    <i class="right-icon">
+                        <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5l7 7-7 7" />
+                        </svg>
+                    </i>
+                </a>
+                <ul class="sub-nav collapse" id="basic-sub" data-bs-parent="#sidebar-menu">
+                <li class="nav-item">
+                <a class="nav-link " href="../bed-curr/JUNIORCur.php">
+                    <i class="icon">
+                        <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <g>
+                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                            </g>
+                        </svg>
+                    </i>
+                    <i class="sidenav-mini-icon"> H </i>
+                    <span class="item-name"> Junior High </span>
+                </a>
+            </li>
+                    
+                </ul>
+                </li>';
+                                    ?> <?php
+                                }
+                            } elseif ($_SESSION['role'] == "Accounting") {
+                                echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
@@ -1564,8 +1438,8 @@
                         </li>
                     </ul>
                     </li>';
-                } elseif ($_SESSION['role'] == "Student") {
-                    echo '<li class="nav-item">
+                            } elseif ($_SESSION['role'] == "Student") {
+                                echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
@@ -1581,41 +1455,41 @@
                             <a href="../bed-students/add.enroll.php" class="nav-link" aria-current="true">
                             <i class="fa fa-globe" style="font-size:20px;"></i>
                             <span class="item-name">';
-                    $get_active_sem = mysqli_query($conn, "SELECT * FROM tbl_active_semesters");
-                    while ($row = mysqli_fetch_array($get_active_sem)) {
-                        $sem = $row['semester_id'];
-                    }
-                    $get_active_acad = mysqli_query($conn, "SELECT * FROM tbl_active_acadyears");
-                    while ($row = mysqli_fetch_array($get_active_acad)) {
-                        $acad = $row['ay_id'];
-                    }
-                    $get_level_id = mysqli_query($conn, "SELECT * FROM tbl_schoolyears
+                                $get_active_sem = mysqli_query($conn, "SELECT * FROM tbl_active_semesters");
+                                while ($row = mysqli_fetch_array($get_active_sem)) {
+                                    $sem = $row['semester_id'];
+                                }
+                                $get_active_acad = mysqli_query($conn, "SELECT * FROM tbl_active_acadyears");
+                                while ($row = mysqli_fetch_array($get_active_acad)) {
+                                    $acad = $row['ay_id'];
+                                }
+                                $get_level_id = mysqli_query($conn, "SELECT * FROM tbl_schoolyears
                                 WHERE student_id = '$stud_id' AND semester_id = '0' AND ay_id = '$acad'") or
-                        die(mysqli_error($conn));
-                    $result = mysqli_num_rows($get_level_id);
-                    if ($result > 0) {
-                        echo 'Enrollment Info.</span>
+                                    die(mysqli_error($conn));
+                                $result = mysqli_num_rows($get_level_id);
+                                if ($result > 0) {
+                                    echo 'Enrollment Info.</span>
                 </a>
             </li>';
-                    } else {
+                                } else {
 
-                        $get_level_id = mysqli_query($conn, "SELECT * FROM tbl_schoolyears
+                                    $get_level_id = mysqli_query($conn, "SELECT * FROM tbl_schoolyears
 WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or
-                            die(mysqli_error($conn));
-                        $result2 = mysqli_num_rows($get_level_id);
+                                        die(mysqli_error($conn));
+                                    $result2 = mysqli_num_rows($get_level_id);
 
-                        if ($result2 > 0) {
-                            echo 'Enrollment Info.</span>
+                                    if ($result2 > 0) {
+                                        echo 'Enrollment Info.</span>
             </a>
             </li>';
-                        } else {
-                            echo 'Enroll Now</span>
+                                    } else {
+                                        echo 'Enroll Now</span>
             </a>
             </li>';
-                        }
-                    }
-                } elseif ($_SESSION['role'] == "Guest") {
-                    echo '<li class="nav-item">
+                                    }
+                                }
+                            } elseif ($_SESSION['role'] == "Guest") {
+                                echo '<li class="nav-item">
                             <a href="../bed-dashboard/index.php" class="nav-link active" aria-current="true">
                             <i class="fa fa-tachometer"></i>
                                 <span class="item-name">Dashboard</span>
@@ -1888,79 +1762,32 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or
                             </svg>
                         </i>
                     </a>
-                    <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/abm.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> ABM </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/stem.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> STEM </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/humss.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> HUMMS </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/tvl-he.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> TVL-HE </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../bed-hedCurr/tvl-ict.php">
-                                <i class="icon">
-                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
-                                        viewBox="0 0 24 24" fill="currentColor">
-                                        <g>
-                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                        </g>
-                                    </svg>
-                                </i>
-                                <i class="sidenav-mini-icon"> H </i>
-                                <span class="item-name"> TVL-ICT </span>
-                            </a>
-                        </li>
-                    </ul>
-                    </li> 
+                    ';
+                                ?>
+                    <?php
+                                $totalStrand = mysqli_query($conn, "SELECT * FROM tbl_strands");
+                                while ($rowInfo = mysqli_fetch_array($totalStrand)) {
+
+                                    echo '
+                                            <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
+                    <li class="nav-item">
+                        <a class="nav-link " href="../bed-hedCurr/' . $rowInfo['strand_name'] . '.php">
+                            <i class="icon">
+                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                            </i>
+                            <i class="sidenav-mini-icon"> H </i>
+                            <span class="item-name"> ' . $rowInfo['strand_name'] . ' </span>
+                        </a>
+                    </li>
+                    </ul
+                    </li>';
+                                }
+                    ?> <?php echo ' 
                     <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#sch_set" role="button"
                     aria-expanded="false" aria-controls="sch_set">
@@ -2005,7 +1832,7 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or
                     </li>
                 </ul>
                 </li>';
-                }  ?>
+                            }  ?>
 
             </ul>
             <!-- Sidebar Menu End -->

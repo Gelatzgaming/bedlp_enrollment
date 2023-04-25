@@ -7,16 +7,9 @@ if (!empty($_GET['eay'])) {
     $efacadyear = $_GET['eay'];
 }
 
-if (isset($_GET['stem'])) {
-    $str_name = $_GET['stem'];
-} elseif (isset($_GET['abm'])) {
-    $str_name = $_GET['abm'];
-} elseif (isset($_GET['ict'])) {
-    $str_name = $_GET['ict'];
-} elseif (isset($_GET['humss'])) {
-    $str_name = $_GET['humss'];
-} elseif (isset($_GET['tvl'])) {
-    $str_name = $_GET['tvl'];
+if (isset($_GET['strand'])) {
+    $strandInfo = mysqli_query($conn, "SELECT * FROM tbl_strands WHERE strand_id = '$_GET[strand]'");
+    $row = mysqli_fetch_array($strandInfo);
 }
 
 
@@ -68,45 +61,32 @@ if (isset($_GET['stem'])) {
                     <div class="card">
                         <div class="card-header">
                             <h4 class="header-title mb-3">Senior High Subjects List
-                                <?php if (isset($_GET['stem'])) {
-                                    echo ' (STEM)';
-                                } elseif (isset($_GET['abm'])) {
-                                    echo ' (ABM)';
-                                } elseif (isset($_GET['ict'])) {
-                                    echo ' (TVL-ICT)';
-                                } elseif (isset($_GET['humss'])) {
-                                    echo ' (HUMSS)';
-                                } elseif (isset($_GET['tvl'])) {
-                                    echo ' (TVL-HE)';
-                                } else {
-                                    echo ' (STEM)';
+                                <?php if (isset($_GET['strand'])) {
+                                    echo $row['strand_name'];
                                 } ?>
                             </h4>
 
+
                             <form action="list.sub.senior.php" method="GET">
-                                <div class="row ">
+                                <div class="row">
                                     <div class="d-grid gap-3 d-flex justify-content-center">
-                                        <button class="btn btn-dark mb-6 ml-1" value="STEM" name="stem">
-                                            <i class="fa fa-users"></i> STEM
-                                        </button>
+                                        <?php
+                                        $totalStrand = mysqli_query($conn, "SELECT * FROM tbl_strands");
+                                        while ($rowInfo = mysqli_fetch_array($totalStrand)) {
 
-                                        <button class="btn btn-dark mb-6 ml-1" value="ABM" name="abm">
-                                            <i class="fa fa-users"></i> ABM
+                                            echo '
+                                            <button class="btn btn-dark mb-6 ml-1" value="' . $rowInfo['strand_id'] . '" name="strand">
+                                            <i class="fa fa-users"></i> ' . $rowInfo['strand_name'] . '
                                         </button>
+                                            ';
+                                        }
 
-                                        <button class="btn btn-dark mb-6 ml-1" value="TVL - ICT" name="ict">
-                                            <i class="fa fa-users"></i> TVL - ICT
-                                        </button>
 
-                                        <button class="btn btn-dark mb-6 ml-1" value="HUMSS" name="humss">
-                                            <i class="fa fa-users"></i> HUMSS
-                                        </button>
-
-                                        <button class="btn btn-dark mb-6 ml-1" value="TVL - HE" name="tvl">
-                                            <i class="fa fa-users"></i> TVL - HE
-                                        </button>
+                                        ?>
                                     </div>
                                 </div>
+
+
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-md-4 mb-2 mt-2">
@@ -169,7 +149,7 @@ if (isset($_GET['stem'])) {
                                     LEFT JOIN tbl_semesters ON tbl_semesters.semester_id = tbl_subjects_senior.semester_id
                                     LEFT JOIN tbl_strands ON tbl_strands.strand_id = tbl_subjects_senior.strand_id
                                     LEFT JOIN tbl_efacadyears ON tbl_efacadyears.efacadyear_id = tbl_subjects_senior.efacadyear_id
-                                    WHERE tbl_strands.strand_name IN ('$str_name') AND tbl_efacadyears.efacadyear IN ('$efacadyear') ORDER BY tbl_subjects_senior.semester_id ASC, subject_id") or die(mysqli_error($conn));
+                                    WHERE tbl_strands.strand_id IN ('$_GET[strand]') AND tbl_efacadyears.efacadyear IN ('$efacadyear') ORDER BY tbl_subjects_senior.semester_id ASC, subject_id") or die(mysqli_error($conn));
 
                                         ?>
                                             <tr>

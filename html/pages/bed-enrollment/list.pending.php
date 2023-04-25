@@ -87,12 +87,13 @@ if ($_SESSION['role'] == 'Adviser') {
                                     <thead class="text-capitalize">
                                         <tr class="light">
                                             <th>Image</th>
-                                            <th>Student ID</th>
-                                            <th>Fullname</th>
-                                            <th>Grade level</th>
-                                            <th>Type</th>
-                                            <th>Date enrolled</th>
-                                            <th>Remark</th>
+                                            <th>Student ID:</th>
+                                            <th>Fullname:</th>
+                                            <th>Grade level:</th>
+                                            <th>Type:</th>
+                                            <th>Balik Franciscano:</th>
+                                            <th>Date enrolled:</th>
+                                            <th>Remark:</th>
                                             <th style="min-width: 100px">Actions</th>
                                         </tr>
                                     </thead>
@@ -188,6 +189,7 @@ if ($_SESSION['role'] == 'Adviser') {
                                             <td><?php echo $row['fullname'] ?></td>
                                             <td><?php echo $row['grade_level'] ?></td>
                                             <td><?php echo $row['stud_type'] ?></td>
+                                            <td><?php echo $row['bf'] ?></td>
                                             <td><?php echo $row['date_enrolled'] ?></td>
                                             <td>
                                                 <span

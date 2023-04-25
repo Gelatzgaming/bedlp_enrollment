@@ -134,22 +134,36 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or 
                                                 placeholder="Name" value="<?php echo $row['fullname'] ?>" readonly>
                                         </div>
                                     </div>
-                                    <?php } ?>
+
+                                    <script type='text/javascript'>
+                                    function fun() {
+                                        if (document.getElementById("grade_level").value == "14" || document
+                                            .getElementById("grade_level").value == "15") {
+                                            document.getElementById("strand").disabled = false;
+                                        } else {
+                                            document.getElementById("strand").disabled = true;
+                                        }
+
+                                    }
+                                    </script>
+
+
                                     <div class="row justify-content-center">
-                                        <div class="col-md-6 mb-3">
+                                        <div class="col-md-5 mb-3">
                                             <label class="form-label" for="example-text-input">Grade
                                                 Level</label>
                                             <select class="form-select form-select-md"
                                                 data-dropdown-css-class="select2-info"
-                                                data-placeholder="Select Grade Level" name="grade_level">
+                                                data-placeholder="Select Grade Level" name="grade_level"
+                                                id="grade_level" onChange="fun()">
                                                 <option value="" disabled selected>Select Grade Level
                                                 </option>
                                                 <?php
-                                                $query = mysqli_query($conn, "SELECT * from tbl_grade_levels");
-                                                while ($row2 = mysqli_fetch_array($query)) {
-                                                    echo '<option value="' . $row2['grade_level_id'] . '">' . $row2['grade_level'] . '</option>';
-                                                }
-                                                ?>
+                                                    $query = mysqli_query($conn, "SELECT * from tbl_grade_levels");
+                                                    while ($row2 = mysqli_fetch_array($query)) {
+                                                        echo '<option value="' . $row2['grade_level_id'] . '">' . $row2['grade_level'] . '</option>';
+                                                    }
+                                                    ?>
                                             </select>
                                         </div>
                                         <div class="col-md-3 mb-3">
@@ -157,10 +171,20 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or 
                                             <select class="form-select form-select-md"
                                                 data-dropdown-css-class="select2-info" data-placeholder="Select Type"
                                                 name="stud_type">
-                                                <option value="" selected disabled>Select Type</option>
+                                                <option value="" selected disabled>Select your Answer</option>
                                                 <option value="New">New Student</option>
                                                 <option value="Old">Old Student</option>
-                                                <option value="Balik Franciscano">Balik Franciscano</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-label" for="example-text-input">Balik Franciscano</label>
+                                            <select class="form-select form-select-md"
+                                                data-dropdown-css-class="select2-info" data-placeholder="Select Type"
+                                                name="bf" required>
+                                                <option value="<?php echo $row['bf']; ?>" disabled selected>
+                                                    <?php echo $row['bf']; ?></option>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
                                             </select>
                                         </div>
                                     </div>
@@ -169,18 +193,20 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or 
                                             <label class="form-label" for="example-text-input">Strand</label>
                                             <select class="form-select form-select-md"
                                                 data-dropdown-css-class="select2-info"
-                                                data-placeholder="Select Strand (for Senior High School)" name="strand">
+                                                data-placeholder="Select Strand (for Senior High School)" name="strand"
+                                                id="strand" disabled="true">
                                                 <option value="" disabled selected>Select Strand
                                                 </option>
                                                 <?php
-                                                $query = mysqli_query($conn, "SELECT * from tbl_strands");
-                                                while ($row2 = mysqli_fetch_array($query)) {
-                                                    echo '<option value="' . $row2['strand_id'] . '">' . $row2['strand_def'] . '</option>';
-                                                }
-                                                ?>
+                                                    $query = mysqli_query($conn, "SELECT * from tbl_strands");
+                                                    while ($row2 = mysqli_fetch_array($query)) {
+                                                        echo '<option value="' . $row2['strand_id'] . '">' . $row2['strand_def'] . '</option>';
+                                                    }
+                                                    ?>
                                             </select>
                                         </div>
                                     </div>
+                                    <?php } ?>
 
                                     <div class="form-group float-end">
                                         <button class="btn btn-danger" type="submit" name="submit"> <i

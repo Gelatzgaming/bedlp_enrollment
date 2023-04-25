@@ -360,14 +360,14 @@ while ($row = mysqli_fetch_array($get_stud)) {
     while ($row3 = mysqli_fetch_array($get_enrolled_sub2)) {
         $pdf->SetXY(108, $xy2);
         $pdf->SetFont('Arial', '', 8);
-        $pdf->Cell(25, 4, $row3['subject_code'], 1, 0, 'L');
+        $pdf->Cell(25, 5, $row3['subject_code'], 1, 0, 'L');
         $fontsize = 8;
         $tempFontSize = $fontsize;
         $cellwidth = 75;
         while ($pdf->GetStringWidth($row3['subject_description']) > $cellwidth) {
             $pdf->SetFontSize($tempFontSize -= 0.1);
         }
-        $pdf->Cell(76.5, 4, $row3['subject_description'], 1, 0, 'L');
+        $pdf->Cell(76.5, 5, $row3['subject_description'], 1, 0, 'L');
         $xy2 += 5;
     }
 

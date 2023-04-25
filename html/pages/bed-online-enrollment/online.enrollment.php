@@ -108,8 +108,20 @@ include '../../includes/conn.php';
 
                                         <div class="card-body ml-2 mr-2">
 
-
                                             <div class="row justify-content-center">
+
+                                                <script type='text/javascript'>
+                                                function fun() {
+                                                    if (document.getElementById("grade").value == "14" || document
+                                                        .getElementById("grade").value == "15") {
+                                                        document.getElementById("strand").disabled = false;
+                                                    } else {
+                                                        document.getElementById("strand").disabled = true;
+                                                    }
+
+                                                }
+                                                </script>
+
 
                                                 <div class="col-md-5">
                                                     <div class="form-group">
@@ -117,7 +129,8 @@ include '../../includes/conn.php';
                                                             class="col-form-label">Grade</label>
                                                         <select class="form-select form-select-md"
                                                             data-dropdown-css-class="select2-purple"
-                                                            data-placeholder="Select Grade" name="grade" required>
+                                                            data-placeholder="Select Grade" name="grade" id="grade"
+                                                            required onChange="fun()">
                                                             <option selected disabled>Select Grade</option>
                                                             <?php
                                                             $query = mysqli_query($conn, "SELECT * FROM tbl_grade_levels");
@@ -144,7 +157,8 @@ include '../../includes/conn.php';
                                                             class="col-form-label">Strand</label>
                                                         <select class="form-select form-select-md"
                                                             data-dropdown-css-class="select2-purple"
-                                                            data-placeholder="Select Strand" name="strand" required>
+                                                            data-placeholder="Select Strand" id="strand" name="strand"
+                                                            required disabled="true">
                                                             <option selected disabled>Select Strand</option>
                                                             <?php
                                                             $query = mysqli_query($conn, "SELECT * FROM tbl_strands");
@@ -152,6 +166,19 @@ include '../../includes/conn.php';
                                                                 echo '<option value="' . $row['strand_id'] . '">' . $row['strand_name'] . '</option>';
                                                             }
                                                             ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label for="example-url-input" class="col-form-label">Balik
+                                                            Franciscano</label>
+                                                        <select class="form-select form-select-md"
+                                                            data-dropdown-css-class="select2-purple"
+                                                            data-placeholder="Select your Answer" name="bf" required>
+                                                            <option selected disabled>Select your Answer</option>
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -287,7 +314,7 @@ include '../../includes/conn.php';
                                                         <label for="example-url-input" class="col-form-label">Landline
                                                             No.</label>
                                                         <input type="text" class="form-control"
-                                                            placeholder="Landline Number" name="landline" required>
+                                                            placeholder="Landline Number" name="landline">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 ">

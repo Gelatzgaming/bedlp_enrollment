@@ -25,7 +25,7 @@ $pdf->SetFont('Arial', 'B', 18);
 // Dummy cell
 $pdf->Cell(50);
 // //cell(width,height,text,border,end line,[align])
-$pdf->Cell(110, 5, 'Saint Francis of Assisi College Las '. utf8_decode('Piñas ') . 'Campus',0,0, 'C');
+$pdf->Cell(110, 5, 'Saint Francis of Assisi College Las ' . utf8_decode('Piñas ') . 'Campus', 0, 0, 'C');
 // Line break
 $pdf->Ln(5);
 $pdf->SetTextColor(0, 0, 0);
@@ -33,7 +33,7 @@ $pdf->SetFont('Arial', '', 10, 'C');
 // dummy cell
 $pdf->Cell(50);
 // //cell(width,height,text,border,end line,[align])
-$pdf->Cell(90, 3, '045 Admiral Village, Talon 3, Las ' . utf8_decode('Piñas') . ' City, 1740',0,0, 'C');
+$pdf->Cell(90, 3, '045 Admiral Village, Talon 3, Las ' . utf8_decode('Piñas') . ' City, 1740', 0, 0, 'C');
 // Line break
 $pdf->Ln(8);
 $pdf->SetFont('Arial', 'B', 10, 'C');
@@ -256,7 +256,7 @@ $pdf->Cell(10, 4, '', 0, 1);
 $pdf->Cell(5, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 'B', 0);
 $pdf->Cell(18, 4, 'CORE', 0, 0);
-$pdf->Cell(15, 4, '123', 0, 0);
+$pdf->Cell(15, 4, '122', 0, 0);
 $pdf->Cell(90, 4, 'Pagbasa at Pagsulat ng Iba\'t ibang Tekso Tungo sa Pananaliksik', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);
 $pdf->Cell(10, 4, '', 0, 0);

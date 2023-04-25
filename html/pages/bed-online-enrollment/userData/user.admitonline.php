@@ -8,6 +8,8 @@ if (isset($_POST['submit'])) {
     $or_id = $_SESSION['or_id'];
 
     $studtype = mysqli_real_escape_string($conn, $_POST['studtype']);
+    $bf = mysqli_real_escape_string($conn, $_POST['bf']);
+
 
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $stud_no = mysqli_real_escape_string($conn, $_POST['stud_no']);
@@ -61,7 +63,7 @@ if (isset($_POST['submit'])) {
 
         $hashpwd = password_hash($password, PASSWORD_BCRYPT);
 
-        $insertUser = mysqli_query($conn, "INSERT INTO tbl_students (username, password, stud_no, lrn, student_lname, student_fname, student_mname, address, date_birth, place_birth, age, gender_id, nationality, religion, landline, cellphone, email, last_sch, prev_grade_level, sch_year, sch_address) VALUES ('$username' , '$hashpwd', '$stud_no', '$lrn', '$firstname', '$lastname', '$midname', '$address', '$date_birth', '$place_birth', '$age', '$gender', '$nationality', '$religion', '$landline', '$cellphone', '$email', '$last_attend', '$prev_grade_level', '$sch_year' , '$sch_address')")  or die(mysqli_error($conn));
+        $insertUser = mysqli_query($conn, "INSERT INTO tbl_students (username, password, stud_no, bf, lrn, student_lname, student_fname, student_mname, address, date_birth, place_birth, age, gender_id, nationality, religion, landline, cellphone, email, last_sch, prev_grade_level, sch_year, sch_address) VALUES ('$username' , '$hashpwd', '$stud_no', '$bf', '$lrn', '$firstname', '$lastname', '$midname', '$address', '$date_birth', '$place_birth', '$age', '$gender', '$nationality', '$religion', '$landline', '$cellphone', '$email', '$last_attend', '$prev_grade_level', '$sch_year' , '$sch_address')")  or die(mysqli_error($conn));
 
         $_SESSION['success'] = true;
         header('location: ../online.list.php');

@@ -17,7 +17,7 @@ $pdf->SetMargins(10, 10, 10);
 $pdf->AddPage();
 
 // Logo(x axis, y axis, height, width)
-$pdf->Image('../../../assets/img/logo.png', 20, 5, 15, 15);
+$pdf->Image('../../assets/images/auth/logo.jpg', 20, 5, 15, 15);
 // text color
 $pdf->SetTextColor(255, 0, 0);
 // font(font type,style,font size)
@@ -25,14 +25,14 @@ $pdf->SetFont('Arial', 'B', 18);
 // Dummy cell
 $pdf->Cell(50);
 // //cell(width,height,text,border,end line,[align])
-$pdf->Cell(110, 5, 'Saint Francis of Assisi College Las '. utf8_decode('Piñas ') . 'Campus',0,0, 'C');// Line break
+$pdf->Cell(110, 5, 'Saint Francis of Assisi College Las ' . utf8_decode('Piñas ') . 'Campus', 0, 0, 'C'); // Line break
 $pdf->Ln(6);
 $pdf->SetTextColor(0, 0, 0);
 $pdf->SetFont('Arial', '', 10, 'C');
 // dummy cell
 $pdf->Cell(50);
 // //cell(width,height,text,border,end line,[align])
-$pdf->Cell(90, 3, 'Admiral Talon 5 Las '. utf8_decode('Piñas'),0,0, 'C');
+$pdf->Cell(90, 3, 'Admiral Talon 5 Las ' . utf8_decode('Piñas'), 0, 0, 'C');
 // Line break
 $pdf->Ln(6);
 $pdf->SetFont('Arial', 'B', 10, 'C');

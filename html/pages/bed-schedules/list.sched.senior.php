@@ -8,16 +8,9 @@ if (!empty($_GET['eay'])) {
 }
 
 
-if (isset($_GET['stem'])) {
-    $str_name = $_GET['stem'];
-} elseif (isset($_GET['abm'])) {
-    $str_name = $_GET['abm'];
-} elseif (isset($_GET['ict'])) {
-    $str_name = $_GET['ict'];
-} elseif (isset($_GET['humss'])) {
-    $str_name = $_GET['humss'];
-} elseif (isset($_GET['tvl'])) {
-    $str_name = $_GET['tvl'];
+if (isset($_GET['strand'])) {
+    $strandInfo = mysqli_query($conn, "SELECT * FROM tbl_strands WHERE strand_id = '$_GET[strand]'");
+    $row = mysqli_fetch_array($strandInfo);
 }
 
 
@@ -69,43 +62,27 @@ if (isset($_GET['stem'])) {
                     <div class="card">
                         <div class="card-header">
                             <h4 class="header-title mb-3">Class Schedule for Senior High School
-                                <?php if (isset($_GET['stem'])) {
-                                    echo '(STEM)';
-                                } elseif (isset($_GET['abm'])) {
-                                    echo ' (ABM)';
-                                } elseif (isset($_GET['ict'])) {
-                                    echo ' (TVL-ICT)';
-                                } elseif (isset($_GET['humss'])) {
-                                    echo ' (HUMSS)';
-                                } elseif (isset($_GET['tvl'])) {
-                                    echo ' (TVL-HE)';
-                                } else {
-                                    echo '';
+                                <?php if (isset($_GET['strand'])) {
+                                    echo $row['strand_name'];
                                 } ?>
                             </h4>
 
                             <form method="GET">
-                                <div class="row ">
+                                <div class="row">
                                     <div class="d-grid gap-3 d-flex justify-content-center">
-                                        <button class="btn btn-outline-dark mb-3" value="STEM" name="stem">
-                                            <i class="fa fa-users"></i> STEM
-                                        </button>
+                                        <?php
+                                        $totalStrand = mysqli_query($conn, "SELECT * FROM tbl_strands");
+                                        while ($rowInfo = mysqli_fetch_array($totalStrand)) {
 
-                                        <button class="btn btn-outline-dark mb-3" value="ABM" name="abm">
-                                            <i class="fa fa-users"></i> ABM
+                                            echo '
+                                            <button class="btn btn-dark mb-6 ml-1" value="' . $rowInfo['strand_id'] . '" name="strand">
+                                            <i class="fa fa-users"></i> ' . $rowInfo['strand_name'] . '
                                         </button>
+                                            ';
+                                        }
 
-                                        <button class="btn btn-outline-dark mb-3" value="TVL - ICT" name="ict">
-                                            <i class="fa fa-users"></i> TVL - ICT
-                                        </button>
 
-                                        <button class="btn btn-outline-dark mb-3" value="HUMSS" name="humss">
-                                            <i class="fa fa-users"></i> HUMSS
-                                        </button>
-
-                                        <button class="btn btn-outline-dark mb-3" value="TVL - HE" name="tvl">
-                                            <i class="fa fa-users"></i> TVL- HE
-                                        </button>
+                                        ?>
                                     </div>
                                 </div>
                             </form>
@@ -113,7 +90,8 @@ if (isset($_GET['stem'])) {
                         <div class="card-body">
                             <hr class="bg-black mb-2">
                             <div class="table-responsive">
-                                <table id="user-list-table" class="table table-hover responsive nowrap" role="grid" data-toggle="data-table" style="width: 100%">
+                                <table id="user-list-table" class="table table-hover responsive nowrap" role="grid"
+                                    data-toggle="data-table" style="width: 100%">
                                     <thead class="text-capitalize">
                                         <tr class="light">
                                             <th>Code</th>
@@ -142,58 +120,64 @@ if (isset($_GET['stem'])) {
 
                                         ?>
 
-                                            <tr>
-                                                <?php while ($row = mysqli_fetch_array($get_sched)) {
+                                        <tr>
+                                            <?php while ($row = mysqli_fetch_array($get_sched)) {
                                                     $sen_id = $row['subject_id'];
                                                     $sched_id = $row['schedule_id'];
 
                                                 ?>
-                                                    <td><?php echo $row['subject_code']; ?></td>
-                                                    <td><?php echo $row['subject_description']; ?></td>
-                                                    <td><?php echo $row['total_units']; ?></td>
-                                                    <td><?php echo $row['day']; ?></td>
-                                                    <td><?php echo $row['time']; ?></td>
-                                                    <td><?php echo $row['room']; ?></td>
-                                                    <td><?php if (!empty($row['fullname'])) {
+                                            <td><?php echo $row['subject_code']; ?></td>
+                                            <td><?php echo $row['subject_description']; ?></td>
+                                            <td><?php echo $row['total_units']; ?></td>
+                                            <td><?php echo $row['day']; ?></td>
+                                            <td><?php echo $row['time']; ?></td>
+                                            <td><?php echo $row['room']; ?></td>
+                                            <td><?php if (!empty($row['fullname'])) {
                                                             echo $row['fullname'];
                                                         } else {
                                                             echo 'TBA';
                                                         } ?>
-                                                    </td>
-                                                    <td><?php echo $row['pre_requisites']; ?></td>
-                                                    <td><?php echo $row['grade_level']; ?></td>
-                                                    <td><?php echo $row['semester']; ?></td>
-                                                    <td><a href="edit.sched.senior.php<?php echo '?subject_id=' . $sen_id . '&schedule_id=' . $sched_id; ?>" type="button" class="btn btn-info mx-1"><i class="fa fa-edit"></i>
-                                                            Update
-                                                        </a>
-                                                        <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['schedule_id'] ?>"><i class="fa fa-trash"></i> Delete</button>
-                                                    </td>
-                                            </tr>
-                                            <!-- Delete modal start -->
-                                            <div class="modal fade" id="delete<?php echo $row['schedule_id'] ?>">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">Delete</h5>
-                                                        </div>
-                                                        <div class="modal-body text-center my-5">
-                                                            <p>Are you sure you want to delete,
-                                                                <i class="font-weight-bold"><?php echo $row['subject_code'] ?>
-                                                                    | </i>
-                                                                <i class="font-weight-bold"><?php echo $row['subject_description'] ?></i>
-                                                                ?
-                                                            </p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                                            <a href="userData/user.del.sched.senior.php<?php echo '?schedule_id=' . $sched_id . '&str_n=' . $str_name; ?>" class="btn btn-danger">Delete</a>
-                                                        </div>
+                                            </td>
+                                            <td><?php echo $row['pre_requisites']; ?></td>
+                                            <td><?php echo $row['grade_level']; ?></td>
+                                            <td><?php echo $row['semester']; ?></td>
+                                            <td><a href="edit.sched.senior.php<?php echo '?subject_id=' . $sen_id . '&schedule_id=' . $sched_id; ?>"
+                                                    type="button" class="btn btn-info mx-1"><i class="fa fa-edit"></i>
+                                                    Update
+                                                </a>
+                                                <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal"
+                                                    data-bs-target="#delete<?php echo $row['schedule_id'] ?>"><i
+                                                        class="fa fa-trash"></i> Delete</button>
+                                            </td>
+                                        </tr>
+                                        <!-- Delete modal start -->
+                                        <div class="modal fade" id="delete<?php echo $row['schedule_id'] ?>">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Delete</h5>
+                                                    </div>
+                                                    <div class="modal-body text-center my-5">
+                                                        <p>Are you sure you want to delete,
+                                                            <i class="font-weight-bold"><?php echo $row['subject_code'] ?>
+                                                                | </i>
+                                                            <i
+                                                                class="font-weight-bold"><?php echo $row['subject_description'] ?></i>
+                                                            ?
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Cancel</button>
+                                                        <a href="userData/user.del.sched.senior.php<?php echo '?schedule_id=' . $sched_id . '&str_n=' . $str_name; ?>"
+                                                            class="btn btn-danger">Delete</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            </tr>
+                                        </div>
+                                        </tr>
                                         <?php } ?>
-                                    <?php } ?>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

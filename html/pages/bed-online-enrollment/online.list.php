@@ -79,7 +79,9 @@ if ($_SESSION['role'] == 'Adviser') {
                             <div class="header-title">
                                 <h4 class="header-title pb-3">Online Inquiries</h4>
                             </div>
-                            <button class="btn btn-danger float-end" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" type="button">
+                            <button class="btn btn-danger float-end" data-bs-toggle="collapse"
+                                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
+                                type="button">
                                 Channel Inquiries
                             </button>
                         </div>
@@ -121,9 +123,11 @@ if ($_SESSION['role'] == 'Adviser') {
                             <div class="col-md-5 mb-3 mt-4">
                                 <form method="GET">
                                     <div class="input-group">
-                                        <input type="search" class="form-control" placeholder="Search for (Student no. or Name)" name="search">
+                                        <input type="search" class="form-control"
+                                            placeholder="Search for (Student no. or Name)" name="search">
                                         <div class="input-group-append">
-                                            <button type="submit" name="look" class="btn bg-navy" data-toggle="tooltip" data-placement="bottom" title="Search">
+                                            <button type="submit" name="look" class="btn bg-navy" data-toggle="tooltip"
+                                                data-placement="bottom" title="Search">
                                                 <i class="fa fa-search"></i>
                                             </button>
                                         </div>
@@ -134,17 +138,19 @@ if ($_SESSION['role'] == 'Adviser') {
                         <div class="card-body">
 
                             <div class="table-responsive">
-                                <table id="user-list-table" class="table table-hover responsive nowrap" role="grid" data-toggle="data-table">
+                                <table id="user-list-table" class="table table-hover responsive nowrap" role="grid"
+                                    data-toggle="data-table">
                                     <thead class="text-capitalize">
                                         <tr class="light">
-                                            <th>Fullname</th>
-                                            <th>Grade</th>
-                                            <th>Email</th>
-                                            <th>Student Type</th>
-                                            <th>School</th>
-                                            <th>School Type</th>
-                                            <th>Channel Info.</th>
-                                            <th>Status</th>
+                                            <th>Fullname:</th>
+                                            <th>Grade:</th>
+                                            <th>Email:</th>
+                                            <th>Student Type:</th>
+                                            <th>School:</th>
+                                            <th>School Type:</th>
+                                            <th>Channel Info.:</th>
+                                            <th>Balik Franciscano:</th>
+                                            <th>Status:</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -211,79 +217,96 @@ if ($_SESSION['role'] == 'Adviser') {
                                                 $id = $row['or_id'];
 
                                         ?>
-                                                <tr>
+                                        <tr>
 
-                                                    <td><?php echo $row['fullname']; ?></td>
+                                            <td><?php echo $row['fullname']; ?></td>
 
-                                                    <?php if (empty($row['strand_id'])) {
+                                            <?php if (empty($row['strand_id'])) {
                                                         echo '<td>' . $row['grade_level'] . '</td>';
                                                     } else {
                                                         echo '<td>' . $row['grade_level'] . ' - ' . $row['strand_name'] . '</td>';
                                                     }
                                                     ?>
 
-                                                    <td><?php echo $row['email']; ?></td>
-                                                    <td><?php echo $row['stud_type']; ?></td>
-                                                    <td><?php echo $row['last_sch']; ?></td>
-                                                    <td><?php echo $row['sch_type']; ?></td>
-                                                    <td><?php echo $row['info_name'] ?></td>
-                                                    <td><?php echo $row['remark']; ?></td>
-                                                    <td>
+                                            <td><?php echo $row['email']; ?></td>
+                                            <td><?php echo $row['stud_type']; ?></td>
+                                            <td><?php echo $row['last_sch']; ?></td>
+                                            <td><?php echo $row['sch_type']; ?></td>
+                                            <td><?php echo $row['info_name'] ?></td>
+                                            <td><?php echo $row['bf']; ?></td>
+                                            <td><?php echo $row['remark']; ?></td>
+                                            <td>
 
 
-                                                        <form action="userData/user.list.pending.php" method="POST">
+                                                <form action="userData/user.list.pending.php" method="POST">
 
-                                                            <?php if (empty($row['strand_id'])) { ?>
-                                                                <a href="online.edit.php<?php echo '?or_id=' . $id; ?>" type="button" class="btn btn-success mb-2 mt-2"><i class="fa fa-edit"></i>
-                                                                    Approve
-                                                                </a>
-                                                            <?php } else { ?>
-                                                                <a href="online.edit.php<?php echo '?or_id=' . $id; ?>" type="button" class="btn btn-success mb-2 mt-2" style="text-align: center;"><i class="fa fa-edit"></i>
-                                                                    Approve
-                                                                </a>
-                                                            <?php } ?>
-                                                            <br>
+                                                    <?php if (empty($row['strand_id'])) { ?>
+                                                    <a href="online.edit.php<?php echo '?or_id=' . $id; ?>"
+                                                        type="button" class="btn btn-success mb-2 mt-2"><i
+                                                            class="fa fa-edit"></i>
+                                                        Approve
+                                                    </a>
+                                                    <?php } else { ?>
+                                                    <a href="online.edit.php<?php echo '?or_id=' . $id; ?>"
+                                                        type="button" class="btn btn-success mb-2 mt-2"
+                                                        style="text-align: center;"><i class="fa fa-edit"></i>
+                                                        Approve
+                                                    </a>
+                                                    <?php } ?>
+                                                    <br>
 
-                                                            <?php if (empty($row['strand_id'])) { ?>
-                                                                <a href="../bed-forms/pre_en_online.php<?php echo '?or_id=' . $id; ?>" type="button" class="btn btn-info mb-2 mt-2"><i class="fa fa-edit"></i>
-                                                                    Pre-enrollment Form
-                                                                </a>
-                                                            <?php } else { ?>
-                                                                <a href="../bed-forms/pre_en_online_senior.php<?php echo '?or_id=' . $id; ?>" type="button" class="btn btn-info mb-2 mt-2"><i class="fa fa-edit"></i>
-                                                                    Pre-enrollment Form
-                                                                </a>
-                                                            <?php } ?>
+                                                    <?php if (empty($row['strand_id'])) { ?>
+                                                    <a href="../bed-forms/pre_en_online.php<?php echo '?or_id=' . $id; ?>"
+                                                        type="button" class="btn btn-info mb-2 mt-2"><i
+                                                            class="fa fa-edit"></i>
+                                                        Pre-enrollment Form
+                                                    </a>
+                                                    <?php } else { ?>
+                                                    <a href="../bed-forms/pre_en_online_senior.php<?php echo '?or_id=' . $id; ?>"
+                                                        type="button" class="btn btn-info mb-2 mt-2"><i
+                                                            class="fa fa-edit"></i>
+                                                        Pre-enrollment Form
+                                                    </a>
+                                                    <?php } ?>
 
-                                                            <!-- Button trigger modal -->
-                                                            <hr class="dropdown-divider">
-                                                            <a type="button" class="btn btn-danger mb-2 mt-2" data-bs-toggle="modal" href="#delete<?php echo $id ?>"><i class="fa fa-trash"></i>
-                                                                Delete
-                                                            </a>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                                <!-- Delete modal start -->
-                                                <div class="modal fade" id="delete<?php echo $id ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                            </div>
-                                                            <div class="modal-body text-center my-5">
-                                                                <p>Are you sure you want to delete,
-                                                                    <br><strong><i class="font-weight-bold"><?php echo $row['fullname'] ?></i></strong>
-                                                                    ?
-                                                                </p>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                <a href="userData/user.del.online.php<?php echo '?or_id=' . $id; ?>" class="btn btn-danger">Delete</a>
-                                                            </div>
-                                                        </div>
+                                                    <!-- Button trigger modal -->
+                                                    <hr class="dropdown-divider">
+                                                    <a type="button" class="btn btn-danger mb-2 mt-2"
+                                                        data-bs-toggle="modal" href="#delete<?php echo $id ?>"><i
+                                                            class="fa fa-trash"></i>
+                                                        Delete
+                                                    </a>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        <!-- Delete modal start -->
+                                        <div class="modal fade" id="delete<?php echo $id ?>" data-bs-backdrop="static"
+                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
+                                                        <button type="button" class="btn-close"
+                                                            data-bs-dismiss="modal"></button>
+                                                    </div>
+                                                    <div class="modal-body text-center my-5">
+                                                        <p>Are you sure you want to delete,
+                                                            <br><strong><i
+                                                                    class="font-weight-bold"><?php echo $row['fullname'] ?></i></strong>
+                                                            ?
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <a href="userData/user.del.online.php<?php echo '?or_id=' . $id; ?>"
+                                                            class="btn btn-danger">Delete</a>
                                                     </div>
                                                 </div>
-                                                <!-- Delete modal end -->
+                                            </div>
+                                        </div>
+                                        <!-- Delete modal end -->
                                         <?php }
                                         } ?>
 

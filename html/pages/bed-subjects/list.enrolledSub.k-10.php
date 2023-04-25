@@ -171,7 +171,7 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
                                         <form action="userData/user.del.offeredSub.k-10.php?stud_id=<?php echo $stud_id; ?>" method="POST">
                                         <?php } ?>
                                         <div class="table-responsive">
-                                            <table id="user-list-table" class="table table-hover responsive nowrap" role="grid" data-toggle="data-table" style="width: 100%">
+                                            <table id="dt2" class="table table-hover responsive nowrap" role="grid" style="width: 100%">
                                                 <thead class="text-capitalize">
                                                     <tr class="light">
                                                         <th>
@@ -249,7 +249,7 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
                                                                 <tr>
                                                                     <td></td>
                                                                     <td>Total Subjects:</td>
-                                                                    <td><?php echo '(' . $row['csub'] . ')' ?></td>
+                                                                    <td><?php echo '' . $row['csub'] . '' ?></td>
                                                                     <td></td>
                                                                     <td></td>
                                                                     <td></td>
@@ -327,7 +327,15 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
             "sorting": false
 
         });
-        $('#user-list-table').dataTable({
+        $('#dt2').dataTable({
+            "paging": false,
+            "searching": false,
+            "info": false,
+            "sorting": false
+
+        });
+        // dataTable.destroy();
+        $('#user-list-table').DataTable({
             "pageLength": 50
 
         });

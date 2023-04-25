@@ -10,6 +10,7 @@ if (isset($_POST['submit'])) {
     $date_enrolled = date('d-M-y');
     $stud_type = mysqli_real_escape_string($conn, $_POST['stud_type']);
     $remark = mysqli_real_escape_string($conn, $_POST['remark']);
+    $bf = mysqli_real_escape_string($conn, $_POST['bf']);
 
 
     if ($grade_level == '14' || $grade_level == '15') {
@@ -24,7 +25,7 @@ if (isset($_POST['submit'])) {
                 $_SESSION['dbl-stud'] = true;
                 header('location: ../add.enroll.php');
             } else {
-                $insert = mysqli_query($conn, "INSERT INTO tbl_schoolyears (ay_id, semester_id, student_id, grade_level_id, strand_id, date_enrolled, stud_type, remark) VALUES ('$acadyear', '$sem', '$stud_id', '$grade_level', '$strand_id', '$date_enrolled', '$stud_type', '$remark')") or die(mysqli_error($conn));
+                $insert = mysqli_query($conn, "INSERT INTO tbl_schoolyears (ay_id, semester_id, student_id, grade_level_id, strand_id, date_enrolled, stud_type, remark, bf) VALUES ('$acadyear', '$sem', '$stud_id', '$grade_level', '$strand_id', '$date_enrolled', '$stud_type', '$remark', '$bf')") or die(mysqli_error($conn));
                 $_SESSION['success'] = true;
                 header('location: ../../bed-subjects/list.enrolledSub.senior.php');
             }
@@ -37,7 +38,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['dbl-stud'] = true;
             header('location: ../add.enroll.php');
         } else {
-            $insert = mysqli_query($conn, "INSERT INTO tbl_schoolyears (ay_id, student_id, grade_level_id, date_enrolled, stud_type, remark) VALUES ('$acadyear', '$stud_id', '$grade_level', '$date_enrolled', '$stud_type', '$remark')") or die(mysqli_error($conn));
+            $insert = mysqli_query($conn, "INSERT INTO tbl_schoolyears (ay_id, student_id, grade_level_id, date_enrolled, stud_type, remark, bf) VALUES ('$acadyear', '$stud_id', '$grade_level', '$date_enrolled', '$stud_type', '$remark', '$bf')") or die(mysqli_error($conn));
             $_SESSION['success'] = true;
             header('location: ../../bed-subjects/list.enrolledSub.senior.php');
         }

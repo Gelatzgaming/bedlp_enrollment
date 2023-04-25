@@ -120,7 +120,7 @@ if ($_SESSION['role'] == "Student") {
                                     <hr class="bg-black mb-2">
 
                                     <div class="table-responsive">
-                                        <table id="user-list-table" class="table table-hover responsive nowrap" role="grid" data-toggle="data-table" style="width: 100%">
+                                        <table id="dt2" class="table table-hover responsive nowrap" role="grid" style="width: 100%">
                                             <thead class="text-capitalize">
                                                 <tr class="light">
                                                     <th><input type="checkbox" name="" id="select-all-cb"></th>
@@ -227,6 +227,14 @@ if ($_SESSION['role'] == "Student") {
 
     <?php include '../../includes/bed-script.php' ?>
     <script>
+        $('#dt2').dataTable({
+            "paging": false,
+            "searching": false,
+            "info": false,
+            "sorting": false
+
+        });
+
         $("#alertDel").delay(2000).fadeOut();
     </script>
 
