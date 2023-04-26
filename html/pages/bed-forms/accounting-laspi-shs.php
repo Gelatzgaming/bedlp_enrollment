@@ -35,7 +35,7 @@ if ($result > 0) {
     if ($result2 > 0) {
         //header('location: all_formsSH.php?stud_id=' . $stud_id . '&glvl_id=' . $glvl_id);
     } else {
-        header('location: ../bed-404/page404.php');
+        header('location: ../bed-error/error404.php');
     }
 }
 

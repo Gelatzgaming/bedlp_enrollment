@@ -61,7 +61,8 @@
                             </div>
                             <div class="card-body" style="color:black;">
 
-                                <form action="userData/user.edit.student.php" method="POST" enctype="multipart/form-data">
+                                <form action="userData/user.edit.student.php" method="POST"
+                                    enctype="multipart/form-data">
 
 
                                     <?php
@@ -72,19 +73,22 @@
                                     }
                                     $row = $get_student->fetch_array();
                                     ?>
-                                    <input class="form-control" type="text" name="student_id" value="<?php echo $row['student_id']; ?>" hidden>
-
+                                    <input class="form-control" type="text" name="student_id"
+                                        value="<?php echo $row['student_id']; ?>" hidden>
                                     <div class="row">
                                         <div class="form-group mb-4">
                                             <div class="custom-file">
                                                 <div class="text-center mb-3">
-                                                    <img class="img-fluid img-circle" src="../../assets/images/icons/user.png " alt="User profile picture" style="width: 145px; height: 145px;">
+                                                    <img class="img-fluid img-circle"
+                                                        src="../../assets/images/icons/user.png "
+                                                        alt="User profile picture" style="width: 145px; height: 145px;">
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group m-auto col-md-4">
                                                         <div class="input-group">
                                                             <div class="custom-file">
-                                                                <input type="file" class="form-control" name="prof_img" required>
+                                                                <input type="file" class="form-control" name="prof_img"
+                                                                    required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -94,36 +98,48 @@
                                         <div class="row">
                                             <div class="col-md-4 mb-3">
                                                 <label class="form-label" for="example-text-input">First name</label>
-                                                <input type="text" class="form-control" id="example-text-input" name="firstname" placeholder="First name" value="<?php echo $row['student_fname']; ?>" required>
+                                                <input type="text" class="form-control" id="example-text-input"
+                                                    name="firstname" placeholder="First name"
+                                                    value="<?php echo $row['student_fname']; ?>" required>
                                             </div>
                                             <div class="col-md-4 mb-3">
                                                 <label class="form-label" for="example-text-input">Last name</label>
-                                                <input type="text" class="form-control" id="example-text-input" name="lastname" placeholder="Lastname" value="<?php echo $row['student_lname']; ?>" required>
+                                                <input type="text" class="form-control" id="example-text-input"
+                                                    name="lastname" placeholder="Lastname"
+                                                    value="<?php echo $row['student_lname']; ?>" required>
                                             </div>
                                             <div class="col-md-4 mb-3">
                                                 <label class="form-label" for="example-text-input">Middle name</label>
-                                                <input type="text" class="form-control" id="example-text-input" name="midname" placeholder="Middle name" value="<?php echo $row['student_mname']; ?>" required>
+                                                <input type="text" class="form-control" id="example-text-input"
+                                                    name="midname" placeholder="Middle name"
+                                                    value="<?php echo $row['student_mname']; ?>" required>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label" for="example-text-input">Email</label>
-                                                <input type="text" class="form-control" id="example-text-input" name="email" placeholder="Email Address" value="<?php echo $row['email']; ?>" required>
+                                                <input type="text" class="form-control" id="example-text-input"
+                                                    name="email" placeholder="Email Address"
+                                                    value="<?php echo $row['email']; ?>" required>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label for="example-text-input" class="form-label">Username</label>
-                                                <input type="text" class="form-control" id="example-text-input" aria-label="Username" name="username" placeholder="Username" value="<?php echo $row['username']; ?>" required>
+                                                <input type="text" class="form-control" id="example-text-input"
+                                                    aria-label="Username" name="username" placeholder="Username"
+                                                    value="<?php echo $row['username']; ?>" required>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label" for="example-text-input">Password</label>
-                                                <input type="password" class="form-control" id="example-text-input" name="password" placeholder="Password" required>
+                                                <input type="password" class="form-control" id="example-text-input"
+                                                    name="password" placeholder="Password" required>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label" for="example-text-input">Confirm
                                                     Password</label>
-                                                <input type="password" class="form-control" id="example-text-input" name="password2" placeholder="Confirm Password" required>
+                                                <input type="password" class="form-control" id="example-text-input"
+                                                    name="password2" placeholder="Confirm Password" required>
                                             </div>
                                         </div>
                                     </div>

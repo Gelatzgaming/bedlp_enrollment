@@ -31,7 +31,7 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or 
         if ($result2 > 0) {
             header('location: list.enrolledSub.k-10.php?stud_id=' . $stud_id . '&glvl_id=' . $glvl_id);
         } else {
-            header('location: ../bed-404/page404.php');
+            header('location: ../bed-error/error404.php');
         }
     }
 }

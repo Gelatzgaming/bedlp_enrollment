@@ -162,11 +162,22 @@ if (isset($_GET['strand'])) {
                                                     <td><?php echo $row['pre_requisites']; ?></td>
                                                     <td><?php echo $row['grade_level']; ?></td>
                                                     <td><?php echo $row['semester']; ?></td>
-                                                    <td><a href="edit.sub.senior.php<?php echo '?sen_id=' . $id; ?>" type="button" class="btn btn-info mx-1"><i class="fa fa-edit"></i>
-                                                            Update
-                                                        </a>
-                                                        <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['subject_id'] ?>"><i class="fa fa-trash"></i> Delete</button>
-                                                    </td>
+                                                    <?php
+                                                    if ($_SESSION['role'] == "Guest") {
+                                                    ?> <td><button href="edit.sub.senior.php<?php echo '?sen_id=' . $id; ?>" type="button" class="btn btn-info mx-1" disabled><i class="fa fa-edit"></i>
+                                                                Update
+                                                            </button>
+                                                            <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['subject_id'] ?>" disabled><i class="fa fa-trash"></i> Delete</button>
+                                                        </td> <?php
+                                                            } else {
+                                                                ?>
+                                                        <td><a href="edit.sub.senior.php<?php echo '?sen_id=' . $id; ?>" type="button" class="btn btn-info mx-1"><i class="fa fa-edit"></i>
+                                                                Update
+                                                            </a>
+                                                            <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['subject_id'] ?>"><i class="fa fa-trash"></i> Delete</button>
+                                                        </td>
+                                                    <?php }
+                                                    ?>
                                             </tr>
                                             <!-- Delete modal start -->
                                             <div class="modal fade" id="delete<?php echo $row['subject_id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

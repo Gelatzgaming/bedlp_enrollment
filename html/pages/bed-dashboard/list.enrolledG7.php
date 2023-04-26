@@ -34,8 +34,59 @@ include '../../includes/bed-header.php';
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">List of Grade 7 Students</h4> <!-- Ariate's edit part-->
+                            <h4 class="header-title">List of Grade 7 Students</h4>
+                            <div class="row justify-content-center">
+                                <div class="col-md-3 mt-3">
+                                    <div class="card">
+                                        <div class="small-box bg-dark" style="border-radius: 20px;">
+                                            <div class="p-3 d-flex justify-content-center">
 
+                                                <div class="info-box-content">
+                                                    <center><b><span class="info-box-text" style="color: white;"><i
+                                                                    class="fa fa-users"
+                                                                    style="font-size: 30px;"></i><br> New
+                                                                Students</span></b>
+                                                        <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears AS sy
+                                                            LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
+                                                            LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id
+                                                            WHERE ay.academic_year = '$act_acad' AND remark = 'Approved' AND grade_level_id = '10' AND stud_type = 'New'") or die(mysqli_error($conn));
+                                                        while ($row = mysqli_fetch_array($stud_count)) { ?>
+                                                        <span class="info-box-number" style="color: white;">:
+                                                            <?php echo $row['total_stud']; ?></span>
+                                                    </center>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.col -->
+                                <div class="col-md-3 mt-3">
+                                    <div class="card">
+                                        <div class="small-box bg-dark" style="border-radius: 20px;">
+                                            <div class="p-3 d-flex justify-content-center">
+
+                                                <div class="info-box-content">
+                                                    <center><b><span class="info-box-text" style="color: white;"><i
+                                                                    class="fa fa-users"
+                                                                    style="font-size: 30px;"></i><br> Old
+                                                                Students</span></b>
+                                                        <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears AS sy
+                                                            LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
+                                                            LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id
+                                                            WHERE ay.academic_year = '$act_acad' AND remark = 'Approved' AND grade_level_id = '10' AND stud_type = 'Old'") or die(mysqli_error($conn));
+                                                        while ($row = mysqli_fetch_array($stud_count)) { ?>
+                                                        <span class="info-box-number" style="color: white;">:
+                                                            <?php echo $row['total_stud']; ?></span>
+                                                    </center>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                             <div class="row justify-content-center">
                                 <div class="col-md-5 mb-3 mt-4">
                                     <form method="GET">

@@ -13,7 +13,7 @@ if ($result > 0) {
     $_SESSION['subject_id'] = $sen_id;
     $_SESSION['schedule_id'] = $sched_id;
 } else {
-    header('location: ../bed-404/page404.php');
+    header('location: ../bed-error/error404.php');
 }
 
 
@@ -42,30 +42,30 @@ if ($result > 0) {
         <div class="conatiner-fluid content-inner mt-n5 py-0">
             <div>
                 <?php
-                                        if (!empty($_SESSION['errors'])) {
-                                            echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                if (!empty($_SESSION['errors'])) {
+                    echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
                                                  ';
-                                            foreach ($_SESSION['errors'] as $error) {
-                                                echo $error;
-                                            }
-                                            echo '
+                    foreach ($_SESSION['errors'] as $error) {
+                        echo $error;
+                    }
+                    echo '
                                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
                                                 </div>';
-                                            unset($_SESSION['errors']);
-                                        } elseif (!empty($_SESSION['success-edit'])) {
-                                            echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                    unset($_SESSION['errors']);
+                } elseif (!empty($_SESSION['success-edit'])) {
+                    echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
                                                     <strong>Successfully Updated.</strong>
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
                                                 </div>';
-                                            unset($_SESSION['success-edit']);
-                                        } elseif (!empty($_SESSION['dbl-sched'])) {
-                                            echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
+                    unset($_SESSION['success-edit']);
+                } elseif (!empty($_SESSION['dbl-sched'])) {
+                    echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
                                                     <strong>Double Schedule!.</strong>
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
                                                 </div>';
-                                            unset($_SESSION['dbl-sched']);
-                                        }
-                                        ?>
+                    unset($_SESSION['dbl-sched']);
+                }
+                ?>
                 <div class="row">
                     <div class="col-sm-12 col-lg-12">
                         <div class="card">
@@ -91,73 +91,61 @@ if ($result > 0) {
 
                                 ?>
 
-                                <form action="userData/user.edit.sched.senior.php" method="POST"
-                                    enctype="multipart/form-data">
+                                    <form action="userData/user.edit.sched.senior.php" method="POST" enctype="multipart/form-data">
 
-                                    <input value="<?php echo $act_acad; ?>" hidden name="acadyear">
-                                    <input value="<?php echo $act_sem; ?> " hidden name="sem">
-                                    <input value="<?php echo $sen_id; ?> " hidden name="subject_id">
-                                    <input value="<?php echo $sched_id; ?> " hidden name="schedule_id">
+                                        <input value="<?php echo $act_acad; ?>" hidden name="acadyear">
+                                        <input value="<?php echo $act_sem; ?> " hidden name="sem">
+                                        <input value="<?php echo $sen_id; ?> " hidden name="subject_id">
+                                        <input value="<?php echo $sched_id; ?> " hidden name="schedule_id">
 
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label" for="example-text-input">Code</label>
-                                            <input type="text" class="form-control" id="example-text-input"
-                                                name="subject_code" placeholder="Enter Subject Code" readonly
-                                                value="<?php echo $row['subject_code']; ?>">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label" for="example-text-input">Code</label>
+                                                <input type="text" class="form-control" id="example-text-input" name="subject_code" placeholder="Enter Subject Code" readonly value="<?php echo $row['subject_code']; ?>">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label" for="example-text-input">Description</label>
+                                                <input type="text" class="form-control" id="example-text-input" name="subject_description" placeholder="Enter Subject Description" readonly value="<?php echo $row['subject_description']; ?>">
+                                            </div>
                                         </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label" for="example-text-input">Description</label>
-                                            <input type="text" class="form-control" id="example-text-input"
-                                                name="subject_description" placeholder="Enter Subject Description"
-                                                readonly value="<?php echo $row['subject_description']; ?>">
-                                        </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-label" for="example-text-input">Days</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="days"
-                                                placeholder="M, T, W, TH, F" required
-                                                value="<?php echo $row['day']; ?>">
+                                        <div class="row">
+                                            <div class="col-md-4 mb-3">
+                                                <label class="form-label" for="example-text-input">Days</label>
+                                                <input type="text" class="form-control" id="example-text-input" name="days" placeholder="M, T, W, TH, F" required value="<?php echo $row['day']; ?>">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label class="form-label" for="example-text-input">Time</label>
+                                                <input type="text" class="form-control" id="example-text-input" name="time" placeholder="hh:mm - hh:mm AM/PM" required value="<?php echo $row['time']; ?>">
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label class="form-label" for="example-text-input">Room</label>
+                                                <input type="text" class="form-control" id="example-text-input" name="room" placeholder="Enter Room Name" required value="<?php echo $row['room']; ?>">
+                                            </div>
                                         </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-label" for="example-text-input">Time</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="time"
-                                                placeholder="hh:mm - hh:mm AM/PM" required
-                                                value="<?php echo $row['time']; ?>">
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-label" for="example-text-input">Room</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="room"
-                                                placeholder="Enter Room Name" required
-                                                value="<?php echo $row['room']; ?>">
-                                        </div>
-                                    </div>
-                                    <div class="row justify-content-center">
+                                        <div class="row justify-content-center">
 
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label" for="example-text-input">Instructor</label>
-                                            <select class="form-select" data-dropdown-css-class="select2-info"
-                                                data-placeholder="Select Instructor" name="instruct">
-                                                <option selected value="<?php echo $row['teacher_id']; ?>">
-                                                    <?php echo $row['fullname'];
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label" for="example-text-input">Instructor</label>
+                                                <select class="form-select" data-dropdown-css-class="select2-info" data-placeholder="Select Instructor" name="instruct">
+                                                    <option selected value="<?php echo $row['teacher_id']; ?>">
+                                                        <?php echo $row['fullname'];
                                                         ?></option>
-                                                <?php $get_teachers = mysqli_query($conn, "SELECT *, CONCAT(tbl_teachers.teacher_fname, ' ', LEFT(tbl_teachers.teacher_mname,1), '. ', tbl_teachers.teacher_lname) AS fullname FROM tbl_teachers") or die(mysqli_error($conn));
+                                                    <?php $get_teachers = mysqli_query($conn, "SELECT *, CONCAT(tbl_teachers.teacher_fname, ' ', LEFT(tbl_teachers.teacher_mname,1), '. ', tbl_teachers.teacher_lname) AS fullname FROM tbl_teachers") or die(mysqli_error($conn));
                                                     while ($row = mysqli_fetch_array($get_teachers)) {
                                                     ?>
-                                                <option value="<?php echo $row['teacher_id']; ?>">
-                                                    <?php echo $row['fullname'];
+                                                        <option value="<?php echo $row['teacher_id']; ?>">
+                                                        <?php echo $row['fullname'];
                                                     } ?></option>
-                                            </select>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group float-end">
-                                        <button class="btn btn-danger" type="submit" name="submit">Submit</button>
-                                    </div>
-                                    <div class="justify-content-end mb-3 mt-3 p-0 float-right">
-                                        <?php if ($strand_n == "ABM") {
+                                        <div class="form-group float-end">
+                                            <button class="btn btn-danger" type="submit" name="submit">Submit</button>
+                                        </div>
+                                        <div class="justify-content-end mb-3 mt-3 p-0 float-right">
+                                            <?php if ($strand_n == "ABM") {
                                                 echo '<a href=" ../bed-schedules/list.sched.senior.php?abm=' . $strand_n . '" class="btn btn-secondary mb-3">';
                                             } elseif ($strand_n == "STEM") {
                                                 echo '<a href=" ../bed-schedules/list.sched.senior.php?stem=' . $strand_n . '" class="btn btn-secondary mb-3">';
@@ -168,11 +156,11 @@ if ($result > 0) {
                                             } elseif ($strand_n == "TVL - HE") {
                                                 echo '<a href=" ../bed-schedules/list.sched.senior.php?tvl=' . $strand_n . '" class="btn btn-secondary mb-3">';
                                             } ?>
-                                        <i class="fa fa-arrow-circle-left "></i>
-                                        Back </a>
-                                    </div>
+                                            <i class="fa fa-arrow-circle-left "></i>
+                                            Back </a>
+                                        </div>
 
-                                </form>
+                                    </form>
                                 <?php } ?>
                             </div>
                         </div>

@@ -35,7 +35,7 @@ if ($_SESSION['role'] == "Admission" || $_SESSION['role'] == "Accounting" || $_S
 
         if ($result2 > 0) {
         } else {
-            // header('location: ../bed-404/page404.php');
+            // header('location: ../bed-error/error404.php');
         }
     }
 }

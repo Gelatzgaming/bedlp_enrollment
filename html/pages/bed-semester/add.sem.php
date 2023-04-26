@@ -84,13 +84,31 @@
                                     <div class="col">
                                         <h4 class="header-title">Semester List</h4>
                                     </div>
-                                    <div class="col">
-                                        <button type="button" class="btn btn-rounded btn-danger float-end" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Add Academic
+                                    <?php 
+                                    if ($_SESSION['role'] == "Guest") {
+                                    ?> <div class="col">
+                                        <button type="button" class="btn btn-rounded btn-danger float-end"
+                                            data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" disabled>Add
+                                            Academic
                                             Semester</button>
                                     </div>
+                                    <?php
+                                    } else {
+                                        ?>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-rounded btn-danger float-end"
+                                            data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Add
+                                            Academic
+                                            Semester</button>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+
                                 </div>
                                 <div class="table-responsive">
-                                    <table id="user-list-table" class="table table-hover responsive nowrap" role="grid" data-toggle="data-table">
+                                    <table id="user-list-table" class="table table-hover responsive nowrap" role="grid"
+                                        data-toggle="data-table">
                                         <thead class="text-capitalize">
                                             <tr class="light">
                                                 <th>Semester</th>
@@ -103,72 +121,125 @@
                                             while ($row = mysqli_fetch_array($get_sem)) {
                                                 $id = $row['semester_id'];
                                             ?>
-                                                <tr>
-                                                    <td class="px-5"><?php echo $row['fullname'] ?></td>
-                                                    <td>
-                                                        <span data-toggle="tooltip" data-placement="top" title="Edit Academic Year">
-                                                            <button type="button" class="btn btn-info mb-3" data-bs-toggle="modal" data-bs-target="#edit<?php echo $row['semester_id'] ?>"><i class="fa fa-edit"></i></button>
-                                                        </span>
+                                            <tr>
+                                                <td class="px-5"><?php echo $row['fullname'] ?></td>
+                                                <?php 
+                                                     if ($_SESSION['role'] == "Guest") {
+                                                       ?> <td>
+                                                    <span data-toggle="tooltip" data-placement="top"
+                                                        title="Edit Academic Year">
+                                                        <button type="button" class="btn btn-info mb-3"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#edit<?php echo $row['semester_id'] ?>"
+                                                            disabled><i class="fa fa-edit"></i></button>
+                                                    </span>
 
-                                                        </a>
-                                                        <span data-toggle="tooltip" data-placement="top" title="Delete Academic Year">
-                                                            <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['semester_id'] ?>"><i class="fa fa-trash"></i></button>
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                <!-- Edit (acad year) -->
-                                                <div class="modal fade" id="edit<?php echo $row['semester_id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Edit
-                                                                    Academic Semester</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <form action="userData/user.edit.sem.php?semester_id=<?php echo $row['semester_id'] ?>" method="POST">
-                                                                <div class="modal-body">
-                                                                    <div class="input-group mb-3">
-                                                                        <div class="input-group-prepend">
-                                                                            <span class="input-group-text" id="basic-addon3">Academic
-                                                                                Semester</span>
-                                                                        </div>
-                                                                        <input type="text" class="form-control" id="basic-url" name="semester" aria-describedby="basic-addon3" placeholder="Enter Semester" value="<?php echo $row['fullname'] ?>" required>
+                                                    </a>
+                                                    <span data-toggle="tooltip" data-placement="top"
+                                                        title="Delete Academic Year">
+                                                        <button type="button" class="btn btn-danger mb-3"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#delete<?php echo $row['semester_id'] ?>"
+                                                            disabled><i class="fa fa-trash"></i></button>
+                                                    </span>
+                                                </td>
+                                                <?php }  
+                                                    else { ?>
+                                                <td>
+                                                    <span data-toggle="tooltip" data-placement="top"
+                                                        title="Edit Academic Year">
+                                                        <button type="button" class="btn btn-info mb-3"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#edit<?php echo $row['semester_id'] ?>"><i
+                                                                class="fa fa-edit"></i></button>
+                                                    </span>
+
+                                                    </a>
+                                                    <span data-toggle="tooltip" data-placement="top"
+                                                        title="Delete Academic Year">
+                                                        <button type="button" class="btn btn-danger mb-3"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#delete<?php echo $row['semester_id'] ?>"><i
+                                                                class="fa fa-trash"></i></button>
+                                                    </span>
+                                                </td>
+                                                <?php }
+                                                     ?>
+
+                                            </tr>
+                                            <!-- Edit (acad year) -->
+                                            <div class="modal fade" id="edit<?php echo $row['semester_id'] ?>"
+                                                data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="staticBackdropLabel">Edit
+                                                                Academic Semester</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <form
+                                                            action="userData/user.edit.sem.php?semester_id=<?php echo $row['semester_id'] ?>"
+                                                            method="POST">
+                                                            <div class="modal-body">
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon3">Academic
+                                                                            Semester</span>
                                                                     </div>
+                                                                    <input type="text" class="form-control"
+                                                                        id="basic-url" name="semester"
+                                                                        aria-describedby="basic-addon3"
+                                                                        placeholder="Enter Semester"
+                                                                        value="<?php echo $row['fullname'] ?>" required>
                                                                 </div>
+                                                            </div>
 
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-danger" name="submit">Submit</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-danger"
+                                                                    name="submit">Submit</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
-                                                <!-- Delete modal start -->
-                                                <div class="modal fade" id="delete<?php echo $row['semester_id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <form action="userData/user.del.sem.php?semester_id=<?php echo $row['semester_id'] ?>" method="POST">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="staticBackdropLabel">Delete
-                                                                    </h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                                </div>
-                                                                <div class="modal-body text-center my-5">
-                                                                    <p>Are you sure you want to delete,
-                                                                        <br><strong><i class="font-weight-bold"><?php echo $row['fullname'] ?></i></strong>
-                                                                        ?
-                                                                    </p>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                    <button type="submit" name="submit" class="btn btn-danger">Delete</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
+                                            </div>
+                                            <!-- Delete modal start -->
+                                            <div class="modal fade" id="delete<?php echo $row['semester_id'] ?>"
+                                                data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <form
+                                                            action="userData/user.del.sem.php?semester_id=<?php echo $row['semester_id'] ?>"
+                                                            method="POST">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="staticBackdropLabel">Delete
+                                                                </h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal"></button>
+                                                            </div>
+                                                            <div class="modal-body text-center my-5">
+                                                                <p>Are you sure you want to delete,
+                                                                    <br><strong><i
+                                                                            class="font-weight-bold"><?php echo $row['fullname'] ?></i></strong>
+                                                                    ?
+                                                                </p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" name="submit"
+                                                                    class="btn btn-danger">Delete</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
-                                                <!-- Delete modal end -->
+                                            </div>
+                                            <!-- Delete modal end -->
                                             <?php } ?>
                                         </tbody>
                                     </table>
@@ -180,7 +251,8 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title">Add Academic Semester</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                         </div>
                                         <form action="userData/user.add.sem.php" method="POST">
                                             <div class="modal-body">
@@ -189,13 +261,17 @@
                                                         <span class="input-group-text" id="basic-addon3">Academic
                                                             Semester</span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="basic-url" name="semester" aria-describedby="basic-addon3" placeholder="Enter Semester" required>
+                                                    <input type="text" class="form-control" id="basic-url"
+                                                        name="semester" aria-describedby="basic-addon3"
+                                                        placeholder="Enter Semester" required>
                                                 </div>
                                             </div>
 
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-danger" name="submit">Submit</button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-danger"
+                                                    name="submit">Submit</button>
                                             </div>
                                         </form>
                                     </div>
@@ -213,24 +289,39 @@
                             <form action="userData/user.set.sem.php" method="POST">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <select class="form-select form-select-md" name="act_sem" data-placeholder="Select Active Academic Semester" data-dropdown-css-class="select2-purple" name="act_sem">
+                                        <select class="form-select form-select-md" name="act_sem"
+                                            data-placeholder="Select Active Academic Semester"
+                                            data-dropdown-css-class="select2-purple" name="act_sem">
                                             <?php $sltd_sem = mysqli_query($conn, "SELECT * FROM tbl_active_semesters LEFT JOIN tbl_semesters ON tbl_semesters.semester_id = tbl_active_semesters.semester_id") or die(mysqli_error($conn));
                                             while ($row1 = mysqli_fetch_array($sltd_sem)) {
                                             ?>
-                                                <option value="<?php echo $row1['semester_id'];  ?>">
-                                                    <?php echo $row1['semester'];
+                                            <option value="<?php echo $row1['semester_id'];  ?>">
+                                                <?php echo $row1['semester'];
                                                     ?></option>
-                                                <?php $get_sem = mysqli_query($conn, "SELECT * FROM tbl_semesters WHERE semester_id NOT IN (" . $row1['semester_id'] . ")") or die(mysqli_error($conn));
+                                            <?php $get_sem = mysqli_query($conn, "SELECT * FROM tbl_semesters WHERE semester_id NOT IN (" . $row1['semester_id'] . ")") or die(mysqli_error($conn));
                                                 while ($row = mysqli_fetch_array($get_sem)) {
                                                 ?>
-                                                    <option value="<?php echo $row['semester_id']; ?>">
+                                            <option value="<?php echo $row['semester_id']; ?>">
                                                 <?php echo $row['semester'];
                                                 }
                                             } ?></option>
 
                                         </select>
                                     </div>
-                                    <button class="btn btn-danger mt-2" name="submit1" type="submit"><i class="fa fa-calendar-check-o"></i> Set Academic Semester</button>
+                                    <?php 
+                                    if ($_SESSION['role'] == "Guest") {
+                                        ?>
+                                    <button class="btn btn-danger mt-2" name="submit1" type="submit" disabled><i
+                                            class="fa fa-calendar-check-o"></i> Set Academic Semester</button>
+                                    <?php
+                                    } else {
+                                        ?>
+                                    <button class="btn btn-danger mt-2" name="submit1" type="submit"><i
+                                            class="fa fa-calendar-check-o"></i> Set Academic Semester</button>
+                                    <?php
+                                    }
+                                    ?>
+
                                 </div>
                             </form>
 

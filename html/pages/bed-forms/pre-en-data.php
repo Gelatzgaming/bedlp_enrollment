@@ -9,7 +9,7 @@ if (!empty($_GET['stud_id'])) {
     LEFT JOIN tbl_genders AS gen ON gen.gender_id = stud.gender_id
     WHERE student_id = '$stud_id'") or die(mysqli_error($conn));
 } else {
-    header('location: ../bed-404/page404.php');
+    header('location: ../bed-error/error404.php');
 }
 
 

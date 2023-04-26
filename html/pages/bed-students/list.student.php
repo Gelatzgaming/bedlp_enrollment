@@ -99,13 +99,27 @@
                                                     <td><?php echo $row['stud_no'] ?></td>
                                                     <td><?php echo $row['fullname'] ?></td>
                                                     <td><?php echo $row['username'] ?></td>
-                                                    <td><a href="edit.student.php<?php echo '?student_id=' . $id; ?>" type="button" class="btn btn-info mx-1"><i class="fa fa-edit"></i>
-                                                            Update
-                                                        </a>
 
-                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['student_id'] ?>"><i class="fa fa-trash"></i> Delete </button>
+                                                    <?php
+                                                    if ($_SESSION['role'] == "Guest") {
+                                                    ?> <td><button href="edit.student.php<?php echo '?student_id=' . $id; ?>" type="button" class="btn btn-info mx-1" disabled><i class="fa fa-edit"></i>
+                                                                Update
+                                                            </button>
 
-                                                    </td>
+                                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['student_id'] ?>" disabled><i class="fa fa-trash"></i> Delete </button>
+
+                                                        </td> <?php
+                                                            } else {
+                                                                ?>
+                                                        <td><a href="edit.student.php<?php echo '?student_id=' . $id; ?>" type="button" class="btn btn-info mx-1"><i class="fa fa-edit"></i>
+                                                                Update
+                                                            </a>
+
+                                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['student_id'] ?>"><i class="fa fa-trash"></i> Delete </button>
+
+                                                        </td>
+                                                    <?php }
+                                                    ?>
                                                 </tr>
                                                 <!-- Delete modal start -->
                                                 <div class="modal fade" id="delete<?php echo $row['student_id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

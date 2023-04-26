@@ -49,6 +49,12 @@ if ($_SESSION['role'] == 'Adviser') {
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
                                                 </div> ';
             unset($_SESSION['success-update']);
+        } elseif (!empty($_SESSION['success-del'])) {
+            echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                                                    <strong>Successfully Deleted.</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+                                                </div> ';
+            unset($_SESSION['success-del']);
         } ?>
         <div class="content">
             <div class="container-fluid pl-5 pr-5 pb-3">
@@ -66,11 +72,9 @@ if ($_SESSION['role'] == 'Adviser') {
                             <div class="col-md-5 mb-3 mt-4">
                                 <form method="GET">
                                     <div class="input-group">
-                                        <input type="search" class="form-control"
-                                            placeholder="Search for (Student no. or Name)" name="search">
+                                        <input type="search" class="form-control" placeholder="Search for (Student no. or Name)" name="search">
                                         <div class="input-group-append">
-                                            <button type="submit" name="look" class="btn bg-navy" data-toggle="tooltip"
-                                                data-placement="bottom" title="Search">
+                                            <button type="submit" name="look" class="btn bg-navy" data-toggle="tooltip" data-placement="bottom" title="Search">
                                                 <i class="fa fa-search"></i>
                                             </button>
                                         </div>
@@ -82,8 +86,7 @@ if ($_SESSION['role'] == 'Adviser') {
                         <div class="card-body">
 
                             <div class="table-responsive">
-                                <table id="user-list-table" class="table table-hover responsive nowrap" role="grid"
-                                    data-toggle="data-table" style="width: 100%">
+                                <table id="user-list-table" class="table table-hover responsive nowrap" role="grid" data-toggle="data-table" style="width: 100%">
                                     <thead class="text-capitalize">
                                         <tr class="light">
                                             <th>Image</th>
@@ -173,8 +176,8 @@ if ($_SESSION['role'] == 'Adviser') {
                                                 $stud_id = $row['student_id'];
                                                 $glvl_id = $row['grade_level_id'];
                                         ?>
-                                        <tr>
-                                            <td><?php if (!empty(base64_encode($row['img']))) {
+                                                <tr>
+                                                    <td><?php if (!empty(base64_encode($row['img']))) {
                                                             echo '
                                                 <img src="data:image/jpeg;base64,'  . base64_encode($row['img']) . '"
                                                 class="img zoom " alt="User image"
@@ -184,16 +187,15 @@ if ($_SESSION['role'] == 'Adviser') {
                                                     alt="User image" style="height: 80px; width: 100px">';
                                                         } ?>
 
-                                            </td>
-                                            <td><?php echo $row['stud_no'] ?></td>
-                                            <td><?php echo $row['fullname'] ?></td>
-                                            <td><?php echo $row['grade_level'] ?></td>
-                                            <td><?php echo $row['stud_type'] ?></td>
-                                            <td><?php echo $row['bf'] ?></td>
-                                            <td><?php echo $row['date_enrolled'] ?></td>
-                                            <td>
-                                                <span
-                                                    class="badge bg-<?php if ($row['remark'] == "Checked" || $row['remark'] == "Approved") {
+                                                    </td>
+                                                    <td><?php echo $row['stud_no'] ?></td>
+                                                    <td><?php echo $row['fullname'] ?></td>
+                                                    <td><?php echo $row['grade_level'] ?></td>
+                                                    <td><?php echo $row['stud_type'] ?></td>
+                                                    <td><?php echo $row['bf'] ?></td>
+                                                    <td><?php echo $row['date_enrolled'] ?></td>
+                                                    <td>
+                                                        <span class="badge bg-<?php if ($row['remark'] == "Checked" || $row['remark'] == "Approved") {
                                                                                     echo 'success';
                                                                                 } elseif ($row['remark'] == "Pending") {
                                                                                     echo 'warning';
@@ -202,26 +204,19 @@ if ($_SESSION['role'] == 'Adviser') {
                                                                                 } else {
                                                                                     echo 'danger';
                                                                                 } ?>"><?php echo $row['remark'] ?></span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary mb-2" data-bs-toggle="collapse"
-                                                    data-bs-target="#collapseExample<?php echo $row['student_id'] ?>"
-                                                    aria-expanded="false"
-                                                    aria-controls="collapseExample<?php echo $row['student_id'] ?>"
-                                                    type="button">
-                                                    Actions
-                                                </button>
-                                                <div class="collapse"
-                                                    id="collapseExample<?php echo $row['student_id'] ?>">
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-primary mb-2" data-bs-toggle="collapse" data-bs-target="#collapseExample<?php echo $row['student_id'] ?>" aria-expanded="false" aria-controls="collapseExample<?php echo $row['student_id'] ?>" type="button">
+                                                            Actions
+                                                        </button>
+                                                        <div class="collapse" id="collapseExample<?php echo $row['student_id'] ?>">
 
-                                                    <div class="row">
+                                                            <div class="row">
 
-                                                        <div class="col-sm mt-2 mb-2">
-                                                            <form action="userData/user.list.pending.php" method="POST">
-                                                                <a class="btn btn-icon btn-3 btn-warning"
-                                                                    href="userData/user.list.pending.php?id=<?php echo $id; ?>&remark=<?php echo $row['remark']; ?>"
-                                                                    name="btnRemark"><i class="fa fa-exchange"></i>
-                                                                    <?php
+                                                                <div class="col-sm mt-2 mb-2">
+                                                                    <form action="userData/user.list.pending.php" method="POST">
+                                                                        <a class="btn btn-icon btn-3 btn-warning" href="userData/user.list.pending.php?id=<?php echo $id; ?>&remark=<?php echo $row['remark']; ?>" name="btnRemark"><i class="fa fa-exchange"></i>
+                                                                            <?php
                                                                             if ($_SESSION['role'] == "Admission" || $_SESSION['role'] == "Adviser") {
                                                                                 if ($row['remark'] == 'Pending' || $row['remark'] == 'Canceled') {
                                                                                     echo 'Check';
@@ -236,65 +231,47 @@ if ($_SESSION['role'] == 'Adviser') {
                                                                                 }
                                                                             }
                                                                             ?>
-                                                                </a>
-                                                            </form>
-                                                        </div>
-                                                        <div class="col-sm mt-2 mb-2">
-                                                            <a href="../bed-students/edit.enrolledStud.php?<?php echo 'stud_id=' . $stud_id; ?>"
-                                                                type="button" class="btn btn-icon btn-3 btn-primary"><i
-                                                                    class="fa fa-edit"></i>
-                                                                Update
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-sm mt-2 mb-2">
-                                                            <?php if (!empty($glvl_id)) { ?>
-                                                            <a href="../bed-subjects/list.enrolledSub.senior.php?<?php echo 'stud_id=' . $stud_id . '&glvl_id=' . $glvl_id; ?>"
-                                                                type="button" class="btn btn-icon btn-3 btn-primary"><i
-                                                                    class="fa fa-book"></i>
-                                                                Subjects
-                                                            </a>
-                                                            <?php } else { ?>
-                                                            <a href="../bed-subjects/list.enrolledSub.senior.php?<?php echo 'stud_id=' . $stud_id; ?>"
-                                                                type="button" class="btn btn-icon btn-3 btn-primary"><i
-                                                                    class="fa fa-book"></i>
-                                                                Subjects
-                                                            </a>
-                                                            <?php } ?>
-                                                        </div>
-                                                        <div class="col-sm mt-2 mb-2">
-                                                            <a href="../bed-forms/pre-en-data.php?<?php echo 'stud_id=' . $stud_id; ?>"
-                                                                type="button"
-                                                                class="btn btn-icon btn-3 btn-secondary"><i
-                                                                    class="fa fa-eye"></i>
-                                                                Pre-Enroll
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-sm mt-2 mb-2">
-                                                            <a href="../bed-forms/accounting-laspi-shs.php?<?php echo 'stud_id=' . $stud_id; ?>"
-                                                                type="button"
-                                                                class="btn btn-icon btn-3 btn-secondary"><i
-                                                                    class="fa fa-eye"></i>
-                                                                Main Reg Form
-                                                            </a>
-                                                        </div>
-                                                        <div class="col-sm mt-2 mb-2">
-                                                            <?php if (!empty($glvl_id)) { ?>
-                                                            <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $stud_id . '&glvl_id=' . $glvl_id; ?>"
-                                                                type="button"
-                                                                class="btn btn-icon btn-3 btn-secondary"><i
-                                                                    class="fa fa-eye"></i>
-                                                                Accounting/Reg Form
-                                                            </a>
-                                                            <?php } else { ?>
-                                                            <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $stud_id; ?>"
-                                                                type="button"
-                                                                class="btn btn-icon btn-3 btn-secondary"><i
-                                                                    class="fa fa-eye"></i>
-                                                                Accounting/Reg Form
-                                                            </a>
-                                                            <?php } ?>
-                                                        </div>
-                                                        <!-- <div class="col-sm mt-2 mb-2">
+                                                                        </a>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="col-sm mt-2 mb-2">
+                                                                    <a href="../bed-students/edit.enrolledStud.php?<?php echo 'stud_id=' . $stud_id; ?>" type="button" class="btn btn-icon btn-3 btn-primary"><i class="fa fa-edit"></i>
+                                                                        Update
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm mt-2 mb-2">
+                                                                    <?php if (!empty($glvl_id)) { ?>
+                                                                        <a href="../bed-subjects/list.enrolledSub.senior.php?<?php echo 'stud_id=' . $stud_id . '&glvl_id=' . $glvl_id; ?>" type="button" class="btn btn-icon btn-3 btn-primary"><i class="fa fa-book"></i>
+                                                                            Subjects
+                                                                        </a>
+                                                                    <?php } else { ?>
+                                                                        <a href="../bed-subjects/list.enrolledSub.senior.php?<?php echo 'stud_id=' . $stud_id; ?>" type="button" class="btn btn-icon btn-3 btn-primary"><i class="fa fa-book"></i>
+                                                                            Subjects
+                                                                        </a>
+                                                                    <?php } ?>
+                                                                </div>
+                                                                <div class="col-sm mt-2 mb-2">
+                                                                    <a href="../bed-forms/pre-en-data.php?<?php echo 'stud_id=' . $stud_id; ?>" type="button" class="btn btn-icon btn-3 btn-secondary"><i class="fa fa-eye"></i>
+                                                                        Pre-Enroll
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm mt-2 mb-2">
+                                                                    <a href="../bed-forms/accounting-laspi-shs.php?<?php echo 'stud_id=' . $stud_id; ?>" type="button" class="btn btn-icon btn-3 btn-secondary"><i class="fa fa-eye"></i>
+                                                                        Main Reg Form
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-sm mt-2 mb-2">
+                                                                    <?php if (!empty($glvl_id)) { ?>
+                                                                        <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $stud_id . '&glvl_id=' . $glvl_id; ?>" type="button" class="btn btn-icon btn-3 btn-secondary"><i class="fa fa-eye"></i>
+                                                                            Accounting/Reg Form
+                                                                        </a>
+                                                                    <?php } else { ?>
+                                                                        <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $stud_id; ?>" type="button" class="btn btn-icon btn-3 btn-secondary"><i class="fa fa-eye"></i>
+                                                                            Accounting/Reg Form
+                                                                        </a>
+                                                                    <?php } ?>
+                                                                </div>
+                                                                <!-- <div class="col-sm mt-2 mb-2">
                                                             <?php if (!empty($glvl_id)) { ?>
                                                             <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $stud_id . '&glvl_id=' . $glvl_id; ?>"
                                                                 type="button" class="btn btn-icon btn-3 btn-info"><i
@@ -310,25 +287,20 @@ if ($_SESSION['role'] == 'Adviser') {
                                                             </a>
                                                             <?php } ?>
                                                         </div> -->
-                                                        <div class="col-sm mt-2 mb-2">
-                                                            <!-- Button trigger modal -->
-                                                            <hr class="dropdown-divider">
-                                                            <a type="button" class="btn btn-icon btn-3 btn-danger"
-                                                                data-bs-toggle="modal"
-                                                                href="#delete<?php echo $row['student_id'] ?>"><i
-                                                                    class="fa fa-trash"></i>
-                                                                Delete
-                                                            </a>
+                                                                <div class="col-sm mt-2 mb-2">
+                                                                    <!-- Button trigger modal -->
+                                                                    <hr class="dropdown-divider">
+                                                                    <a type="button" class="btn btn-icon btn-3 btn-danger" data-bs-toggle="modal" href="#delete<?php echo $row['student_id'] ?>"><i class="fa fa-trash"></i>
+                                                                        Delete
+                                                                    </a>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </div>
                             </div>
                             </td>
                             </tr>
                             <!-- Delete modal start -->
-                            <div class="modal fade" id="delete<?php echo $row['student_id'] ?>"
-                                data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal fade" id="delete<?php echo $row['student_id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -337,25 +309,22 @@ if ($_SESSION['role'] == 'Adviser') {
                                         </div>
                                         <div class="modal-body text-center my-5">
                                             <p>Are you sure you want to delete,
-                                                <br><strong><i
-                                                        class="font-weight-bold"><?php echo $row['fullname'] ?></i></strong>
+                                                <br><strong><i class="font-weight-bold"><?php echo $row['fullname'] ?></i></strong>
                                                 ?
                                             </p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <a href="userData/user.del.student.php?student_id=<?php echo $row['student_id'] ?>"
-                                                class="btn btn-danger">Delete</a>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <a href="userData/user.del.student.php?student_id=<?php echo $row['student_id'] ?>" class="btn btn-danger">Delete</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- Delete modal end -->
-                            <?php }
+                    <?php }
                                         } ?>
-                            </tbody>
-                            </table>
+                    </tbody>
+                    </table>
 
                         </div>
                     </div>

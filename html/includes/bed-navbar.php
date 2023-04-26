@@ -4,24 +4,20 @@
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
             <i class="icon">
                 <svg width="20px" class="icon-20" viewBox="0 0 24 24">
-                    <path fill="currentColor"
-                        d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" />
+                    <path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" />
                 </svg>
             </i>
         </div>
         <div class="input-group search-input">
             <span class="input-group-text" id="search-input">
                 <svg class="icon-18" width="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="11.7669" cy="11.7666" r="8.98856" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></circle>
-                    <path d="M18.0186 18.4851L21.5426 22" stroke="currentColor" stroke-width="1.5"
-                        stroke-linecap="round" stroke-linejoin="round"></path>
+                    <circle cx="11.7669" cy="11.7666" r="8.98856" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></circle>
+                    <path d="M18.0186 18.4851L21.5426 22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </span>
             <input type="search" class="form-control" placeholder="Search...">
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
                 <span class="mt-2 navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
@@ -34,18 +30,15 @@
 
 
                 <li class="nav-item dropdown">
-                    <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <?php
                         if (!empty($user_img)) {
                         ?>
-                        <img src="data:image/jpeg;base64, <?php echo base64_encode($user_img); ?>" alt="User-Profile"
-                            class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
+                            <img src="data:image/jpeg;base64, <?php echo base64_encode($user_img); ?>" alt="User-Profile" class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
                         <?php
                         } else {
                         ?>
-                        <img src="../../assets/images/icons/user.png" alt="User-Profile"
-                            class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
+                            <img src="../../assets/images/icons/user.png" alt="User-Profile" class="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded">
                         <?php
                         }
                         ?>
@@ -93,10 +86,9 @@
                         <p>Be one of US!</p>
                     </div>
                     <div>
-                        <a href="https://www.facebook.com/lorenzo.elia.gutierrez.47"
-                            class="btn btn-link btn-soft-light">
-
-                            Dashboard
+                        <a href="https://www.facebook.com/SFACCollegeLasPinas/" class="btn btn-link btn-soft-light">
+                            <i class="fa fa-facebook-square mr-2" style="font-size: 25px; margin-right: 5px; position:relative; top: 3px;"> </i>
+                            Home page
                         </a>
                     </div>
                 </div>
@@ -104,8 +96,7 @@
         </div>
     </div>
     <div class="iq-header-img">
-        <img src="../../assets/images/dashboard/sfac.jpg" alt="header"
-            class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
+        <img src="../../assets/images/dashboard/sfac.jpg" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX">
 
     </div>
 </div>

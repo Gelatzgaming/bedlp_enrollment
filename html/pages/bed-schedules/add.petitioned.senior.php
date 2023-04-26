@@ -74,7 +74,7 @@ $_SESSION['strand_n'] = $strand_name;
                                         } elseif ($strand_name == 'TVL - HE') {
                                             echo ' (TVL-HE)';
                                         } else {
-                                            header('location: ../bed-404/page404.php');
+                                            header('location: ../bed-error/error404.php');
                                         } ?>
                                 </div>
                             </div>

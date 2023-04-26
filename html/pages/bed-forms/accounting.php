@@ -32,7 +32,7 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem_id' AND ay_id = '$ay_id'")
     if ($result2 > 0) {
         header('location: accountingSH.php?stud_id=' . $stud_id . '&glvl_id=' . $glvl_id);
     } else {
-        header('location: ../bed-404/page404.php');
+        header('location: ../bed-error/error404.php');
     }
 }
 

@@ -5,14 +5,17 @@
             <!--logo End-->
 
             <img src="../../assets/images/auth/logo.png" alt="SFAC-Logo" height="25%" width="25%">
-            <h4 class="logo-title"><?php echo $school_name; ?> <br> <small class="text-sm"><?php echo $school_address; ?>
+            <h4 class="logo-title"><?php echo $school_name; ?> <br> <small
+                    class="text-sm"><?php echo $school_address; ?>
                 </small></h4>
         </a>
         <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
             <i class="icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </i>
         </div>
@@ -491,14 +494,73 @@
                             </svg>
                         </i>
                     </a>
-                    ';
+                    <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
+                    <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#subj-bed" role="button"
+                    aria-expanded="false" aria-controls="subj-bed">
+                    <i class="fa fa-binoculars"></i>
+                    <span class="item-name">Primary - Junior</span>
+                    <i class="right-icon">
+                        <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5l7 7-7 7" />
+                        </svg>
+                    </i>
+                </a>
+                <ul class="sub-nav collapse" id="subj-bed" data-bs-parent="#subj-bed">
+                    <li class="nav-item">
+                        <a class="nav-link " href="../bed-curr/BEDCur.php">
+                            <i class="icon">
+                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                            </i>
+                            <i class="sidenav-mini-icon"> H </i>
+                            <span class="item-name"> Basic Education </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="../bed-curr/JUNIORCur.php">
+                            <i class="icon">
+                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                            </i>
+                            <i class="sidenav-mini-icon"> H </i>
+                            <span class="item-name"> Junior High </span>
+                        </a>
+                    </li>
+                </ul>
+                </li>  
+                    <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#subj-shs" role="button"
+                    aria-expanded="false" aria-controls="subj-shs">
+                    <i class="fa fa-binoculars"></i>
+                    <span class="item-name">Senior High</span>
+                    <i class="right-icon">
+                        <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5l7 7-7 7" />
+                        </svg>
+                    </i>
+                </a>
+                <ul class="sub-nav collapse" id="subj-shs" data-bs-parent="#subj-shs">
+                ';
                 ?>
-                    <?php
+                <?php
                     $totalStrand = mysqli_query($conn, "SELECT * FROM tbl_strands");
                     while ($rowInfo = mysqli_fetch_array($totalStrand)) {
 
                         echo '
-                                            <ul class="sub-nav collapse" id="viewsub" data-bs-parent="#sidebar-menu">
+                                            
                     <li class="nav-item">
                         <a class="nav-link " href="../bed-hedCurr/' . $rowInfo['strand_name'] . '.php">
                             <i class="icon">
@@ -513,11 +575,14 @@
                             <span class="item-name"> ' . $rowInfo['strand_name'] . ' </span>
                         </a>
                     </li>
-                    </ul
-                    </li>';
+                    ';
                     }
                     ?> <?php echo '
-
+                </ul>
+                </li>
+                
+                    </ul
+                    </li>
                     <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#sch_set" role="button"
                     aria-expanded="false" aria-controls="sch_set">
@@ -708,7 +773,7 @@
                     </a>
                     ';
                         ?>
-                    <?php
+                <?php
                         $totalStrand = mysqli_query($conn, "SELECT * FROM tbl_strands");
                         while ($rowInfo = mysqli_fetch_array($totalStrand)) {
 
@@ -894,7 +959,7 @@
                     </a>
                     ';
                         ?>
-                    <?php
+                <?php
                         $totalStrand = mysqli_query($conn, "SELECT * FROM tbl_strands");
                         while ($rowInfo = mysqli_fetch_array($totalStrand)) {
 
@@ -1286,7 +1351,7 @@
                     </ul>
                 </li>
                 ' ?>
-                    <?php
+                <?php
                         $ad_info = mysqli_query($conn, "SELECT * FROM tbl_adviser WHERE ad_id = '$ad_id'");
                         $row5 = mysqli_fetch_array($ad_info);
                         $dept = $row5['ad_dept'];
@@ -1308,7 +1373,7 @@
                             </a>
                             ';
                     ?>
-                        <?php
+                <?php
                             $totalStrand = mysqli_query($conn, "SELECT * FROM tbl_strands");
                             while ($rowInfo = mysqli_fetch_array($totalStrand)) {
 
@@ -1366,8 +1431,8 @@
                     </ul>
                     </li>';
                             ?> <?php
-                                } elseif ($dept == "Grade 7 to Grade 10") {
-                                    echo '
+                            } elseif ($dept == "Grade 7 to Grade 10") {
+                                echo '
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#basic-sub" role="button"
                     aria-expanded="false" aria-controls="basic-sub">
@@ -1399,7 +1464,7 @@
                     
                 </ul>
                 </li>';
-                                    ?> <?php
+                                ?> <?php
                                 }
                             } elseif ($_SESSION['role'] == "Accounting") {
                                 echo '<li class="nav-item">
@@ -1763,8 +1828,8 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or
                         </i>
                     </a>
                     ';
-                                ?>
-                    <?php
+                                    ?>
+                <?php
                                 $totalStrand = mysqli_query($conn, "SELECT * FROM tbl_strands");
                                 while ($rowInfo = mysqli_fetch_array($totalStrand)) {
 
@@ -1830,6 +1895,34 @@ WHERE student_id = '$stud_id' AND semester_id = '$sem' AND ay_id = '$acad'") or
                             <span class="item-name"> Academic Year </span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="../bed-eay/add.eay.php">
+                            <i class="icon">
+                                <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                    viewBox="0 0 24 24" fill="currentColor">
+                                    <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                    </g>
+                                </svg>
+                            </i>
+                            <i class="sidenav-mini-icon"> H </i>
+                            <span class="item-name"> Curriculum </span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link " href="../bed-strand/add.strand.php">
+                        <i class="icon">
+                            <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                viewBox="0 0 24 24" fill="currentColor">
+                                <g>
+                                    <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                </g>
+                            </svg>
+                        </i>
+                        <i class="sidenav-mini-icon"> H </i>
+                        <span class="item-name"> Strand </span>
+                    </a>
+                </li>
                 </ul>
                 </li>';
                             }  ?>

@@ -77,13 +77,31 @@
                                     <div class="col">
                                         <h4 class="header-title">Academic Year List</h4>
                                     </div>
+                                    <?php 
+                                    if ($_SESSION['role'] == "Guest") {
+                                        ?>
                                     <div class="col">
-                                        <button type="button" class="btn btn-rounded btn-danger float-end" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Add Academic
+                                        <button type="button" class="btn btn-rounded btn-danger float-end"
+                                            data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg" disabled>Add
+                                            Academic
                                             Year</button>
                                     </div>
+                                    <?php
+                                    } else {
+                                        ?>
+                                    <div class="col">
+                                        <button type="button" class="btn btn-rounded btn-danger float-end"
+                                            data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">Add Academic
+                                            Year</button>
+                                    </div>
+                                    <?php
+                                    }
+                                    ?>
+
                                 </div>
                                 <div class="table-responsive">
-                                    <table id="user-list-table" class="table table-hover responsive nowrap" role="grid" data-toggle="data-table">
+                                    <table id="user-list-table" class="table table-hover responsive nowrap" role="grid"
+                                        data-toggle="data-table">
                                         <thead class="text-capitalize">
                                             <tr class="light">
                                                 <th>Academic Year</th>
@@ -96,72 +114,126 @@
                                             while ($row = mysqli_fetch_array($get_ay)) {
                                                 $id = $row['ay_id'];
                                             ?>
-                                                <tr>
-                                                    <td class="px-5"><?php echo $row['fullname'] ?></td>
-                                                    <td>
-                                                        <span data-toggle="tooltip" data-placement="top" title="Edit Academic Year">
-                                                            <button type="button" class="btn btn-info mb-3" data-bs-toggle="modal" data-bs-target="#edit<?php echo $row['ay_id'] ?>"><i class="fa fa-edit"></i></button>
-                                                        </span>
+                                            <tr>
+                                                <td class="px-5"><?php echo $row['fullname'] ?></td>
+                                                <?php 
+                                                if ($_SESSION['role'] == "Guest") {
+                                                    ?>
+                                                <td>
+                                                    <span data-toggle="tooltip" data-placement="top"
+                                                        title="Edit Academic Year">
+                                                        <button type="button" class="btn btn-info mb-3"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#edit<?php echo $row['ay_id'] ?>"
+                                                            disabled><i class="fa fa-edit"></i></button>
+                                                    </span>
+                                                    </a>
+                                                    <span data-toggle="tooltip" data-placement="top"
+                                                        title="Delete Academic Year">
+                                                        <button type="button" class="btn btn-danger mb-3"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#delete<?php echo $row['ay_id'] ?>"
+                                                            disabled><i class="fa fa-trash"></i></button>
+                                                    </span>
+                                                </td>
+                                                <?php
+                                                } else {
+                                                    ?>
+                                                <td>
+                                                    <span data-toggle="tooltip" data-placement="top"
+                                                        title="Edit Academic Year">
+                                                        <button type="button" class="btn btn-info mb-3"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#edit<?php echo $row['ay_id'] ?>"><i
+                                                                class="fa fa-edit"></i></button>
+                                                    </span>
 
-                                                        </a>
-                                                        <span data-toggle="tooltip" data-placement="top" title="Delete Academic Year">
-                                                            <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['ay_id'] ?>"><i class="fa fa-trash"></i></button>
-                                                        </span>
-                                                    </td>
-                                                </tr>
-                                                <!-- Edit (acad year) -->
-                                                <div class="modal fade" id="edit<?php echo $row['ay_id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="staticBackdropLabel">Edit
-                                                                    Academic Year</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <form action="userData/user.edit.date.php?ay_id=<?php echo $row['ay_id'] ?>" method="POST">
-                                                                <div class="modal-body">
-                                                                    <div class="input-group mb-3">
-                                                                        <div class="input-group-prepend">
-                                                                            <span class="input-group-text" id="basic-addon3">Academic
-                                                                                Year</span>
-                                                                        </div>
-                                                                        <input type="text" class="form-control" id="basic-url" name="acad_year" aria-describedby="basic-addon3" placeholder="yyyy-yyyy" value="<?php echo $row['fullname'] ?>" required>
+                                                    </a>
+                                                    <span data-toggle="tooltip" data-placement="top"
+                                                        title="Delete Academic Year">
+                                                        <button type="button" class="btn btn-danger mb-3"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#delete<?php echo $row['ay_id'] ?>"><i
+                                                                class="fa fa-trash"></i></button>
+                                                    </span>
+                                                </td>
+                                                <?php
+                                                }
+                                                ?>
+                                            </tr>
+                                            <!-- Edit (acad year) -->
+                                            <div class="modal fade" id="edit<?php echo $row['ay_id'] ?>"
+                                                data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="staticBackdropLabel">Edit
+                                                                Academic Year</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <form
+                                                            action="userData/user.edit.date.php?ay_id=<?php echo $row['ay_id'] ?>"
+                                                            method="POST">
+                                                            <div class="modal-body">
+                                                                <div class="input-group mb-3">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon3">Academic
+                                                                            Year</span>
                                                                     </div>
+                                                                    <input type="text" class="form-control"
+                                                                        id="basic-url" name="acad_year"
+                                                                        aria-describedby="basic-addon3"
+                                                                        placeholder="yyyy-yyyy"
+                                                                        value="<?php echo $row['fullname'] ?>" required>
                                                                 </div>
+                                                            </div>
 
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-danger" name="submit">Submit</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-danger"
+                                                                    name="submit">Submit</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
-                                                <!-- Delete modal start -->
-                                                <div class="modal fade" id="delete<?php echo $row['ay_id'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered">
-                                                        <div class="modal-content">
-                                                            <form action="userData/user.del.date.php?ay_id=<?php echo $row['ay_id'] ?>" method="POST">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="staticBackdropLabel">Delete
-                                                                    </h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                                </div>
-                                                                <div class="modal-body text-center my-5">
-                                                                    <p>Are you sure you want to delete,
-                                                                        <br><strong><i class="font-weight-bold"><?php echo $row['fullname'] ?></i></strong>
-                                                                        ?
-                                                                    </p>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                    <button type="submit" name="submit" class="btn btn-danger">Delete</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
+                                            </div>
+                                            <!-- Delete modal start -->
+                                            <div class="modal fade" id="delete<?php echo $row['ay_id'] ?>"
+                                                data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                        <form
+                                                            action="userData/user.del.date.php?ay_id=<?php echo $row['ay_id'] ?>"
+                                                            method="POST">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="staticBackdropLabel">Delete
+                                                                </h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal"></button>
+                                                            </div>
+                                                            <div class="modal-body text-center my-5">
+                                                                <p>Are you sure you want to delete,
+                                                                    <br><strong><i
+                                                                            class="font-weight-bold"><?php echo $row['fullname'] ?></i></strong>
+                                                                    ?
+                                                                </p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="submit" name="submit"
+                                                                    class="btn btn-danger">Delete</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
-                                                <!-- Delete modal end -->
+                                            </div>
+                                            <!-- Delete modal end -->
                                             <?php } ?>
                                         </tbody>
                                     </table>
@@ -173,7 +245,8 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title">Add Academic Year</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                         </div>
                                         <form action="userData/user.add.date.php" method="POST">
                                             <div class="modal-body">
@@ -182,13 +255,17 @@
                                                         <span class="input-group-text" id="basic-addon3">Academic
                                                             Year</span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="basic-url" name="acad_year" aria-describedby="basic-addon3" placeholder="yyyy-yyyy" required>
+                                                    <input type="text" class="form-control" id="basic-url"
+                                                        name="acad_year" aria-describedby="basic-addon3"
+                                                        placeholder="yyyy-yyyy" required>
                                                 </div>
                                             </div>
 
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-danger" name="submit">Submit</button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-danger"
+                                                    name="submit">Submit</button>
                                             </div>
                                         </form>
                                     </div>
@@ -206,23 +283,38 @@
                             <form action="userData/user.set.date.php" method="POST">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <select class="form-select form-select-md" name="act_acadyear" data-placeholder="Select Active Academic Year" data-dropdown-css-class="select2-purple" name="act_acadyear">
+                                        <select class="form-select form-select-md" name="act_acadyear"
+                                            data-placeholder="Select Active Academic Year"
+                                            data-dropdown-css-class="select2-purple" name="act_acadyear">
                                             <?php $get_actacad = mysqli_query($conn, "SELECT * FROM tbl_active_acadyears LEFT JOIN tbl_acadyears ON tbl_acadyears.ay_id = tbl_active_acadyears.ay_id") or die(mysqli_error($conn));
                                             while ($row = mysqli_fetch_array($get_actacad)) {
                                             ?>
-                                                <option value="<?php echo $row['ay_id']; ?>">A.Y
-                                                    <?php echo $row['academic_year']; ?></option>
-                                                <?php $get_acad = mysqli_query($conn, "SELECT * FROM tbl_acadyears WHERE  ay_id NOT IN (" . $row['ay_id'] . ")") or die(mysqli_error($conn));
+                                            <option value="<?php echo $row['ay_id']; ?>">A.Y
+                                                <?php echo $row['academic_year']; ?></option>
+                                            <?php $get_acad = mysqli_query($conn, "SELECT * FROM tbl_acadyears WHERE  ay_id NOT IN (" . $row['ay_id'] . ")") or die(mysqli_error($conn));
                                                 while ($row2 = mysqli_fetch_array($get_acad)) {
                                                 ?>
-                                                    <option value="<?php echo $row2['ay_id']; ?>">A.Y
+                                            <option value="<?php echo $row2['ay_id']; ?>">A.Y
                                                 <?php echo $row2['academic_year'];
                                                 }
                                             } ?></option>
 
                                         </select>
                                     </div>
-                                    <button class="btn btn-danger mt-2" name="submit" type="submit"><i class="fa fa-calendar-check-o"></i> Set Academic Year</button>
+                                    <?php 
+                                    if ($_SESSION['role'] == "Guest") {
+                                        ?>
+                                    <button class="btn btn-danger mt-2" name="submit" type="submit" disabled><i
+                                            class="fa fa-calendar-check-o"></i> Set Academic Year</button>
+                                    <?php 
+                                    } else {
+                                        ?>
+                                    <button class="btn btn-danger mt-2" name="submit" type="submit"><i
+                                            class="fa fa-calendar-check-o"></i> Set Academic Year</button>
+                                    <?php 
+                                    }
+                                    ?>
+
                                 </div>
                             </form>
 

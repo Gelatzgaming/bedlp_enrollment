@@ -11,7 +11,7 @@ $result = mysqli_num_rows($get_senID);
 if ($result > 0) {
     $_SESSION['sen_id'] = $sen_id;
 } else {
-    header('location: ../bed-404/page404.php');
+    header('location: ../bed-error/error404.php');
 }
 
 ?>
@@ -39,30 +39,30 @@ if ($result > 0) {
         <div class="conatiner-fluid content-inner mt-n5 py-0">
             <div>
                 <?php
-                                        if (!empty($_SESSION['errors'])) {
-                                            echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
+                if (!empty($_SESSION['errors'])) {
+                    echo ' <div class="alert alert-solid alert-danger rounded-0 alert-dismissible fade show " role="alert">
                                                  ';
-                                            foreach ($_SESSION['errors'] as $error) {
-                                                echo $error;
-                                            }
-                                            echo '
+                    foreach ($_SESSION['errors'] as $error) {
+                        echo $error;
+                    }
+                    echo '
                                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" "></button>
                                                 </div>';
-                                            unset($_SESSION['errors']);
-                                        } elseif (!empty($_SESSION['success'])) {
-                                            echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
+                    unset($_SESSION['errors']);
+                } elseif (!empty($_SESSION['success'])) {
+                    echo ' <div class="alert alert-solid alert-success rounded-0 alert-dismissible fade show " role="alert">
                                                     <strong>Successfully Added.</strong>
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
                                                 </div>';
-                                            unset($_SESSION['success']);
-                                        } elseif (!empty($_SESSION['subject_exists'])) {
-                                            echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
+                    unset($_SESSION['success']);
+                } elseif (!empty($_SESSION['subject_exists'])) {
+                    echo ' <div class="alert alert-solid alert-warning rounded-0 alert-dismissible fade show " role="alert">
                                                     <strong>Subject Already Exists.</strong>
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
                                                 </div>';
-                                            unset($_SESSION['subject_exists']);
-                                        }
-                                        ?>
+                    unset($_SESSION['subject_exists']);
+                }
+                ?>
                 <div class="row">
                     <div class="col-sm-12 col-lg-12">
                         <div class="card">
@@ -84,72 +84,63 @@ if ($result > 0) {
                                     $eay = $row['efacadyear'];
                                 ?>
 
-                                <form action="userData/user.add.sched.senior.php" method="POST"
-                                    enctype="multipart/form-data">
+                                    <form action="userData/user.add.sched.senior.php" method="POST" enctype="multipart/form-data">
 
 
-                                    <input value="<?php echo $act_acad; ?>" hidden name="acadyear">
-                                    <input value="<?php echo $act_sem; ?> " hidden name="sem">
-                                    <input value="<?php echo $sen_id; ?> " hidden name="sen_id">
+                                        <input value="<?php echo $act_acad; ?>" hidden name="acadyear">
+                                        <input value="<?php echo $act_sem; ?> " hidden name="sem">
+                                        <input value="<?php echo $sen_id; ?> " hidden name="sen_id">
 
-                                    <div class="row">
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label" for="example-text-input">Code</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="code"
-                                                placeholder="Enter Subject Code" readonly
-                                                value="<?php echo $row['subject_code']; ?>">
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label" for="example-text-input">Code</label>
+                                                <input type="text" class="form-control" id="example-text-input" name="code" placeholder="Enter Subject Code" readonly value="<?php echo $row['subject_code']; ?>">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label" for="example-text-input">Description</label>
+                                                <input type="text" class="form-control" id="example-text-input" name="subject" placeholder="Enter Subject Description" readonly value="<?php echo $row['subject_description']; ?>">
+                                            </div>
                                         </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label" for="example-text-input">Description</label>
-                                            <input type="text" class="form-control" id="example-text-input"
-                                                name="subject" placeholder="Enter Subject Description" readonly
-                                                value="<?php echo $row['subject_description']; ?>">
-                                        </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-label" for="example-text-input">Days</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="days"
-                                                placeholder="M, T, W, TH, F" required>
+                                        <div class="row">
+                                            <div class="col-md-4 mb-3">
+                                                <label class="form-label" for="example-text-input">Days</label>
+                                                <input type="text" class="form-control" id="example-text-input" name="days" placeholder="M, T, W, TH, F" required>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label class="form-label" for="example-text-input">Time</label>
+                                                <input type="text" class="form-control" id="example-text-input" name="time" placeholder="hh:mm - hh:mm AM/PM" required>
+                                            </div>
+                                            <div class="col-md-4 mb-3">
+                                                <label class="form-label" for="example-text-input">Room</label>
+                                                <input type="text" class="form-control" id="example-text-input" name="room" placeholder="Enter Room Name" required>
+                                            </div>
                                         </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-label" for="example-text-input">Time</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="time"
-                                                placeholder="hh:mm - hh:mm AM/PM" required>
-                                        </div>
-                                        <div class="col-md-4 mb-3">
-                                            <label class="form-label" for="example-text-input">Room</label>
-                                            <input type="text" class="form-control" id="example-text-input" name="room"
-                                                placeholder="Enter Room Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="row justify-content-center">
+                                        <div class="row justify-content-center">
 
-                                        <div class="col-md-6 mb-3">
-                                            <label class="form-label" for="example-text-input">Instructor</label>
-                                            <select class="form-select" data-dropdown-css-class="select2-info"
-                                                data-placeholder="Select Instructor" name="instruc">
-                                                <option value="" disabled selected>Select Instructor
-                                                </option>
-                                                <?php $get_teachers = mysqli_query($conn, "SELECT *, CONCAT(tbl_teachers.teacher_fname, ' ', LEFT(tbl_teachers.teacher_mname,1), '. ', tbl_teachers.teacher_lname) AS fullname FROM tbl_teachers") or die(mysqli_error($conn));
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label" for="example-text-input">Instructor</label>
+                                                <select class="form-select" data-dropdown-css-class="select2-info" data-placeholder="Select Instructor" name="instruc">
+                                                    <option value="" disabled selected>Select Instructor
+                                                    </option>
+                                                    <?php $get_teachers = mysqli_query($conn, "SELECT *, CONCAT(tbl_teachers.teacher_fname, ' ', LEFT(tbl_teachers.teacher_mname,1), '. ', tbl_teachers.teacher_lname) AS fullname FROM tbl_teachers") or die(mysqli_error($conn));
                                                     while ($row = mysqli_fetch_array($get_teachers)) {
                                                     ?>
-                                                <option value="<?php echo $row['teacher_id']; ?>">
-                                                    <?php echo $row['fullname'];
+                                                        <option value="<?php echo $row['teacher_id']; ?>">
+                                                        <?php echo $row['fullname'];
                                                     } ?></option>
-                                            </select>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group float-end">
-                                        <button class="btn btn-danger" type="submit" name="submit">Submit</button>
-                                    </div>
-                                    <div class="justify-content-end mb-3 mt-3 p-0 float-right">
-                                        <?php if ($strand_n == "ABM") {
+                                        <div class="form-group float-end">
+                                            <button class="btn btn-danger" type="submit" name="submit">Submit</button>
+                                        </div>
+                                        <div class="justify-content-end mb-3 mt-3 p-0 float-right">
+                                            <?php if ($strand_n == "ABM") {
                                             } ?>
 
-                                        <?php if ($strand_n == "ABM") {
+                                            <?php if ($strand_n == "ABM") {
                                                 echo '<a href=" ../bed-subjects/list.offerSub.senior.php?abm=' . $strand_n . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
                                             } elseif ($strand_n == "STEM") {
                                                 echo '<a href=" ../bed-subjects/list.offerSub.senior.php?stem=' . $strand_n . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
@@ -160,11 +151,11 @@ if ($result > 0) {
                                             } elseif ($strand_n == "TVL - HE") {
                                                 echo '<a href=" ../bed-subjects/list.offerSub.senior.php?tvl=' . $strand_n . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
                                             } ?>
-                                        <i class="fa fa-arrow-circle-left "></i>
-                                        Back </a>
-                                    </div>
+                                            <i class="fa fa-arrow-circle-left "></i>
+                                            Back </a>
+                                        </div>
 
-                                </form>
+                                    </form>
                                 <?php } ?>
                             </div>
                         </div>

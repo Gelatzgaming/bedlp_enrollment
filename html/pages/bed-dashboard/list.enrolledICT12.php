@@ -49,7 +49,7 @@ include '../../includes/bed-header.php';
                                                         <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears AS sy
                                                             LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
                                                             LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id
-                                                            WHERE ay.academic_year = '$act_acad' AND sem.semester = '$act_sem' AND remark = 'Approved' AND strand_id = '6' AND grade_level_id = '15' AND stud_type = 'New'") or die(mysqli_error($conn));
+                                                            WHERE ay.academic_year = '$act_acad' AND sem.semester = '$act_sem' AND remark = 'Approved' AND strand_id = '2' AND grade_level_id = '15' AND stud_type = 'New'") or die(mysqli_error($conn));
                                                         while ($row = mysqli_fetch_array($stud_count)) { ?>
                                                         <span class="info-box-number" style="color: white;">:
                                                             <?php echo $row['total_stud']; ?></span>
@@ -74,7 +74,7 @@ include '../../includes/bed-header.php';
                                                         <?php $stud_count = mysqli_query($conn, "SELECT count(student_id) AS total_stud FROM tbl_schoolyears AS sy
                                                             LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
                                                             LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id
-                                                            WHERE ay.academic_year = '$act_acad' AND sem.semester = '$act_sem' AND remark = 'Approved' AND strand_id = '6' AND grade_level_id = '15' AND stud_type = 'Old'") or die(mysqli_error($conn));
+                                                            WHERE ay.academic_year = '$act_acad' AND sem.semester = '$act_sem' AND remark = 'Approved' AND strand_id = '2' AND grade_level_id = '15' AND stud_type = 'Old'") or die(mysqli_error($conn));
                                                         while ($row = mysqli_fetch_array($stud_count)) { ?>
                                                         <span class="info-box-number" style="color: white;">:
                                                             <?php echo $row['total_stud']; ?></span>
@@ -141,7 +141,7 @@ include '../../includes/bed-header.php';
                                                 LEFT JOIN tbl_grade_levels AS gl ON gl.grade_level_id =sy.grade_level_id
                                                 LEFT JOIN tbl_acadyears AS ay ON ay.ay_id = sy.ay_id  
                                                 WHERE remark = 'Approved' AND ay.academic_year = '$act_acad' 
-                                                AND sem.semester = '$act_sem' AND sy.strand_id = '6' AND sy.grade_level_id = '15' -- 14 to 15 = G12
+                                                AND sem.semester = '$act_sem' AND sy.strand_id = '2' AND sy.grade_level_id = '15' -- 14 to 15 = G12
                                                 
                                                 
                                                 
