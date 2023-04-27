@@ -11,6 +11,7 @@ if (!empty($_GET['eay'])) {
 if (isset($_GET['strand'])) {
     $strandInfo = mysqli_query($conn, "SELECT * FROM tbl_strands WHERE strand_id = '$_GET[strand]'");
     $row = mysqli_fetch_array($strandInfo);
+    $strand_id = $_GET['strand'];
 }
 
 
@@ -148,7 +149,7 @@ if (isset($_GET['strand'])) {
                                         LEFT JOIN tbl_semesters ON tbl_semesters.semester_id = tbl_subjects_senior.semester_id
                                         LEFT JOIN tbl_strands ON tbl_strands.strand_id = tbl_subjects_senior.strand_id
                                         LEFT JOIN tbl_efacadyears ON tbl_efacadyears.efacadyear_id = tbl_subjects_senior.efacadyear_id
-                                        WHERE tbl_strands.strand_name IN ('$str_name') AND tbl_efacadyears.efacadyear IN ('$efacadyear') AND tbl_semesters.semester IN ('$act_sem') ORDER BY grade_level ASC, subject_id") or die(mysqli_error($conn));
+                                        WHERE tbl_strands.strand_id IN ('$strand_id') AND tbl_efacadyears.efacadyear IN ('$efacadyear') AND tbl_semesters.semester IN ('$act_sem') ORDER BY grade_level ASC, subject_id") or die(mysqli_error($conn));
 
                                         ?>
 
@@ -174,7 +175,7 @@ if (isset($_GET['strand'])) {
                                 </table>
                                 <div class="row" style="margin-left: 3px;">
                                     <?php if (!empty($efacadyear)) {
-                                        if (isset($_GET['stem'])) {
+                                        if (isset($_GET['strand']) == "4") {
                                             echo '
                                         <hr class="bg-navy">
                                         <div class="col-md-3
@@ -184,7 +185,7 @@ if (isset($_GET['strand'])) {
                                                     class="fa fa-pencil mr-1"> </i>
                                                 Open Petitioned</a>
                                         </div>';
-                                        } elseif (isset($_GET['abm'])) {
+                                        } elseif (isset($_GET['strand']) == "1") {
                                             echo '
                                         <hr class="bg-navy">
                                         <div class="col-md-3
@@ -196,7 +197,7 @@ if (isset($_GET['strand'])) {
                                                 Open Petitioned</a>
 
                                         </div>';
-                                        } elseif (isset($_GET['ict'])) {
+                                        } elseif (isset($_GET['strand']) == "2") {
                                             echo '
                                         <hr class="bg-navy">
                                         <div class="col-md-3
@@ -208,7 +209,7 @@ if (isset($_GET['strand'])) {
                                                 Open Petitioned</a>
 
                                         </div>';
-                                        } elseif (isset($_GET['humss'])) {
+                                        } elseif (isset($_GET['strand']) == "3") {
                                             echo '
                                         <hr class="bg-navy">
                                         <div class="col-md-3
@@ -220,7 +221,7 @@ if (isset($_GET['strand'])) {
                                                 Open Petitioned</a>
 
                                         </div>';
-                                        } elseif (isset($_GET['tvl'])) {
+                                        } elseif (isset($_GET['strand']) == "5") {
                                             echo '
                                         <hr class="bg-navy">
                                         <div class="col-md-3
