@@ -21,6 +21,6 @@ if (isset($_POST['submit'])) {
     } else {
         $insert = mysqli_query($conn, "INSERT INTO tbl_schedules (subject_id, teacher_id, day, time, room, semester, acadyear) VALUES ('$sen_id', '$instruct', '$days', '$time', '$room', '$sem', '$acadyear')") or die(mysqli_error($conn));
         $_SESSION['success'] = true;
-        header('location: ../add.sched.senior.php?sen_id=' . $_SESSION['sen_id']);
+        header('location: ../../bed-subjects/list.offerSub.senior.php?sen_id=' . $_SESSION['sen_id']);
     }
 }

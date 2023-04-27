@@ -18,10 +18,10 @@ if (isset($_POST['submit'])) {
 
     if ($result > 0) {
         $_SESSION['dbl-sched'] = true;
-        header('location: ../add.petitioned.senior.php?str=' . $_SESSION['strand_n'] . '&eay=' . $_SESSION['eay']);
+        header('location: ../add.petitioned.senior.php?strand=' . $_SESSION['strand_id'] . '&eay=' . $_SESSION['eay']);
     } else {
         $insert = mysqli_query($conn, "INSERT INTO tbl_schedules (subject_id, teacher_id, day, time, room, semester, acadyear) VALUES ('$sen_id', '$teach', '$days', '$time', '$room', '$sem', '$acadyear')") or die(mysqli_error($conn));
         $_SESSION['success'] = true;
-        header('location: ../add.petitioned.senior.php?str=' . $_SESSION['strand_n'] . '&eay=' . $_SESSION['eay']);
+        header('location: ../add.petitioned.senior.php?strand=' . $_SESSION['strand_id.'] . '&eay=' . $_SESSION['eay']);
     }
 }

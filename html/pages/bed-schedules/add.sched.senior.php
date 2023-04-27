@@ -81,81 +81,91 @@ if ($result > 0) {
                             WHERE sub.subject_id = '$sen_id'") or die(mysqli_error($conn));
                                 while ($row = mysqli_fetch_array($get_subject)) {
                                     $strand_n = $row['strand_name'];
+                                    $strand_id = $row['strand_id'];
                                     $eay = $row['efacadyear'];
                                 ?>
 
-                                    <form action="userData/user.add.sched.senior.php" method="POST" enctype="multipart/form-data">
+                                <form action="userData/user.add.sched.senior.php" method="POST"
+                                    enctype="multipart/form-data">
 
 
-                                        <input value="<?php echo $act_acad; ?>" hidden name="acadyear">
-                                        <input value="<?php echo $act_sem; ?> " hidden name="sem">
-                                        <input value="<?php echo $sen_id; ?> " hidden name="sen_id">
+                                    <input value="<?php echo $act_acad; ?>" hidden name="acadyear">
+                                    <input value="<?php echo $act_sem; ?> " hidden name="sem">
+                                    <input value="<?php echo $sen_id; ?> " hidden name="sen_id">
 
-                                        <div class="row">
-                                            <div class="col-md-6 mb-3">
-                                                <label class="form-label" for="example-text-input">Code</label>
-                                                <input type="text" class="form-control" id="example-text-input" name="code" placeholder="Enter Subject Code" readonly value="<?php echo $row['subject_code']; ?>">
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label class="form-label" for="example-text-input">Description</label>
-                                                <input type="text" class="form-control" id="example-text-input" name="subject" placeholder="Enter Subject Description" readonly value="<?php echo $row['subject_description']; ?>">
-                                            </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label" for="example-text-input">Code</label>
+                                            <input type="text" class="form-control" id="example-text-input" name="code"
+                                                placeholder="Enter Subject Code" readonly
+                                                value="<?php echo $row['subject_code']; ?>">
                                         </div>
-
-                                        <div class="row">
-                                            <div class="col-md-4 mb-3">
-                                                <label class="form-label" for="example-text-input">Days</label>
-                                                <input type="text" class="form-control" id="example-text-input" name="days" placeholder="M, T, W, TH, F" required>
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                                <label class="form-label" for="example-text-input">Time</label>
-                                                <input type="text" class="form-control" id="example-text-input" name="time" placeholder="hh:mm - hh:mm AM/PM" required>
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                                <label class="form-label" for="example-text-input">Room</label>
-                                                <input type="text" class="form-control" id="example-text-input" name="room" placeholder="Enter Room Name" required>
-                                            </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label" for="example-text-input">Description</label>
+                                            <input type="text" class="form-control" id="example-text-input"
+                                                name="subject" placeholder="Enter Subject Description" readonly
+                                                value="<?php echo $row['subject_description']; ?>">
                                         </div>
-                                        <div class="row justify-content-center">
+                                    </div>
 
-                                            <div class="col-md-6 mb-3">
-                                                <label class="form-label" for="example-text-input">Instructor</label>
-                                                <select class="form-select" data-dropdown-css-class="select2-info" data-placeholder="Select Instructor" name="instruc">
-                                                    <option value="" disabled selected>Select Instructor
-                                                    </option>
-                                                    <?php $get_teachers = mysqli_query($conn, "SELECT *, CONCAT(tbl_teachers.teacher_fname, ' ', LEFT(tbl_teachers.teacher_mname,1), '. ', tbl_teachers.teacher_lname) AS fullname FROM tbl_teachers") or die(mysqli_error($conn));
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label" for="example-text-input">Days</label>
+                                            <input type="text" class="form-control" id="example-text-input" name="days"
+                                                placeholder="M, T, W, TH, F" required>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label" for="example-text-input">Time</label>
+                                            <input type="text" class="form-control" id="example-text-input" name="time"
+                                                placeholder="hh:mm - hh:mm AM/PM" required>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label class="form-label" for="example-text-input">Room</label>
+                                            <input type="text" class="form-control" id="example-text-input" name="room"
+                                                placeholder="Enter Room Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label" for="example-text-input">Instructor</label>
+                                            <select class="form-select" data-dropdown-css-class="select2-info"
+                                                data-placeholder="Select Instructor" name="instruc">
+                                                <option value="" disabled selected>Select Instructor
+                                                </option>
+                                                <?php $get_teachers = mysqli_query($conn, "SELECT *, CONCAT(tbl_teachers.teacher_fname, ' ', LEFT(tbl_teachers.teacher_mname,1), '. ', tbl_teachers.teacher_lname) AS fullname FROM tbl_teachers") or die(mysqli_error($conn));
                                                     while ($row = mysqli_fetch_array($get_teachers)) {
                                                     ?>
-                                                        <option value="<?php echo $row['teacher_id']; ?>">
-                                                        <?php echo $row['fullname'];
+                                                <option value="<?php echo $row['teacher_id']; ?>">
+                                                    <?php echo $row['fullname'];
                                                     } ?></option>
-                                                </select>
-                                            </div>
+                                            </select>
                                         </div>
+                                    </div>
 
-                                        <div class="form-group float-end">
-                                            <button class="btn btn-danger" type="submit" name="submit">Submit</button>
-                                        </div>
-                                        <div class="justify-content-end mb-3 mt-3 p-0 float-right">
-                                            <?php if ($strand_n == "ABM") {
+                                    <div class="form-group float-end">
+                                        <button class="btn btn-danger" type="submit" name="submit">Submit</button>
+                                    </div>
+                                    <div class="justify-content-end mb-3 mt-3 p-0 float-right">
+                                        <?php if ($strand_n == "ABM") {
                                             } ?>
 
-                                            <?php if ($strand_n == "ABM") {
-                                                echo '<a href=" ../bed-subjects/list.offerSub.senior.php?abm=' . $strand_n . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
+                                        <?php if ($strand_n == "ABM") {
+                                                echo '<a href=" ../bed-subjects/list.offerSub.senior.php?strand=' . $strand_id . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
                                             } elseif ($strand_n == "STEM") {
-                                                echo '<a href=" ../bed-subjects/list.offerSub.senior.php?stem=' . $strand_n . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
+                                                echo '<a href=" ../bed-subjects/list.offerSub.senior.php?strand=' . $strand_id . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
                                             } elseif ($strand_n == "TVL - ICT") {
-                                                echo '<a href=" ../bed-subjects/list.offerSub.senior.php?ict=' . $strand_n . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
+                                                echo '<a href=" ../bed-subjects/list.offerSub.senior.php?strand=' . $strand_id . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
                                             } elseif ($strand_n == "HUMSS") {
-                                                echo '<a href=" ../bed-subjects/list.offerSub.senior.php?humss=' . $strand_n . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
+                                                echo '<a href=" ../bed-subjects/list.offerSub.senior.php?strand=' . $strand_id . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
                                             } elseif ($strand_n == "TVL - HE") {
-                                                echo '<a href=" ../bed-subjects/list.offerSub.senior.php?tvl=' . $strand_n . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
+                                                echo '<a href=" ../bed-subjects/list.offerSub.senior.php?strand=' . $strand_id . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
                                             } ?>
-                                            <i class="fa fa-arrow-circle-left "></i>
-                                            Back </a>
-                                        </div>
+                                        <i class="fa fa-arrow-circle-left "></i>
+                                        Back </a>
+                                    </div>
 
-                                    </form>
+                                </form>
                                 <?php } ?>
                             </div>
                         </div>

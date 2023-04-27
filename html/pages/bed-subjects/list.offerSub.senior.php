@@ -11,6 +11,7 @@ if (!empty($_GET['eay'])) {
 if (isset($_GET['strand'])) {
     $strandInfo = mysqli_query($conn, "SELECT * FROM tbl_strands WHERE strand_id = '$_GET[strand]'");
     $row = mysqli_fetch_array($strandInfo);
+    $strand = $row['strand_name'];
     $strand_id = $_GET['strand'];
 }
 
@@ -175,63 +176,15 @@ if (isset($_GET['strand'])) {
                                 </table>
                                 <div class="row" style="margin-left: 3px;">
                                     <?php if (!empty($efacadyear)) {
-                                        if (isset($_GET['strand']) == "4") {
+                                        if (isset($_GET['strand'])) {
                                             echo '
                                         <hr class="bg-navy">
                                         <div class="col-md-3
                                         ">
-                                            <a href="../bed-schedules/add.petitioned.senior.php?str=STEM&eay=' . $efacadyear . '" type="button"
+                                            <a href="../bed-schedules/add.petitioned.senior.php?strand=' . $strand_id . '&eay=' . $efacadyear . '" type="button"
                                                 class="btn btn-dark mb-3"><i
                                                     class="fa fa-pencil mr-1"> </i>
                                                 Open Petitioned</a>
-                                        </div>';
-                                        } elseif (isset($_GET['strand']) == "1") {
-                                            echo '
-                                        <hr class="bg-navy">
-                                        <div class="col-md-3
-                                            ">
-
-                                            <a href="../bed-schedules/add.petitioned.senior.php?str=ABM&eay=' . $efacadyear . '" type="button"
-                                                class="btn btn-dark mb-3"><i
-                                                    class="fa fa-pencil mr-1"></i>
-                                                Open Petitioned</a>
-
-                                        </div>';
-                                        } elseif (isset($_GET['strand']) == "2") {
-                                            echo '
-                                        <hr class="bg-navy">
-                                        <div class="col-md-3
-                                            ">
-
-                                            <a href="../bed-schedules/add.petitioned.senior.php?str=TVL - ICT&eay=' . $efacadyear . '" type="button"
-                                                class="btn btn-dark mb-3 "><i
-                                                    class="fa fa-pencil mr-1"></i>
-                                                Open Petitioned</a>
-
-                                        </div>';
-                                        } elseif (isset($_GET['strand']) == "3") {
-                                            echo '
-                                        <hr class="bg-navy">
-                                        <div class="col-md-3
-                                            ">
-
-                                            <a href="../bed-schedules/add.petitioned.senior.php?str=HUMSS&eay=' . $efacadyear . '" type="button"
-                                                class="btn btn-dark mb-3 "><i
-                                                    class="fa fa-pencil mr-1"></i>
-                                                Open Petitioned</a>
-
-                                        </div>';
-                                        } elseif (isset($_GET['strand']) == "5") {
-                                            echo '
-                                        <hr class="bg-navy">
-                                        <div class="col-md-3
-                                            ">
-
-                                            <a href="../bed-schedules/add.petitioned.senior.php?str=TVL - HE&eay=' . $efacadyear . '" type="button"
-                                                class="btn btn-dark mb-3 "><i
-                                                    class="fa fa-pencil mr-1"></i>
-                                                Open Petitioned</a>
-
                                         </div>';
                                         }
                                     } ?>

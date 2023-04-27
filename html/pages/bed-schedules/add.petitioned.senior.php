@@ -5,8 +5,14 @@
 
 $eay = $_GET['eay'];
 $_SESSION['eay'] = $eay;
-$strand_name = $_GET['str'];
+if (isset($_GET['strand'])) {
+    $strandInfo = mysqli_query($conn, "SELECT * FROM tbl_strands WHERE strand_id = '$_GET[strand]'");
+    $row = mysqli_fetch_array($strandInfo);
+    $strand_name = $row['strand_name'];
+    $strand_id = $_GET['strand'];
+}
 $_SESSION['strand_n'] = $strand_name;
+$_SESSION['strand_id'] = $strand_id;
 
 ?>
 
@@ -94,7 +100,7 @@ $_SESSION['strand_n'] = $strand_name;
                                                 <option value="" disabled selected>Select Subject
                                                 </option>
                                                 <?php
-                                                $active_sem = $_SESSION['active_semester'];
+                                                $active_sem = $act_sem;
                                                 $get_offersub = mysqli_query($conn, "SELECT * FROM tbl_subjects_senior AS subsen LEFT JOIN tbl_strands AS strd ON strd.strand_id = subsen.strand_id 
                                                 LEFT JOIN tbl_semesters AS sem ON sem.semester_id = subsen.semester_id 
                                                 LEFT JOIN tbl_efacadyears AS eay ON eay.efacadyear_id = subsen.efacadyear_id
@@ -148,20 +154,9 @@ $_SESSION['strand_n'] = $strand_name;
                                         <button class="btn btn-danger" type="submit" name="submit">Submit</button>
                                     </div>
                                     <div class="justify-content-end mb-3 mt-3 p-0 float-right">
-                                        <?php if ($strand_name == "ABM") {
-                                        } ?>
-
-                                        <?php if ($strand_name == "ABM") {
-                                            echo '<a href=" ../bed-subjects/list.offerSub.senior.php?abm=' . $strand_name . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
-                                        } elseif ($strand_name == "STEM") {
-                                            echo '<a href=" ../bed-subjects/list.offerSub.senior.php?stem=' . $strand_name . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
-                                        } elseif ($strand_name == "TVL - ICT") {
-                                            echo '<a href=" ../bed-subjects/list.offerSub.senior.php?ict=' . $strand_name . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
-                                        } elseif ($strand_name == "HUMSS") {
-                                            echo '<a href=" ../bed-subjects/list.offerSub.senior.php?humss=' . $strand_name . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
-                                        } elseif ($strand_name == "TVL - HE") {
-                                            echo '<a href=" ../bed-subjects/list.offerSub.senior.php?tvl=' . $strand_name . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
-                                        } ?>
+                                        <?php
+                                        echo '<a href=" ../bed-subjects/list.offerSub.senior.php?strand=' . $strand_id . '&eay=' . $eay . '" class="btn btn-secondary mb-3">';
+                                        ?>
                                         <i class="fa fa-arrow-circle-left "></i>
                                         Back </a>
                                     </div>
