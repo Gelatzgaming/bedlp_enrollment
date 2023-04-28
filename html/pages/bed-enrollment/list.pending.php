@@ -271,22 +271,7 @@ if ($_SESSION['role'] == 'Adviser') {
                                                                         </a>
                                                                     <?php } ?>
                                                                 </div>
-                                                                <!-- <div class="col-sm mt-2 mb-2">
-                                                            <?php if (!empty($glvl_id)) { ?>
-                                                            <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $stud_id . '&glvl_id=' . $glvl_id; ?>"
-                                                                type="button" class="btn btn-icon btn-3 btn-info"><i
-                                                                    class="fa fa-eye"></i>
-                                                                Reg Form
-                                                            </a>
 
-                                                            <?php } else { ?>
-                                                            <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $stud_id; ?>"
-                                                                type="button" class="btn btn-icon btn-3 btn-info"><i
-                                                                    class="fa fa-eye"></i>
-                                                                Reg Form
-                                                            </a>
-                                                            <?php } ?>
-                                                        </div> -->
                                                                 <div class="col-sm mt-2 mb-2">
                                                                     <!-- Button trigger modal -->
                                                                     <hr class="dropdown-divider">
