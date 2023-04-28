@@ -113,7 +113,7 @@ if ($_SESSION['role'] == 'Adviser') {
                                                 $in = "('Checked', 'Approved', 'Disapproved')";
                                             }
                                             if ($dept == "Pre-Kinder to Grade 6") {
-                                                $get_stud = mysqli_query($conn, "SELECT *, CONCAT(tbl_students.student_lname, ', ', tbl_students.student_fname, ' ', tbl_students.student_mname) AS fullname 
+                                                $get_stud = mysqli_query($conn, "SELECT *, tbl_schoolyears.bf, CONCAT(tbl_students.student_lname, ', ', tbl_students.student_fname, ' ', tbl_students.student_mname) AS fullname 
                                                 FROM tbl_schoolyears LEFT JOIN tbl_students USING(student_id) 
                                                 LEFT JOIN tbl_grade_levels USING(grade_level_id) 
                                                 WHERE grade_level_id IN ('1', '2', '3', '4', '5', '6', '7', '8', '9') AND remark IN $in AND ay_id = '$acadyear_id' AND semester_id IN ('$semester_id', '0')
@@ -124,7 +124,7 @@ if ($_SESSION['role'] == 'Adviser') {
                                                 OR stud_no LIKE '%$_GET[search]%')
                                                 ORDER BY remark DESC, sy_id DESC");
                                             } elseif ($dept == "Grade 7 to Grade 10") {
-                                                $get_stud = mysqli_query($conn, "SELECT *, CONCAT(tbl_students.student_lname, ', ', tbl_students.student_fname, ' ', tbl_students.student_mname) AS fullname 
+                                                $get_stud = mysqli_query($conn, "SELECT *, tbl_schoolyears.bf, CONCAT(tbl_students.student_lname, ', ', tbl_students.student_fname, ' ', tbl_students.student_mname) AS fullname 
                                                 FROM tbl_schoolyears LEFT JOIN tbl_students USING(student_id) 
                                                 LEFT JOIN tbl_grade_levels USING(grade_level_id) 
                                                 WHERE grade_level_id IN ('10', '11', '12', '13') AND remark IN $in AND ay_id = '$acadyear_id' AND semester_id IN ('$semester_id', '0') 
@@ -135,7 +135,7 @@ if ($_SESSION['role'] == 'Adviser') {
                                                 OR stud_no LIKE '%$_GET[search]%')
                                                 ORDER BY remark DESC, sy_id DESC");
                                             } elseif ($dept == "Grade 11") {
-                                                $get_stud = mysqli_query($conn, "SELECT *, CONCAT(tbl_students.student_lname, ', ', tbl_students.student_fname, ' ', tbl_students.student_mname) AS fullname 
+                                                $get_stud = mysqli_query($conn, "SELECT *, tbl_schoolyears.bf, CONCAT(tbl_students.student_lname, ', ', tbl_students.student_fname, ' ', tbl_students.student_mname) AS fullname 
                                                 FROM tbl_schoolyears LEFT JOIN tbl_students USING(student_id) 
                                                 LEFT JOIN tbl_grade_levels USING(grade_level_id) 
                                                 WHERE grade_level_id IN ('14') AND remark IN $in AND ay_id = '$acadyear_id' AND semester_id IN ('$semester_id', '0') 
@@ -146,7 +146,7 @@ if ($_SESSION['role'] == 'Adviser') {
                                                 OR stud_no LIKE '%$_GET[search]%')
                                                 ORDER BY remark DESC, sy_id DESC");
                                             } elseif ($dept == "Grade 12") {
-                                                $get_stud = mysqli_query($conn, "SELECT *, CONCAT(tbl_students.student_lname, ', ', tbl_students.student_fname, ' ', tbl_students.student_mname) AS fullname 
+                                                $get_stud = mysqli_query($conn, "SELECT *, tbl_schoolyears.bf, CONCAT(tbl_students.student_lname, ', ', tbl_students.student_fname, ' ', tbl_students.student_mname) AS fullname 
                                                 FROM tbl_schoolyears LEFT JOIN tbl_students USING(student_id) 
                                                 LEFT JOIN tbl_grade_levels USING(grade_level_id) 
                                                 WHERE grade_level_id IN ('15') AND remark IN $in AND ay_id = '$acadyear_id' AND semester_id IN ('$semester_id', '0') 
@@ -157,7 +157,7 @@ if ($_SESSION['role'] == 'Adviser') {
                                                 OR stud_no LIKE '%$_GET[search]%')
                                                 ORDER BY remark DESC, sy_id DESC");
                                             } elseif ($dept == "all") {
-                                                $get_stud = mysqli_query($conn, "SELECT *, CONCAT(tbl_students.student_lname, ', ', tbl_students.student_fname, ' ', tbl_students.student_mname) AS fullname 
+                                                $get_stud = mysqli_query($conn, "SELECT *, tbl_schoolyears.bf, CONCAT(tbl_students.student_lname, ', ', tbl_students.student_fname, ' ', tbl_students.student_mname) AS fullname 
                                                 FROM tbl_schoolyears LEFT JOIN tbl_students USING(student_id) 
                                                 LEFT JOIN tbl_grade_levels USING(grade_level_id) 
                                                 WHERE remark IN $in AND ay_id = '$acadyear_id' AND semester_id IN ('$semester_id', '0') 

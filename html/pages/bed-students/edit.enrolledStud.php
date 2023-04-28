@@ -99,11 +99,22 @@ $_SESSION['student_id'] = $stud_id;
                                                 <input type="text" class="form-control" id="example-text-input" name="name" placeholder="Name" value="<?php echo $row['fullname'] ?>" readonly>
                                             </div>
                                         </div>
+                                        <script type='text/javascript'>
+                                            function fun() {
+                                                if (document.getElementById("grade_level").value == "14" || document
+                                                    .getElementById("grade_level").value == "15") {
+                                                    document.getElementById("strand").disabled = false;
+                                                } else {
+                                                    document.getElementById("strand").disabled = true;
+                                                }
+
+                                            }
+                                        </script>
                                         <div class="row justify-content-center">
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label" for="example-text-input">Grade
                                                     Level</label>
-                                                <select class="form-select" data-dropdown-css-class="select2-info" data-placeholder="Select Grade Level" name="grade_level">
+                                                <select class="form-select" data-dropdown-css-class="select2-info" data-placeholder="Select Grade Level" name="grade_level" id="grade_level" onChange="fun()">
                                                     <option value="<?php echo $row['grade_level_id']; ?>">
                                                         <?php echo $row['grade_level']; ?></option>
                                                     <?php $get_grdlvl = mysqli_query($conn, "SELECT * FROM tbl_grade_levels WHERE grade_level_id NOT IN ('$row[grade_level_id]')");
@@ -144,7 +155,7 @@ $_SESSION['student_id'] = $stud_id;
                                         <div class="row justify-content-center">
                                             <div class="col-md-6 mb-3">
                                                 <label class="form-label" for="example-text-input">Strand</label>
-                                                <select class="form-select" data-dropdown-css-class="select2-info" data-placeholder="Select Strand" name="strand">
+                                                <select class="form-select" data-dropdown-css-class="select2-info" data-placeholder="Select Strand" name="strand" id="strand" disabled="true">
                                                     <option value="<?php echo $row['strand_id']; ?>" selected disabled>
                                                         <?php echo $row['strand_def']; ?>Select Strand (for
                                                         Senior
