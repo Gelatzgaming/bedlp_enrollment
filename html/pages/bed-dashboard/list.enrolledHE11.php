@@ -165,7 +165,7 @@ include '../../includes/bed-header.php';
 
                                         ?>
                                         <tr>
-                                        <td><?php
+                                            <td><?php
                                                         $_SESSION['orig_id'] = $row['student_id'];
                                                         if (!empty(base64_encode($row['img']))) {
                                                             echo '
@@ -176,19 +176,20 @@ include '../../includes/bed-header.php';
                                                             echo ' <img src="../../assets/images/icons/user.png" class="img zoom"
                                                             alt="User image" style="height: 80px; width: 100px">';
                                                         } ?>
-                                                    </td>
-                                                    <td><?php echo $row['stud_no']; ?></td>
-                                                    <td><?php echo $row['fullname']; ?></td>
-                                                    <?php if (empty($row['strand_def'])) {
+                                            </td>
+                                            <td><?php echo $row['stud_no']; ?></td>
+                                            <td><?php echo $row['fullname']; ?></td>
+                                            <?php if (empty($row['strand_def'])) {
                                                         echo '<td>Grade School</td>';
                                                     } else {
                                                         echo '<td>' . $row['strand_def'] . '</td>';
                                                     } ?>
-                                                    <td><?php echo $row['grade_level']; ?></td>
-                                                    <td><?php echo $row['stud_type']; ?></td>
-                                                    <td><?php echo $row['date_enrolled']; ?></td>
-                                                    <td>
-                                                        <span class="badge bg-<?php if ($row['remark'] == "Checked" || $row['remark'] == "Approved") {
+                                            <td><?php echo $row['grade_level']; ?></td>
+                                            <td><?php echo $row['stud_type']; ?></td>
+                                            <td><?php echo $row['date_enrolled']; ?></td>
+                                            <td>
+                                                <span
+                                                    class="badge bg-<?php if ($row['remark'] == "Checked" || $row['remark'] == "Approved") {
                                                                                     echo 'success';
                                                                                 } elseif ($row['remark'] == "Pending") {
                                                                                     echo 'warning';
@@ -208,20 +209,35 @@ include '../../includes/bed-header.php';
                                                     Pre-Enroll
                                                 </a>
                                                 <br>
-                                                
+
                                                 <?php if (!empty($glvl_id)) { ?>
-                                                <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>"
-                                                    type="button" class=" btn btn-secondary text-sm p-2 mb-2"><i
+                                                <a href="../bed-forms/accounting-laspi-shs.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>"
+                                                    type="button" class=" btn btn-warning text-sm p-2 mb-2"><i
                                                         class="fa fa-eye"></i>
-                                                    Reg Form
+                                                    Reg Form Main
                                                 </a>
                                                 <?php } else { ?>
-                                                <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $id; ?>"
-                                                    type="button" class=" btn btn-secondary text-sm p-2 mb-2"><i
+                                                <a href="../bed-forms/accounting-laspi-shs.php?<?php echo 'stud_id=' . $id; ?>"
+                                                    type="button" class=" btn btn-warning text-sm p-2 mb-2"><i
                                                         class="fa fa-eye"></i>
-                                                    Reg Form
+                                                    Reg Form Main
                                                 </a>
                                                 <?php } ?>
+                                                <br>
+                                                <?php if (!empty($glvl_id)) { ?>
+                                                <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>"
+                                                    type="button" class=" btn btn-danger text-sm p-2 mb-2"><i
+                                                        class="fa fa-eye"></i>
+                                                    Reg/Accounting Form
+                                                </a>
+                                                <?php } else { ?>
+                                                <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $id; ?>"
+                                                    type="button" class=" btn btn-danger text-sm p-2 mb-2"><i
+                                                        class="fa fa-eye"></i>
+                                                    Reg/Accounting Form
+                                                </a>
+                                                <?php } ?>
+
 
                                             </td>
                                         </tr>

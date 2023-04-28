@@ -139,15 +139,16 @@ include '../../includes/bed-header.php';
                                             <td><?php echo $row['stud_type']; ?></td>
                                             <td><?php echo $row['date_enrolled']; ?></td>
                                             <td>
-                                                <span class="badge bg-<?php if ($row['remark'] == "Checked" || $row['remark'] == "Approved") {
-                                                                                echo 'success';
-                                                                            } elseif ($row['remark'] == "Pending") {
-                                                                                echo 'warning';
-                                                                            } elseif ($row['remark'] == "Disapproved" || $row['remark'] == "Canceled") {
-                                                                                echo 'danger';
-                                                                            } else {
-                                                                                echo 'danger';
-                                                                            } ?>"><?php echo $row['remark'] ?></span>
+                                                <span
+                                                    class="badge bg-<?php if ($row['remark'] == "Checked" || $row['remark'] == "Approved") {
+                                                                                    echo 'success';
+                                                                                } elseif ($row['remark'] == "Pending") {
+                                                                                    echo 'warning';
+                                                                                } elseif ($row['remark'] == "Disapproved" || $row['remark'] == "Canceled") {
+                                                                                    echo 'danger';
+                                                                                } else {
+                                                                                    echo 'danger';
+                                                                                } ?>"><?php echo $row['remark'] ?></span>
                                             </td>
 
                                             <td>
@@ -175,34 +176,19 @@ include '../../includes/bed-header.php';
                                                 <?php } ?>
                                                 <br>
                                                 <?php if (!empty($glvl_id)) { ?>
-                                                <a href="../bed-forms/bed-accountingSHS.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>"
+                                                <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>"
                                                     type="button" class=" btn btn-danger text-sm p-2 mb-2"><i
                                                         class="fa fa-eye"></i>
-                                                    Accounting Form
+                                                    Reg/Accounting Form
                                                 </a>
                                                 <?php } else { ?>
-                                                <a href="../bed-forms/bed-accountingSHS.php?<?php echo 'stud_id=' . $id; ?>"
+                                                <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $id; ?>"
                                                     type="button" class=" btn btn-danger text-sm p-2 mb-2"><i
                                                         class="fa fa-eye"></i>
-                                                    Accounting Form
+                                                    Reg/Accounting Form
                                                 </a>
                                                 <?php } ?>
 
-
-                                                <br>
-                                                <?php if (!empty($glvl_id)) { ?>
-                                                <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>"
-                                                    type="button" class=" btn btn-secondary text-sm p-2 mb-2"><i
-                                                        class="fa fa-eye"></i>
-                                                    Reg Form
-                                                </a>
-                                                <?php } else { ?>
-                                                <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $id; ?>"
-                                                    type="button" class=" btn btn-secondary text-sm p-2 mb-2"><i
-                                                        class="fa fa-eye"></i>
-                                                    Reg Form
-                                                </a>
-                                                <?php } ?>
 
                                             </td>
                                         </tr>

@@ -34,7 +34,8 @@ include '../../includes/bed-header.php';
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">List of Enrolled Grade 11 HUMSS Students</h4> <!--Ariate's Edit part-->
+                            <h4 class="header-title">List of Enrolled Grade 11 HUMSS Students</h4>
+                            <!--Ariate's Edit part-->
                             <div class="row justify-content-center">
                                 <div class="col-md-3 mt-3">
                                     <div class="card">
@@ -224,34 +225,19 @@ include '../../includes/bed-header.php';
                                                 <?php } ?>
                                                 <br>
                                                 <?php if (!empty($glvl_id)) { ?>
-                                                <a href="../bed-forms/bed-accountingSHS.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>"
+                                                <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>"
                                                     type="button" class=" btn btn-danger text-sm p-2 mb-2"><i
                                                         class="fa fa-eye"></i>
-                                                    Accounting Form
+                                                    Reg/Accounting Form
                                                 </a>
                                                 <?php } else { ?>
-                                                <a href="../bed-forms/bed-accountingSHS.php?<?php echo 'stud_id=' . $id; ?>"
+                                                <a href="../bed-forms/accounting.php?<?php echo 'stud_id=' . $id; ?>"
                                                     type="button" class=" btn btn-danger text-sm p-2 mb-2"><i
                                                         class="fa fa-eye"></i>
-                                                    Accounting Form
+                                                    Reg/Accounting Form
                                                 </a>
                                                 <?php } ?>
 
-
-                                                <br>
-                                                <?php if (!empty($glvl_id)) { ?>
-                                                <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $id . '&glvl_id=' . $glvl_id; ?>"
-                                                    type="button" class=" btn btn-secondary text-sm p-2 mb-2"><i
-                                                        class="fa fa-eye"></i>
-                                                    Reg Form
-                                                </a>
-                                                <?php } else { ?>
-                                                <a href="../bed-forms/all_formsSH.php?<?php echo 'stud_id=' . $id; ?>"
-                                                    type="button" class=" btn btn-secondary text-sm p-2 mb-2"><i
-                                                        class="fa fa-eye"></i>
-                                                    Reg Form
-                                                </a>
-                                                <?php } ?>
 
                                             </td>
                                         </tr>
