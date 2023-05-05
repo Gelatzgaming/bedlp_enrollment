@@ -1096,7 +1096,68 @@
                     </li>
                     </ul
                     </li>';
-                        }
+                }
+                    echo '
+                    <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#offersub1" role="button" aria-expanded="false"
+                        aria-controls="offersub1">
+                        <i class="fa fa-calendar"></i>
+                        <span class="item-name"><small>Enrollment Update</small></span>
+                        <i class="right-icon">
+                            <svg class="icon-18" xmlns="http://www.w3.org/2000/svg" width="18" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </i>
+                    </a>
+                    <ul class="sub-nav collapse" id="offersub1" data-bs-parent="#sidebar-menu">
+                        <li class="nav-item">
+                            <a class="nav-link " href="../bed-enrollment-update/set.target.php">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> H </i>
+                                <span class="item-name"> Set Target </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="../bed-enrollment-update/add.enrollment.update.php">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> H </i>
+                                <span class="item-name"> Add Daily Update </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="../bed-enrollment-update/list.enrollment.update.php">
+                                <i class="icon">
+                                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                            <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i class="sidenav-mini-icon"> H </i>
+                                <span class="item-name"> Daily Update List</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>                    
+                    ';
+                        
 
 
                     ?>
