@@ -127,6 +127,7 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
                                             <th>Grade Level:</th>
                                             <th>School Year:</th>
                                             <th>Date:</th>
+                                            <th>Actions:</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -141,7 +142,8 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
                                                 LEFT JOIN tbl_semesters AS sem ON sem.semester_id = sy.semester_id
                                                 WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semester_id = '0'") or die(mysqli_error($conn));
                                         while ($row = mysqli_fetch_array($get_stud)) {
-                                            $remark = $row['remark']; ?>
+                                            $remark = $row['remark'];
+                                            $id = $row['sy_id']; ?> ?>
                                             <tr>
                                                 <td class="pt-4 pb-4"><?php echo $row['stud_no']; ?></td>
                                                 <td class="pt-4 pb-4"><?php echo $row['fullname']; ?></td>
@@ -149,6 +151,9 @@ WHERE sy.student_id = '$stud_id' AND ay.academic_year = '$act_acad' AND sy.semes
                                                 <td class="pt-4 pb-4"><?php echo $row['grade_level']; ?></td>
                                                 <td class="pt-4 pb-4"><?php echo $row['academic_year']; ?></td>
                                                 <td class="pt-4 pb-4"><?php echo $row['date_enrolled']; ?></td>
+                                                <td><a href="edit.enroll.php<?php echo '?sy_id=' . $id; ?>" type="button" class="btn btn-info mx-1"><i class="fa fa-edit"></i>
+                                                        Update
+                                                    </a></td>
                                             </tr>
                                         <?php
                                         }

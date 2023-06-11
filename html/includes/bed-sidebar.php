@@ -1096,8 +1096,8 @@
                     </li>
                     </ul
                     </li>';
-                }
-                    echo '
+                        }
+                        echo '
                     <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#offersub1" role="button" aria-expanded="false"
                         aria-controls="offersub1">
@@ -1157,7 +1157,7 @@
                     </ul>
                 </li>                    
                     ';
-                        
+
 
 
                     ?>
